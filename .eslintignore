@@ -1,0 +1,4 @@
+**/*.js
+**/*.vue
+/* eslint-disable */
+console.log("整个文件都忽略eslint检查")
