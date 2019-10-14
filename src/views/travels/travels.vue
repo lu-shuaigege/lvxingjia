@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    shouye
+    travels
     <Tab></Tab>
   </div>
 </template>

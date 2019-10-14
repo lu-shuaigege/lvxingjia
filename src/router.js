@@ -17,6 +17,33 @@ export const contentsRouter = [{
     component: () =>
         import('./views/home/home.vue')
 },
+{
+    path: '/travels',
+    name: 'travels',
+    meta: {
+        title: '游记'
+    },
+    component: () =>
+        import('./views/travels/travels.vue')
+},
+{
+    path: '/order',
+    name: 'order',
+    meta: {
+        title: '订单'
+    },
+    component: () =>
+        import('./views/order/order.vue')
+},
+{
+    path: '/my',
+    name: 'my',
+    meta: {
+        title: '我的'
+    },
+    component: () =>
+        import('./views/my/my.vue')
+},
 ]
 
 export default new Router({

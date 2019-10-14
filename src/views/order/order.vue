@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    shouye
+    order
     <Tab></Tab>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    shouye
+      wode
     <Tab></Tab>
   </div>
 </template>
