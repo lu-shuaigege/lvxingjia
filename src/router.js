@@ -12,7 +12,10 @@ export const contentsRouter = [{
     path: '/home',
     name: 'home',
     meta: {
-        title: '主页'
+        title: '主页',
+        index: 0,
+        hasFooter: true,
+        nav_index: 1
     },
     component: () =>
         import('./views/home/home.vue')
@@ -21,7 +24,10 @@ export const contentsRouter = [{
     path: '/travels',
     name: 'travels',
     meta: {
-        title: '游记'
+        title: '游记',
+        index: 0,
+        hasFooter: true,
+        nav_index: 2
     },
     component: () =>
         import('./views/travels/travels.vue')
@@ -30,7 +36,10 @@ export const contentsRouter = [{
     path: '/order',
     name: 'order',
     meta: {
-        title: '订单'
+        title: '订单',
+        index: 0,
+        hasFooter: true,
+        nav_index: 3
     },
     component: () =>
         import('./views/order/order.vue')
@@ -39,7 +48,10 @@ export const contentsRouter = [{
     path: '/my',
     name: 'my',
     meta: {
-        title: '我的'
+        title: '我的',
+        index: 0,
+        hasFooter: true,
+        nav_index: 4
     },
     component: () =>
         import('./views/my/my.vue')
