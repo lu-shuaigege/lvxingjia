@@ -5,13 +5,16 @@
 }
 .banner {
   width: 100%;
+  height: 5.387rem;
   position: relative;
 }
+// 顶部栏
 .bannertop {
-  width: 100%;
-  height: 0.8rem;
-  position: absolute;
-  top: 0.267rem;
+  width: 10rem;
+  height: 1.133rem;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0px;
   left: 0px;
   z-index: 99;
   display: flex;
@@ -19,6 +22,7 @@
   justify-content: space-between;
   padding: 0 0.347rem;
   box-sizing: border-box;
+
   .bannertop-left {
     width: 1.293rem;
     height: 0.4rem;
@@ -34,7 +38,7 @@
       font-stretch: normal;
       line-height: 0.4rem;
       letter-spacing: 0.008rem;
-      color: #ffffff;
+      color: #333333;
     }
     img {
       width: 0.28rem;
@@ -44,7 +48,7 @@
   .bannertop-center {
     width: 6.893rem;
     height: 0.8rem;
-    background-color: #ffffff;
+    background-color: #f3f3f3;
     border-radius: 0.393rem;
     padding: 0 0.28rem;
     box-sizing: border-box;
@@ -75,8 +79,286 @@
     }
   }
 }
+// 轮播
+.banners {
+  margin-top: 1.133rem;
+}
+// 播报
 .banner-bottom {
   width: 10rem;
   height: 1.733rem;
-  background-image: image("../../assets/img/home/topbg0.png");
+  background: url("../../assets/img/home/topbg0.png") no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  .bobao {
+    width: 100%;
+    height: 0.427rem;
+    padding: 0 0.347rem;
+
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0.493rem;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    img {
+      width: 0.533rem;
+      height: 0.427rem;
+      margin-right: 0.36rem;
+    }
+    .bobaos {
+      width: 8.413rem;
+      overflow: hidden;
+      .news {
+        height: 0.333rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.32rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.333rem;
+        letter-spacing: 0.019rem;
+        color: #666666;
+      }
+    }
+  }
+}
+// 周边游
+.center {
+  width: 10rem;
+  height: 4.587rem;
+  background: #fff;
+  margin: 0.133rem 0;
+  padding: 1px;
+  box-sizing: border-box;
+  .threeimg {
+    width: 7.68rem;
+    margin: 0.52rem auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .threeimgitem {
+      width: 1.147rem;
+      height: 1.69rem;
+      font-size: 0px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+      justify-content: center;
+      img {
+        width: 1.147rem;
+        height: 1.147rem;
+        border-radius: 0.4rem;
+      }
+      div {
+        height: 0.32rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.32rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.32rem;
+        letter-spacing: 0.019rem;
+        color: #666666;
+      }
+    }
+  }
+  .threeimg-down {
+    width: 9.307rem;
+    height: 1.56rem;
+    border: 1px solid #e7e7e7;
+    border-radius: 0.267rem;
+    margin: 0.267rem auto 0 auto;
+    display: flex;
+    .threeimg-down-item {
+      width: 20%;
+      text-align: center;
+      border-right: 1px solid #e7e7e7;
+      .item-p1 {
+        height: 0.32rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.32rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.32rem;
+        letter-spacing: 0.019rem;
+        color: #333333;
+        margin-top: 0.347rem;
+      }
+      .item-p2 {
+        height: 0.267rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.267rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.267rem;
+        letter-spacing: 0.016rem;
+        color: #999999;
+        margin: 0.227rem;
+      }
+    }
+    .threeimg-down-item:nth-child(5) {
+      border-right: 0px;
+    }
+  }
+}
+// 四大类
+.classitem {
+  width: 10rem;
+  height: 1.867rem;
+  background: #fff;
+  margin: 0.133rem 0;
+  padding: 1px;
+  box-sizing: border-box;
+  display: flex;
+  .classitem-item {
+    font-size: 0px;
+    width: 25%;
+    text-align: center;
+    img {
+      width: 0.667rem;
+      height: 0.693rem;
+      margin-top: 0.333rem;
+    }
+    p {
+      height: 0.293rem;
+      font-family: MicrosoftYaHei;
+      font-size: 0.293rem;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 0.293rem;
+      letter-spacing: 0.017rem;
+      color: #666666;
+      margin-top: 0.173rem;
+    }
+  }
+}
+// 热门推荐
+.hot {
+  width: 10rem;
+  height: 23.053rem;
+  background: #fff;
+  margin: 0.133rem 0;
+  padding: 1px 0.347rem;
+  box-sizing: border-box;
+
+  .hottitle {
+    height: 0.4rem;
+    font-family: 微软雅黑;
+    font-size: 0.4rem;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 0.4rem;
+    letter-spacing: 0.024rem;
+    color: #333333;
+    margin: 0.527rem 0 0.427rem 0.1rem;
+  }
+  .hotlist {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .hotlist-item {
+      width: 4.533rem;
+      height: 6.894rem;
+      border-radius: 0.267rem;
+
+      margin-bottom: 0.253rem;
+      .hotitem-top {
+        position: relative;
+        font-size: 0px;
+        border-radius: 0.267rem 0.267rem 0rem 0rem;
+        overflow: hidden;
+        .top {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 2rem;
+          height: 0.653rem;
+          background-color: rgba($color: #333333, $alpha: 0.9);
+          border-radius: 0rem 0rem 0.267rem;
+          font-family: MicrosoftYaHei;
+          font-size: 0.267rem;
+          font-weight: normal;
+          font-stretch: normal;
+          line-height: 0.653rem;
+          letter-spacing: 0.005rem;
+          color: #ffffff;
+          display: flex;
+          justify-content: center;
+        }
+        img {
+          width: 100%;
+          height: 4.547rem;
+        }
+      }
+      .hotitem-bottom {
+        width: 4.533rem;
+        height: 2.373rem;
+        border-radius: 0rem 0rem 0.267rem 0.267rem;
+        border: solid 1px #e7e7e7;
+        border-top: 0;
+        padding: 1px;
+        box-sizing: border-box;
+        .hotitem-title {
+          width: 100%;
+          height: 1rem;
+          padding: 0px 0.2rem;
+          box-sizing: border-box;
+          font-family: MicrosoftYaHei;
+          font-size: 0.373rem;
+          font-weight: normal;
+          font-stretch: normal;
+          line-height: 0.537rem;
+          letter-spacing: 0.008rem;
+          color: #333333;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          margin: 0.1rem 0;
+        }
+        .money {
+          height: 0.36rem;
+          padding: 0px 0.2rem;
+          box-sizing: border-box;
+          span {
+            display: inline-block;
+          }
+          .moneysp1 {
+            height: 0.253rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.253rem;
+            letter-spacing: 0.007rem;
+            color: #ff620e;
+            margin-right: 0.08rem;
+          }
+          .moneysp2 {
+            height: 0.36rem;
+            font-family: MicrosoftYaHei-Bold;
+            font-size: 0.453rem;
+            font-weight: bold;
+            font-stretch: normal;
+            line-height: 0.36rem;
+            letter-spacing: 0.009rem;
+            color: #ff620e;
+            margin-right: 0.133rem;
+          }
+          .moneysp3 {
+            height: 0.32rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.871rem;
+            letter-spacing: 0.007rem;
+            color: #999999;
+          }
+        }
+      }
+    }
+  }
 }
