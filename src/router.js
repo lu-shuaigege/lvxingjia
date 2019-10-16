@@ -21,6 +21,42 @@ export const contentsRouter = [{
         import('./views/home/home.vue')
 },
 {
+    path: '/search',
+    name: 'search',
+    meta: {
+        title: '搜索',
+    },
+    component: () =>
+        import('./views/search/search.vue')
+},
+{
+    path: '/notice',
+    name: 'notice',
+    meta: {
+        title: '消息',
+    },
+    component: () =>
+        import('./views/notice/notice.vue')
+},
+{
+    path: '/noticedetails',
+    name: 'noticedetails',
+    meta: {
+        title: '消息详情',
+    },
+    component: () =>
+        import('./views/noticedetails/noticedetails.vue')
+},
+{
+    path: '/periphery',
+    name: 'periphery',
+    meta: {
+        title: '周边游',
+    },
+    component: () =>
+        import('./views/periphery/periphery.vue')
+},
+{
     path: '/travels',
     name: 'travels',
     meta: {

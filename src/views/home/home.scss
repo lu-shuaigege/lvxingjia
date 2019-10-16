@@ -129,7 +129,7 @@
   width: 10rem;
   height: 4.587rem;
   background: #fff;
-  margin: 0.133rem 0;
+  margin: 0.253rem 0;
   padding: 1px;
   box-sizing: border-box;
   .threeimg {
@@ -206,7 +206,7 @@
   width: 10rem;
   height: 1.867rem;
   background: #fff;
-  margin: 0.133rem 0;
+  margin: 0.253rem 0;
   padding: 1px;
   box-sizing: border-box;
   display: flex;
@@ -237,7 +237,7 @@
   width: 10rem;
   height: 23.053rem;
   background: #fff;
-  margin: 0.133rem 0;
+  margin: 0.253rem 0;
   padding: 1px 0.347rem;
   box-sizing: border-box;
 
@@ -354,6 +354,171 @@
             font-weight: normal;
             font-stretch: normal;
             line-height: 0.871rem;
+            letter-spacing: 0.007rem;
+            color: #999999;
+          }
+        }
+      }
+    }
+  }
+}
+
+.domestic {
+  width: 10rem;
+  height: 15.533rem;
+  background: #fff;
+  margin: 0.253rem 0;
+  padding: 1px 0.347rem;
+  box-sizing: border-box;
+  .domestic-top {
+    width: 6.267rem;
+    height: 0.56rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 0.4rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.857rem;
+    letter-spacing: 0.024rem;
+    color: #666666;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.48rem auto;
+    .top-center {
+      width: 1px;
+      height: 0.56rem;
+      background-color: #cacaca;
+    }
+    .top-left {
+      height: 0.4rem;
+      font-family: MicrosoftYaHei-Bold;
+      font-size: 0.4rem;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 0.4rem;
+      letter-spacing: 0.024rem;
+      color: #2cba55;
+    }
+    
+  }
+  .domesticlist {
+    .item {
+      width: 9.307rem;
+      height: 6.493rem;
+      margin-bottom: 0.4rem;
+      border-radius: 0.267rem;
+      .domestictop {
+        width: 9.307rem;
+        height: 3.253rem;
+        position: relative;
+        font-size: 0px;
+        border-radius: 0.267rem 0.267rem 0rem 0rem;
+        overflow: hidden;
+        .top {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 2rem;
+          height: 0.653rem;
+          background-color: rgba($color: #333333, $alpha: 0.9);
+          border-radius: 0rem 0rem 0.267rem;
+          font-family: MicrosoftYaHei;
+          font-size: 0.267rem;
+          font-weight: normal;
+          font-stretch: normal;
+          line-height: 0.653rem;
+          letter-spacing: 0.005rem;
+          color: #ffffff;
+          display: flex;
+          justify-content: center;
+        }
+        img {
+          width: 9.307rem;
+          height: 3.253rem;
+          border-radius: 0.267rem 0.267rem 0rem 0rem;
+        }
+      }
+      .domestic-bottom {
+        width: 9.307rem;
+        height: 3.253rem;
+        border-radius: 0rem 0rem 0.267rem 0.267rem;
+        border: solid 1px #e7e7e7;
+        border-top: 0;
+        padding: 1px;
+        box-sizing: border-box;
+        .domestic-title {
+          width: 8.4rem;
+          height: 0.373rem;
+          font-family: MicrosoftYaHei;
+          font-size: 0.373rem;
+          font-weight: bold;
+          font-stretch: normal;
+          line-height: 0.373rem;
+          letter-spacing: 0.008rem;
+          color: #333333;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
+          margin: 0.293rem auto 0.2rem;
+        }
+        .domestic-word {
+          width: 8.493rem;
+          height: 0.967rem;
+          font-family: MicrosoftYaHei;
+          font-size: 0.32rem;
+          font-weight: normal;
+          font-stretch: normal;
+          line-height: 0.537rem;
+          letter-spacing: 0.007rem;
+          color: #999999;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          margin: 0 auto;
+        }
+        .money {
+          height: 0.36rem;
+          padding: 0px 0.2rem;
+          box-sizing: border-box;
+          margin-top: 0.5rem;
+          display: flex;
+          align-items: flex-end;
+          div {
+            display: inline-block;
+          }
+          .moneysp1 {
+            height: 0.253rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.253rem;
+            letter-spacing: 0.007rem;
+            color: #ff620e;
+            margin-right: 0.08rem;
+          }
+          .moneysp2 {
+            height: 0.36rem;
+            font-family: MicrosoftYaHei-Bold;
+            font-size: 0.453rem;
+            font-weight: bold;
+            font-stretch: normal;
+            line-height: 0.36rem;
+            letter-spacing: 0.009rem;
+            color: #ff620e;
+            margin-right: 0.133rem;
+          }
+          .moneysp3 {
+            height: 0.32rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.32rem;
             letter-spacing: 0.007rem;
             color: #999999;
           }

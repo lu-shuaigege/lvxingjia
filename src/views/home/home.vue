@@ -7,13 +7,18 @@
             <div>苏州</div>
             <img class="bottom-img" src="../../assets/img/home/bottom.png" alt />
           </div>
-          <div class="bannertop-center">
-            <img src="../../assets/img/home/search.png" alt />
-            <div>大家都在搜索“日本樱花”</div>
-          </div>
-          <div class="bannertop-right">
-            <img src="../../assets/img/home/news.png" alt />
-          </div>
+          <router-link to="/search">
+            <div class="bannertop-center">
+              <img src="../../assets/img/home/search.png" alt />
+              <div>大家都在搜索“日本樱花”</div>
+            </div>
+          </router-link>
+
+          <router-link to="/notice">
+            <div class="bannertop-right">
+              <img src="../../assets/img/home/news.png" alt />
+            </div>
+          </router-link>
         </div>
         <yd-slider class="banners" autoplay="3000">
           <yd-slider-item v-for="(item,index) in banners" :key="index">
@@ -35,7 +40,12 @@
     <!-- 三图 -->
     <div class="center">
       <div class="threeimg">
-        <div class="threeimgitem" v-for="(item,indexa) in threeimg" :key="indexa">
+        <div
+          class="threeimgitem"
+          v-for="(item,indexa) in threeimg"
+          :key="indexa"
+          @click="peripheryfn(item.id)"
+        >
           <img :src="item.url" alt />
           <div class="threeimgitem-title">{{item.title}}</div>
         </div>
@@ -79,6 +89,34 @@
         </div>
       </div>
     </div>
+    <!-- 国内游 -->
+    <div class="domestic">
+      <div class="domestic-top">
+        <div :class="domesticactive==0?'top-left':''" @click="domesticlistfn(0)">国内游</div>
+        <div class="top-center"></div>
+        <div :class="domesticactive==1?'top-left':''" @click="domesticlistfn(1)">出境游</div>
+      </div>
+      <div class="domesticlist">
+        <div class="item" v-for="(item,indexg) in domesticlist" :key="indexg">
+          <div class="domestictop">
+            <div class="top">
+              <p>{{item.class}}</p>&nbsp;|&nbsp;
+              <p>{{item.add}}</p>
+            </div>
+            <img :src="item.img" alt />
+          </div>
+          <div class="domestic-bottom">
+            <div class="domestic-title">{{item.title}}</div>
+            <div class="domestic-word">{{item.word}}</div>
+            <div class="money">
+              <div class="moneysp1">￥</div>
+              <div class="moneysp2">{{item.money}}</div>
+              <div class="moneysp3">起</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <Tab></Tab>
   </div>
 </template>
@@ -91,6 +129,8 @@ export default {
 
   data() {
     return {
+      domesticactive: 0, //国内游状态切换
+      peripheryid: 0, //周边游大类
       // 轮播图
       banners: [
         {
@@ -115,14 +155,20 @@ export default {
       // 三图
       threeimg: [
         {
+          id: 0,
           url: require("../../assets/img/home/periphery.png"),
           title: "周边游"
         },
         {
+          id: 0,
           url: require("../../assets/img/home/mapping.png"),
           title: "国内游"
         },
-        { url: require("../../assets/img/home/aircraft.png"), title: "国际游" }
+        {
+          id: 0,
+          url: require("../../assets/img/home/aircraft.png"),
+          title: "国际游"
+        }
       ],
       threeimgdown: [
         { title: "户外游", title2: "攀登高峰" },
@@ -191,7 +237,28 @@ export default {
           class: "摄影游",
           add: "苏州",
           img: require("../../assets/img/home/1-2.png"),
+          title: "【三日游】东海明珠衢山岛两日游 : 漫步沙滩...",
+          money: 800
+        }
+      ],
+      // 国内游
+      domesticlist: [
+        {
+          class: "摄影游",
+          add: "苏州",
+          img: require("../../assets/img/home/1-2.png"),
+          title: "【三日游】东海明珠衢山岛两日游 : 漫步沙滩...",
+          word:
+            "东海明珠衢山岛两日游东海明珠衢山岛两日游东海明珠衢山岛两日游东海明珠衢山岛两日游",
+          money: 800
+        },
+        {
+          class: "摄影游",
+          add: "苏州",
+          img: require("../../assets/img/home/1-2.png"),
           title: "东海明珠衢山岛两日游",
+          word:
+            "东海明珠衢山岛两日游东海明珠衢山岛两日游东海明珠衢山岛两日游东海明珠衢山岛两日游东海明珠衢山岛两日游东海明珠衢山岛两日游东海明珠衢山岛两日游东海明珠衢山岛两日游",
           money: 800
         }
       ]
@@ -199,6 +266,40 @@ export default {
   },
   components: {
     Tab
+  },
+  methods: {
+    //跳转周边游
+    peripheryfn: function(x) {
+      this.peripheryid = x;
+      //把页面要传的参数存到sessionStorage里面
+      sessionStorage.setItem("peripheryid", this.peripheryid);
+      //路由跳转携带参数
+      this.$router.push({
+        name: "periphery",
+        params: {
+          peripheryid: this.peripheryid
+        }
+      });
+    },
+    //axios请求轮播图
+    domesticlistfn: function(x) {
+      this.domesticactive = x;
+      this.$api.get(
+        "banners/about-us",
+        {
+          page: 1,
+          pageSize: 10
+        },
+        response => {
+          if (response.status >= 200 && response.status < 300) {
+            // console.log(response.data); //请求成功，response为成功信息参数
+            // this.bannertop_img = response.data.data[0];
+          } else {
+            // console.log(response.message); //请求失败，response为失败信息
+          }
+        }
+      );
+    }
   }
 };
 </script>
