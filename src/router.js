@@ -57,6 +57,24 @@ export const contentsRouter = [{
         import('./views/periphery/periphery.vue')
 },
 {
+    path: '/searchroute',
+    name: 'searchroute',
+    meta: {
+        title: '搜索路线',
+    },
+    component: () =>
+        import('./views/searchroute/searchroute.vue')
+},
+{
+    path: '/linedetails',
+    name: 'linedetails',
+    meta: {
+        title: '线路详情',
+    },
+    component: () =>
+        import('./views/linedetails/linedetails.vue')
+},
+{
     path: '/travels',
     name: 'travels',
     meta: {

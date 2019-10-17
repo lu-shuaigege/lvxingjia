@@ -244,6 +244,7 @@ export default {
       // 国内游
       domesticlist: [
         {
+          id: 0,
           class: "摄影游",
           add: "苏州",
           img: require("../../assets/img/home/1-2.png"),
@@ -253,6 +254,7 @@ export default {
           money: 800
         },
         {
+          id: 1,
           class: "摄影游",
           add: "苏州",
           img: require("../../assets/img/home/1-2.png"),

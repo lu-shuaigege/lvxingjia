@@ -11,5 +11,7 @@ export default {};
   margin: 0px;
   padding: 0px;
 }
-
+.yd-slider.banners > div.yd-slider-pagination {
+  bottom: 0.3rem !important;
+}
 </style>
