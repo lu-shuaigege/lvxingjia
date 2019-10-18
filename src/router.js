@@ -75,6 +75,24 @@ export const contentsRouter = [{
         import('./views/linedetails/linedetails.vue')
 },
 {
+    path: '/enrolmentstaff',
+    name: 'enrolmentstaff',
+    meta: {
+        title: '报名人员',
+    },
+    component: () =>
+        import('./views/enrolmentstaff/enrolmentstaff.vue')
+},
+{
+    path: '/book',
+    name: 'book',
+    meta: {
+        title: '报名人员',
+    },
+    component: () =>
+        import('./views/book/book.vue')
+},
+{
     path: '/travels',
     name: 'travels',
     meta: {

@@ -59,9 +59,9 @@
       </div>
       <!-- 已报名人员 -->
       <div class="enrolment">
-        <div class="enrolment-title">
+        <div class="enrolment-title" @click="enrolmentfn()">
           <div class="enrolment-title-left">
-            <div>套餐价格</div>
+            <div>已报名人员</div>
             <div class="enrolment-ok">(已报{{enrolment.ok}}/限量{{enrolment.max}})</div>
           </div>
           <img src="../../assets/img/Linelist/right.png" alt />
@@ -87,7 +87,7 @@
       </div>
       <!-- 猜你喜欢 -->
       <div class="like">
-        <div class="like-title">套餐价格</div>
+        <div class="like-title">猜你喜欢</div>
         <div class="hotlist">
           <div class="hotlist-item" v-for="(item,indexf) in hotlist" :key="indexf">
             <div class="hotitem-top">
@@ -115,7 +115,7 @@
 
 <script>
 export default {
-  name: "searchroute",
+  name: "linedetails",
 
   data() {
     return {
@@ -245,6 +245,18 @@ export default {
   components: {},
   watch: {},
   methods: {
+    enrolmentfn: function(x) {
+      //   this.enrolmentstaffid = x;
+      //把页面要传的参数存到sessionStorage里面
+      //   sessionStorage.setItem("enrolmentstaffid", this.enrolmentstaffid);
+      //路由跳转携带参数
+      this.$router.push({
+        name: "enrolmentstaff",
+        params: {
+          //   enrolmentstaffid: this.enrolmentstaffid
+        }
+      });
+    },
     //axios请求轮播图
     domesticlistfn: function(x) {
       this.domesticactive = x;
