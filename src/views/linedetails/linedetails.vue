@@ -108,7 +108,7 @@
           </div>
         </div>
       </div>
-      <div class="buy">立即预定</div>
+      <div class="buy" @click="buyfn()">立即预定</div>
     </div>
   </div>
 </template>
@@ -245,6 +245,7 @@ export default {
   components: {},
   watch: {},
   methods: {
+    // 跳转已报名人员列表
     enrolmentfn: function(x) {
       //   this.enrolmentstaffid = x;
       //把页面要传的参数存到sessionStorage里面
@@ -252,6 +253,19 @@ export default {
       //路由跳转携带参数
       this.$router.push({
         name: "enrolmentstaff",
+        params: {
+          //   enrolmentstaffid: this.enrolmentstaffid
+        }
+      });
+    },
+    // 跳转购买输入信息页面
+    buyfn() {
+      //   this.enrolmentstaffid = x;
+      //把页面要传的参数存到sessionStorage里面
+      //   sessionStorage.setItem("enrolmentstaffid", this.enrolmentstaffid);
+      //路由跳转携带参数
+      this.$router.push({
+        name: "book",
         params: {
           //   enrolmentstaffid: this.enrolmentstaffid
         }

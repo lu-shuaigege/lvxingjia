@@ -8,7 +8,22 @@
       </div>
       <div class="top-bottom">
         <div class="adult">
-          <div class="adult-left"></div>
+          <div class="adult-left">成人</div>
+          <div class="adult-center">￥{{adult}}</div>
+          <div class="adult-right">
+            <div>-</div>
+            <input type="text" />
+            <div>+</div>
+          </div>
+        </div>
+        <div class="adult">
+          <div class="adult-left">儿童</div>
+          <div class="adult-center">￥{{children}}</div>
+          <div class="adult-right">
+            <div>-</div>
+            <input type="text" />
+            <div>+</div>
+          </div>
         </div>
       </div>
     </div>

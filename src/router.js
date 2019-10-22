@@ -87,7 +87,7 @@ export const contentsRouter = [{
     path: '/book',
     name: 'book',
     meta: {
-        title: '报名人员',
+        title: '预订信息',
     },
     component: () =>
         import('./views/book/book.vue')

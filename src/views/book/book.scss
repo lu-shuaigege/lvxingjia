@@ -1,10 +1,41 @@
 .book {
   width: 100%;
   background: rgb(243, 243, 243);
-  padding: 0 0.36rem;
-  box-sizing: border-box;
+
   .top {
     height: 4.973rem;
     background-color: #ffffff;
+    padding: 1px 0.36rem;
+    box-sizing: border-box;
+    .information {
+      height: 1rem;
+      font-family: MicrosoftYaHei;
+      font-size: 0.4rem;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 0.604rem;
+      letter-spacing: 0.024rem;
+      color: #333333;
+      margin-top: 0.4rem;
+    }
+    .topcon {
+      height: 0.32rem;
+      font-family: MicrosoftYaHei;
+      font-size: 0.32rem;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 0.32rem;
+      letter-spacing: 0.019rem;
+      color: #999999;
+      margin: 0.4rem 0 0.4 0;
+      padding-bottom: 0.72rem;
+      display: flex;
+      border-bottom: 1px solid #e7e7e7;
+    }
+    .top-bottom {
+      .adult {
+        display: flex;
+      }
+    }
   }
 }
