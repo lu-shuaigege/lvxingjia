@@ -93,6 +93,33 @@ export const contentsRouter = [{
         import('./views/book/book.vue')
 },
 {
+    path: '/payok',
+    name: 'payok',
+    meta: {
+        title: '订单支付成功',
+    },
+    component: () =>
+        import('./views/payok/payok.vue')
+},
+{
+    path: '/doorticket',
+    name: 'doorticket',
+    meta: {
+        title: '门票',
+    },
+    component: () =>
+        import('./views/doorticket/doorticket.vue')
+},
+{
+    path: '/doorticketdetails',
+    name: 'doorticketdetails',
+    meta: {
+        title: '门票详情',
+    },
+    component: () =>
+        import('./views/doorticketdetails/doorticketdetails.vue')
+},
+{
     path: '/travels',
     name: 'travels',
     meta: {

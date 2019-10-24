@@ -51,7 +51,7 @@
         </div>
       </div>
       <div class="threeimg-down">
-        <div class="threeimg-down-item" v-for="(item,indexb) in threeimgdown">
+        <div class="threeimg-down-item" v-for="(item,indexb) in threeimgdown" :key="indexb">
           <P class="item-p1">{{item.title}}</P>
           <P class="item-p2">{{item.title2}}</P>
         </div>
@@ -59,9 +59,11 @@
     </div>
     <!-- 四大类 -->
     <div class="classitem">
-      <div class="classitem-item" v-for="(item,indexc) in classitem">
-        <img :src="item.url" alt />
-        <p>{{item.title}}</p>
+      <div class="classitem-item" v-for="(item,indexc) in classitem" :key="indexc">
+        <router-link :to="item.to">
+          <img :src="item.url" alt />
+          <p>{{item.title}}</p>
+        </router-link>
       </div>
     </div>
     <!-- 热门推荐 -->
@@ -181,19 +183,23 @@ export default {
       classitem: [
         {
           url: require("../../assets/img/home/ticket.png"),
-          title: "门票"
+          title: "门票",
+          to: "/doorticket"
         },
         {
           url: require("../../assets/img/home/jiudian.png"),
-          title: "酒店"
+          title: "酒店",
+          to: "/doorticket"
         },
         {
           url: require("../../assets/img/home/travels3.png"),
-          title: "游记"
+          title: "游记",
+          to: "/doorticket"
         },
         {
           url: require("../../assets/img/home/shopping.png"),
-          title: "积分商城"
+          title: "积分商城",
+          to: "/doorticket"
         }
       ],
       // 热门推荐

@@ -1,0 +1,82 @@
+.okpay {
+  width: 100%;
+  min-height: 100vh;
+  background: rgb(243, 243, 243);
+  padding: 1px;
+  box-sizing: border-box;
+  .payokimg {
+    width: 2.5rem;
+    margin: 0.893rem auto 0;
+    img {
+      width: 100%;
+    }
+  }
+  .okpaytitle {
+    height: 0.533rem;
+    font-family: MicrosoftYaHei;
+    font-size: 0.534rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.533rem;
+    letter-spacing: 0rem;
+    color: #333333;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .okpayitem {
+    margin: 0px 0px 0.453rem 2.853rem;
+    height: 0.427rem;
+    font-family: MicrosoftYaHei;
+    font-size: 0.373rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.373rem;
+    letter-spacing: 0rem;
+    color: #999999;
+    display: flex;
+    align-items: flex-end;
+    .okpayitem-left {
+      margin-right: 0.25rem;
+    }
+    .paymethods {
+      font-family: MicrosoftYaHei;
+      font-size: 0.373rem;
+      line-height: 0.373rem;
+      font-weight: normal;
+      letter-spacing: 0rem;
+      color: #333333;
+    }
+    .paymoney {
+      height: 0.427rem;
+      font-family: MicrosoftYaHei;
+      font-size: 0.427rem;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 0.427rem;
+      letter-spacing: 0rem;
+      color: #333333;
+    }
+  }
+  .okpaybtn {
+    margin-top: 0.747rem;
+    padding: 1px 1.04rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    div {
+      width: 3.2rem;
+      height: 1.04rem;
+      border-radius: 0.067rem;
+      border: solid 0.027rem #999999;
+      text-align: center;
+      font-family: MicrosoftYaHei;
+      font-size: 0.373rem;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 1.04rem;
+      letter-spacing: 0rem;
+      color: #333333;
+    }
+  }
+}
