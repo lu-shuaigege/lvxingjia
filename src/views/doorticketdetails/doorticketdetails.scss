@@ -232,8 +232,8 @@
 // 选择套餐弹窗
 .choicepopup {
   position: fixed;
-  //   top: 100vh;
-  top: 0px;
+  top: 100vh;
+  // top: 0px;
   left: 0px;
   width: 10rem;
   height: 100vh;
@@ -249,6 +249,13 @@
     position: relative;
     padding: 0.533rem 0px 1.307rem;
     box-sizing: border-box;
+    .choicepopupclose {
+      position: absolute;
+      top: 0.533rem;
+      right: 0.347rem;
+      width: 0.373rem;
+      height: 0.373rem;
+    }
     .choicepopupcon-title {
       width: 100%;
       height: 0.427rem;
@@ -317,8 +324,69 @@
       }
     }
     .popupcon-item {
-      padding: 0.4rem 0px;
+      padding: 0.4rem 0px 0.147rem;
       box-sizing: border-box;
+      border-top: 1px solid #e7e7e7;
+      .popupcon-item-bynum {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.026rem;
+        .bynum-left {
+          height: 0.373rem;
+          font-family: MicrosoftYaHei;
+          font-size: 0.373rem;
+          font-weight: normal;
+          font-stretch: normal;
+          line-height: 0.373rem;
+          letter-spacing: 0.023rem;
+          color: #333333;
+        }
+        .bynum-right {
+          display: flex;
+          align-items: center;
+          .down {
+            width: 0.653rem;
+            height: 0.653rem;
+            background-color: #f3f3f3;
+            border-radius: 0.093rem;
+            color: #666666;
+            font-family: MicrosoftYaHei;
+            font-size: 0.347rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.653rem;
+            letter-spacing: 0.021rem;
+            text-align: center;
+          }
+          .up {
+            width: 0.653rem;
+            height: 0.653rem;
+            background-color: rgba(45, 486, 85, 0.2);
+            border-radius: 0.093rem;
+            color: #2dba55;
+            font-family: MicrosoftYaHei;
+            font-size: 0.347rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.653rem;
+            letter-spacing: 0.021rem;
+            text-align: center;
+          }
+          .bynum-right-center {
+            font-family: MicrosoftYaHei;
+            font-size: 0.4rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.653rem;
+            letter-spacing: 0.024rem;
+            color: #333333;
+            width: 1rem;
+            height: 0.653rem;
+            text-align: center;
+          }
+        }
+      }
       .popupcon-item-title {
         height: 0.373rem;
         font-family: MicrosoftYaHei;
@@ -328,6 +396,32 @@
         line-height: 0.373rem;
         letter-spacing: 0.023rem;
         color: #333333;
+        margin-bottom: 0.4rem;
+      }
+      .twoclass {
+        display: flex;
+        flex-wrap: wrap;
+        .twoclass-item {
+          width: 1.787rem;
+          height: 0.747rem;
+          background-color: #f3f3f3;
+          border-radius: 0.067rem;
+          font-family: MicrosoftYaHei;
+          font-size: 0.347rem;
+          font-weight: normal;
+          font-stretch: normal;
+          line-height: 0.747rem;
+          letter-spacing: 0.021rem;
+          color: #666666;
+          margin-right: 0.28rem;
+          margin-bottom: 0.253rem;
+          text-align: center;
+        }
+        .twoclass-item-active {
+          background-color: rgb(234, 248, 238);
+          border: solid 1px #2dba55;
+          color: #2dba55;
+        }
       }
     }
   }

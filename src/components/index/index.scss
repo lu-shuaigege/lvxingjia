@@ -1,0 +1,144 @@
+// 支付
+.pay {
+  position: fixed;
+  top: 100vh;
+  // top: 0px;
+  left: 0px;
+  width: 10rem;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  .paycon {
+    width: 10rem;
+    height: 9.427rem;
+    background-color: #ffffff;
+    border-radius: 0.267rem 0.267rem 0rem 0rem;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
+    .paycon-title {
+      width: 100%;
+      height: 0.427rem;
+      margin-top: 0.493rem;
+      text-align: center;
+      font-family: MicrosoftYaHei;
+      font-size: 0.427rem;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 0.427rem;
+      letter-spacing: 0.025rem;
+      color: #333333;
+    }
+  }
+  .payclose {
+    width: 0.373rem;
+    height: 0.373rem;
+    position: absolute;
+    top: 0.533rem;
+    right: 0.347rem;
+    z-index: 9;
+  }
+  .paymoney {
+    height: 0.533rem;
+    font-family: MicrosoftYaHei;
+    font-size: 0.667rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.604rem;
+    letter-spacing: 0.04rem;
+    color: #ff620e;
+    margin-top: 0.707rem;
+    text-align: center;
+  }
+  .paymentmethod {
+    margin-top: 1.12rem;
+    height: 0.453rem;
+    display: flex;
+    align-items: center;
+    padding: 0.66rem 0.347rem;
+    box-sizing: border-box;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+
+    .weixin {
+      width: 0.587rem;
+      height: 0.453rem;
+      margin-right: 0.32rem;
+    }
+    .paymentmethod-center {
+      height: 0.387rem;
+      font-family: MicrosoftYaHei;
+      font-size: 0.373rem;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 0.387rem;
+      letter-spacing: 0.023rem;
+      color: #999999;
+      margin-right: 6.4rem;
+    }
+    .ok {
+      width: 0.387rem;
+      height: 0.373rem;
+    }
+  }
+  .integral {
+    height: 1.906rem;
+    // margin-top: 0.72rem;
+    padding: 0.28rem 0.347rem 0.387rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e7e7e7;
+    .integral-top {
+      display: flex;
+      align-items: center;
+      .integral-left {
+        height: 0.347rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.347rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.347rem;
+        letter-spacing: 0.021rem;
+        color: #333333;
+        margin-right: 0.333rem;
+      }
+      .integral-center {
+        height: 0.347rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.347rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.347rem;
+        letter-spacing: 0.021rem;
+        color: #999999;
+        margin-right: 4.3rem;
+      }
+    }
+    .explain {
+      height: 0.293rem;
+      font-family: MicrosoftYaHei;
+      font-size: 0.293rem;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 0.293rem;
+      letter-spacing: 0.017rem;
+      color: #cacaca;
+      margin-top: 0.32rem;
+    }
+  }
+  .pay-btn {
+    width: 10rem;
+    height: 1.307rem;
+    background-color: #ff620e;
+    font-family: MicrosoftYaHei;
+    font-size: 0.373rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.307rem;
+    letter-spacing: 0.023rem;
+    color: #ffffff;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+  }
+}

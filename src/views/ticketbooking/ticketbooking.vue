@@ -1,41 +1,22 @@
 <template>
-  <div class="book" ref="book">
+  <div class="ticketbooking" ref="ticketbooking">
     <div class="top">
-      <div class="information">{{information}}</div>
-      <div class="topcon">
-        <div class="time">出游日 : {{time}}</div>
-        <div class="adderss">出发地 : {{adderss}}</div>
-      </div>
+      <div class="top-top">苏州乐园森林水世界</div>
       <div class="top-bottom">
-        <div class="adult">
-          <div class="adult-left">成人</div>
-          <div class="adult-center">￥{{adultnew}}</div>
-          <div class="adult-right">
-            <div class="down" @click="downfn(1)">-</div>
-            <div class="adult-right-center">{{adultnum}}</div>
-            <div class="up" @click="upfn(1)">+</div>
-          </div>
-        </div>
-        <div class="adult">
-          <div class="adult-left">儿童</div>
-          <div class="adult-center">￥{{childrennew}}</div>
-          <div class="adult-right">
-            <div class="down" @click="downfn(2)">-</div>
-            <div class="adult-right-center">{{childrennum}}</div>
-            <div class="up" @click="upfn(2)">+</div>
-          </div>
-        </div>
+        <div class="top-bottom-left">出行日期</div>
+        <div class="top-bottom-center">请选择出行日期</div>
+        <img class="top-bottom-right" src="../../assets/img/Linelist/right.png" alt />
       </div>
     </div>
-    <div class="bookcenter">
-      <div class="center-title">预定人信息</div>
-      <div class="center-item">
-        <div class="item-left">姓名</div>
-        <input class="item-right" type="text" placeholder="请填写预定人姓名" />
+    <div class="information">
+      <div class="information-item1">预定人信息</div>
+      <div class="information-item2">
+        <div class="information-item2-left">姓名</div>
+        <input type="text" class="information-item2-right" placeholder="请填写预定人姓名" />
       </div>
-      <div class="center-item">
-        <div class="item-left">手机号</div>
-        <input class="item-right" type="text" placeholder="请填写预定人手机号" />
+      <div class="information-item3">
+        <div class="information-item2-left">手机号</div>
+        <input type="text" class="information-item2-right" placeholder="请填写预定人姓名" />
       </div>
     </div>
     <div class="bookinformation">
@@ -61,8 +42,13 @@
         <textarea class="proposal" placeholder="请填写备注"></textarea>
       </div>
     </div>
-    <div class="clause">
-      <yd-checkbox val="1" shape="circle" v-model="look">已阅读入驻协议</yd-checkbox>
+    <div class="tourleader">
+      <div class="tourleader-title">领队必读</div>
+      <div class="tourleader-bottom">
+        1、身份证、导游证、大巴证、任务单必带方可领票，缺一
+        不可；
+        <br />2、请在当日14:00前完成领票操作。
+      </div>
     </div>
     <div class="bottom">
       <div class="bottom-left-btn">
@@ -179,15 +165,15 @@ export default {
     // 支付
     payfn: function() {
       if (this.look) {
-        this.$refs.book.style.height = "100vh";
-        this.$refs.book.style.overflow = "hidden";
+        this.$refs.ticketbooking.style.height = "100vh";
+        this.$refs.ticketbooking.style.overflow = "hidden";
         this.$refs.pay.style.top = "0px";
       }
     },
     //关闭支付弹框
     payclose: function() {
-      this.$refs.book.style.height = "";
-      this.$refs.book.style.overflow = "scroll";
+      this.$refs.ticketbooking.style.height = "";
+      this.$refs.ticketbooking.style.overflow = "scroll";
       this.$refs.pay.style.top = "100vh";
     },
     //axios请求轮播图
@@ -214,5 +200,5 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "../../components/index/index.scss";
-@import "book.scss";
+@import "ticketbooking.scss";
 </style>

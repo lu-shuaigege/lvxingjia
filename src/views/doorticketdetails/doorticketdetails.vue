@@ -45,11 +45,18 @@
           <img src="../../assets/img/Linelist/4-9.png" alt />
         </div>
       </div>
-      <div class="buy" @click="buyfn()">立即预定</div>
+      <div class="buy" @click="choicefn()">立即预定</div>
     </div>
     <!-- 选择套餐弹窗 -->
     <div class="choicepopup" ref="choicepopup">
       <div class="choicepopupcon">
+        <img
+          src="../../assets/img/Linelist/close.png"
+          class="choicepopupclose"
+          ref="choicepopupclose"
+          @click="payclose()"
+          alt
+        />
         <div class="popupcon">
           <div class="popupcon-top">
             <img class="top-left" src="../../assets/img/Linelist/4-1.png" alt />
@@ -60,9 +67,33 @@
           </div>
           <div class="popupcon-item">
             <div class="popupcon-item-title">类型</div>
+            <div class="twoclass">
+              <div class="twoclass-item">散客</div>
+              <div class="twoclass-item twoclass-item-active">团队</div>
+            </div>
+          </div>
+          <div class="popupcon-item">
+            <div class="popupcon-item-title">套餐</div>
+            <div class="twoclass">
+              <div class="twoclass-item">套餐一</div>
+              <div class="twoclass-item twoclass-item-active">套餐二</div>
+              <div class="twoclass-item">套餐三</div>
+              <div class="twoclass-item">套餐四</div>
+              <div class="twoclass-item">套餐五</div>
+            </div>
+          </div>
+          <div class="popupcon-item">
+            <div class="popupcon-item-bynum">
+              <div class="bynum-left">购买数量</div>
+              <div class="bynum-right">
+                <div class="down" @click="downfn(1)">-</div>
+                <div class="bynum-right-center">{{adultnum}}</div>
+                <div class="up" @click="upfn(1)">+</div>
+              </div>
+            </div>
           </div>
         </div>
-        <router-link to="/payok">
+        <router-link to="/ticketbooking">
           <div class="pay-btn">立即支付</div>
         </router-link>
       </div>
@@ -76,6 +107,7 @@ export default {
 
   data() {
     return {
+      adultnum: 1,
       // 轮播图
       banners: [
         {
@@ -169,12 +201,6 @@ export default {
       this.$refs.linedetails.style.overflow = "hidden";
       this.$refs.choicepopup.style.top = "0px";
     },
-    //关闭支付弹框
-    payclose: function() {
-      this.$refs.linedetails.style.height = "";
-      this.$refs.linedetails.style.overflow = "scroll";
-      this.$refs.choicepopup.style.top = "100vh";
-    },
     // 跳转已报名人员列表
     enrolmentfn: function(x) {
       //   this.enrolmentstaffid = x;
@@ -200,6 +226,44 @@ export default {
           //   enrolmentstaffid: this.enrolmentstaffid
         }
       });
+    },
+    // 购票数量加减
+    downfn: function(x) {
+      if (x == 1) {
+        if (this.adultnum > 1) {
+          this.adultnum--;
+          this.all();
+        }
+      }
+    },
+    // 购票数量加减
+    upfn: function(y) {
+      if (y == 1) {
+        if (this.adultnum < 100) {
+          this.adultnum++;
+          this.all();
+        }
+      }
+    },
+    // 计算总价
+    all: function() {
+      this.adultnew = this.adultnum * this.adult;
+      this.childrennew = this.childrennum * this.children;
+      this.money = this.adultnew + this.childrennew;
+    },
+    // 支付
+    payfn: function() {
+      if (this.look) {
+        this.$refs.book.style.height = "100vh";
+        this.$refs.book.style.overflow = "hidden";
+        this.$refs.pay.style.top = "0px";
+      }
+    },
+    //关闭支付弹框
+    payclose: function() {
+      this.$refs.linedetails.style.height = "";
+      this.$refs.linedetails.style.overflow = "scroll";
+      this.$refs.choicepopup.style.top = "100vh";
     },
     //axios请求轮播图
     domesticlistfn: function(x) {

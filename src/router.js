@@ -120,6 +120,15 @@ export const contentsRouter = [{
         import('./views/doorticketdetails/doorticketdetails.vue')
 },
 {
+    path: '/ticketbooking',
+    name: 'ticketbooking',
+    meta: {
+        title: '门票预订信息',
+    },
+    component: () =>
+        import('./views/ticketbooking/ticketbooking.vue')
+},
+{
     path: '/travels',
     name: 'travels',
     meta: {
