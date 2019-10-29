@@ -189,7 +189,7 @@ export default {
         {
           url: require("../../assets/img/home/jiudian.png"),
           title: "酒店",
-          to: "/doorticket"
+          to: "/hotel"
         },
         {
           url: require("../../assets/img/home/travels3.png"),
@@ -199,7 +199,7 @@ export default {
         {
           url: require("../../assets/img/home/shopping.png"),
           title: "积分商城",
-          to: "/doorticket"
+          to: "/integralmall"
         }
       ],
       // 热门推荐

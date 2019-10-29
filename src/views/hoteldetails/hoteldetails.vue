@@ -36,9 +36,7 @@
       <!-- 景点介绍 -->
       <div class="word">
         <div class="wordtop">
-          <div class="word-item">景点介绍</div>
-          <div class="word-item">行程安排</div>
-          <div class="word-item">费用说明</div>
+          <div class="word-item">酒店介绍</div>
           <div class="word-item">注意事项</div>
         </div>
         <div class="word-all">
@@ -86,36 +84,28 @@
             <div class="popupcon-item-title">套餐</div>
             <div class="twoclass">
               <div
+                v-show="twoclass==1"
                 :class="twoclassitem==1?'twoclass-item-active':'twoclass-item'"
                 @click="twoclassitemfn(1)"
               >
-                <div>套餐一</div>
+                <div>豪华大床房</div>
               </div>
               <div
+                v-show="twoclass==1"
                 :class="twoclassitem==2?'twoclass-item-active':'twoclass-item'"
                 @click="twoclassitemfn(2)"
               >
-                <div>套餐二</div>
+                <div>商务大床房</div>
               </div>
               <div
+                v-show="twoclass==2"
                 :class="twoclassitem==3?'twoclass-item-active':'twoclass-item'"
                 @click="twoclassitemfn(3)"
               >
-                <div>套餐三</div>
-              </div>
-              <div
-                :class="twoclassitem==4?'twoclass-item-active':'twoclass-item'"
-                @click="twoclassitemfn(4)"
-              >
-                <div>套餐四</div>
-              </div>
-              <div
-                :class="twoclassitem==5?'twoclass-item-active':'twoclass-item'"
-                @click="twoclassitemfn(5)"
-              >
-                <div>套餐五</div>
+                <div>标准间</div>
               </div>
             </div>
+            <div v-show="twoclass==2" class="explain">说明:若有其他房型需求,请在填写预定信息时进行备注说明。</div>
           </div>
           <div class="popupcon-item">
             <div class="popupcon-item-bynum">
@@ -129,7 +119,7 @@
           </div>
         </div>
         <!-- <router-link to="/ticketbooking"> -->
-        <div class="pay-btn" @click="ticketbookingfn(0)">立即支付</div>
+        <div class="pay-btn" @click="ticketbookingfn(1)">立即支付</div>
         <!-- </router-link> -->
       </div>
     </div>
@@ -239,19 +229,6 @@ export default {
       this.$refs.linedetails.style.overflow = "hidden";
       this.$refs.choicepopup.style.top = "0px";
     },
-    // 跳转已报名人员列表
-    enrolmentfn: function(x) {
-      //   this.enrolmentstaffid = x;
-      //把页面要传的参数存到sessionStorage里面
-      //   sessionStorage.setItem("enrolmentstaffid", this.enrolmentstaffid);
-      //路由跳转携带参数
-      this.$router.push({
-        name: "enrolmentstaff",
-        params: {
-          //   enrolmentstaffid: this.enrolmentstaffid
-        }
-      });
-    },
     //套餐类型选择
     twoclassfn: function(y) {
       this.twoclass = y;
@@ -356,7 +333,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "doorticketdetails.scss";
+@import "hoteldetails.scss";
 .yd-slider.banners > div.yd-slider-pagination {
   bottom: 0.3rem !important;
 }

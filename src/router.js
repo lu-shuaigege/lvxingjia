@@ -129,6 +129,51 @@ export const contentsRouter = [{
         import('./views/ticketbooking/ticketbooking.vue')
 },
 {
+    path: '/hotel',
+    name: 'hotel',
+    meta: {
+        title: '酒店',
+    },
+    component: () =>
+        import('./views/hotel/hotel.vue')
+},
+{
+    path: '/hoteldetails',
+    name: 'hoteldetails',
+    meta: {
+        title: '酒店详情',
+    },
+    component: () =>
+        import('./views/hoteldetails/hoteldetails.vue')
+},
+{
+    path: '/integralmall',
+    name: 'integralmall',
+    meta: {
+        title: '积分商城',
+    },
+    component: () =>
+        import('./views/integralmall/integralmall.vue')
+},
+{
+    path: '/integralshopdetail',
+    name: 'integralshopdetail',
+    meta: {
+        title: '积分商城商品详情',
+    },
+    component: () =>
+        import('./views/integralshopdetail/integralshopdetail.vue')
+},
+{
+    path: '/integralorder',
+    name: 'integralorder',
+    meta: {
+        title: '积分商城商品订单',
+    },
+    component: () =>
+        import('./views/integralorder/integralorder.vue')
+},
+{
     path: '/travels',
     name: 'travels',
     meta: {
