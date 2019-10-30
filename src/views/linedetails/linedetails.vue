@@ -1,5 +1,7 @@
 <template>
   <div class="linedetails">
+    <img class="islike" v-show="islike==0" src="../../assets/img/Linelist/like.png" alt />
+    <img class="islike" v-show="islike==1" src="../../assets/img/Linelist/xihuan.png" alt />
     <!-- 轮播图 -->
     <yd-slider class="banners" autoplay="3000">
       <yd-slider-item v-for="(item,index) in banners" :key="index">
@@ -119,6 +121,7 @@ export default {
 
   data() {
     return {
+      islike: 0,
       // 轮播图
       banners: [
         {

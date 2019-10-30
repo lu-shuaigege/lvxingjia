@@ -1,0 +1,35 @@
+.checkindetails {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0px 0.347rem;
+  box-sizing: border-box;
+  background: #fff;
+  .item {
+    height: 1.463rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e7e7e7;
+    .item-left {
+      height: 0.28rem;
+      font-family: MicrosoftYaHei;
+      font-size: 0.347rem;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 0.28rem;
+      letter-spacing: 0.021rem;
+      color: #333333;
+    }
+    .item-right {
+      height: 0.347rem;
+      font-family: MicrosoftYaHei;
+      font-size: 0.347rem;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 0.347rem;
+      letter-spacing: 0.021rem;
+      color: #ff620e;
+    }
+  }
+}

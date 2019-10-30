@@ -174,6 +174,24 @@ export const contentsRouter = [{
         import('./views/integralorder/integralorder.vue')
 },
 {
+    path: '/integralcheckin',
+    name: 'integralcheckin',
+    meta: {
+        title: '积分签到',
+    },
+    component: () =>
+        import('./views/integralcheckin/integralcheckin.vue')
+},
+{
+    path: '/checkindetails',
+    name: 'checkindetails',
+    meta: {
+        title: '签到明细',
+    },
+    component: () =>
+        import('./views/checkindetails/checkindetails.vue')
+},
+{
     path: '/travels',
     name: 'travels',
     meta: {

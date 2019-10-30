@@ -7,7 +7,7 @@
           <div class="topcon-center-top">累计签到积分</div>
           <div class="topcon-center-bottom">{{integral}}</div>
         </div>
-        <div class="topcon-right">签到</div>
+        <div class="topcon-right" @click="integralcheckinfn()">签到</div>
       </div>
     </div>
 
@@ -115,6 +115,15 @@ export default {
         name: "integralshopdetail",
         params: {
           doorticketid: this.doorticketid
+        }
+      });
+    },
+    integralcheckinfn: function() {
+      //路由跳转携带参数
+      this.$router.push({
+        name: "integralcheckin",
+        params: {
+          //   doorticketid: this.doorticketid
         }
       });
     },

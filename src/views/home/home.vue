@@ -194,7 +194,7 @@ export default {
         {
           url: require("../../assets/img/home/travels3.png"),
           title: "游记",
-          to: "/doorticket"
+          to: "/travels"
         },
         {
           url: require("../../assets/img/home/shopping.png"),
