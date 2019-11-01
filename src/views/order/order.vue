@@ -1,6 +1,8 @@
 <template>
-  <div class="home">
-    order
+  <div class="order">
+    
+
+    
     <Tab></Tab>
   </div>
 </template>
@@ -9,16 +11,12 @@
 import Tab from "@/components/tab/tab.vue";
 
 export default {
-  name: "home",
+  name: "order",
   components: {
     Tab
   }
 };
 </script>
 <style lang="scss" scoped>
-.home {
-  width: 10rem;
-  height: 100vh;
-  background: rgb(243, 243, 243);
-}
+@import "order.scss";
 </style>

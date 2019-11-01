@@ -1,0 +1,113 @@
+.commentlists {
+  width: 100%;
+  padding: 1px 0.36rem;
+  box-sizing: border-box;
+  background: #fff;
+  .content-bottom {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 1.4rem;
+    //   评论列表
+    .commentlist:last-child {
+      border-bottom: 0px;
+    }
+    .commentlist {
+      width: 100%;
+      padding: 0.52rem 0;
+      box-sizing: border-box;
+      border-bottom: 1px solid #e7e7e7;
+      .item-top {
+        height: 0.88rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .item-top-left {
+          height: 0.88rem;
+          display: flex;
+          align-items: center;
+          .item-headportrait {
+            width: 0.88rem;
+            height: 0.88rem;
+            border-radius: 50%;
+            margin-right: 0.2rem;
+          }
+          .item-title {
+            height: 0.347rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.347rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.347rem;
+            letter-spacing: 0.021rem;
+            color: #333333;
+          }
+          .isme {
+            width: 0.653rem;
+            height: 0.333rem;
+            border-radius: 0.067rem;
+            margin-left: 0.133rem;
+          }
+        }
+
+        .date {
+          height: 0.267rem;
+          font-family: MicrosoftYaHei;
+          font-size: 0.32rem;
+          font-weight: normal;
+          font-stretch: normal;
+          line-height: 0.267rem;
+          letter-spacing: 0.019rem;
+          color: #cacaca;
+        }
+      }
+      .itemword {
+        width: 8.173rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.32rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.484rem;
+        letter-spacing: 0.019rem;
+        color: #666666;
+        margin-left: 1.093rem;
+      }
+      .commentreplyword {
+        width: 7.107rem;
+      }
+      //   回复评论
+      .commentreply {
+        padding: 0.35rem 0px 0px 1.147rem;
+        box-sizing: border-box;
+      }
+    }
+  }
+  .commentinput {
+    width: 10rem;
+    height: 1.333rem;
+    background-color: #ffffff;
+    box-shadow: 0rem -0.013rem 0.173rem 0rem #cacaca;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .commentinput-con {
+      width: 9.28rem;
+      height: 0.813rem;
+      background-color: #f3f3f3;
+      border-radius: 0.4rem;
+      display: flex;
+      align-items: center;
+      .commentimg {
+        width: 0.4rem;
+        height: 0.387rem;
+        margin: 0px 0.347rem 0px 0.28rem;
+      }
+      .commentinput-input {
+        height: 100%;
+        width: 8.2rem;
+      }
+    }
+  }
+}

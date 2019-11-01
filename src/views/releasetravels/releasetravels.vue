@@ -21,7 +21,7 @@
           type="text"
           placeholder="请输入正文..."
           class="content-bottom-input"
-          v-model="a"
+          v-model="word"
         />
       </div>
 
@@ -64,6 +64,7 @@ export default {
     return {
       imgshow: 0, //判断有没有封面
       blurIndex: 0,
+      word: "",
       //   接口总数据
       contents: {
         img: require("../../assets/img/home/1-2.png")
@@ -98,7 +99,7 @@ export default {
     popupupfn: function() {
       this.$refs.popupok.style.top = "0px";
     },
-
+    // 输入框失去焦点时的位置
     handleInputBlur(e) {
       this.blurIndex = e.srcElement.selectionStart;
       console.log(this.blurIndex);

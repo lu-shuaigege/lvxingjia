@@ -208,13 +208,28 @@ export const contentsRouter = [{
     name: 'releasetravels',
     meta: {
         title: '发布游记',
-        index: 0,
-        hasFooter: true,
-        nav_index: 2
     },
     component: () =>
         import('./views/releasetravels/releasetravels.vue')
 },
+{
+    path: '/travelsdetail',
+    name: 'travelsdetail',
+    meta: {
+        title: '游记详情',
+    },
+    component: () =>
+        import('./views/travelsdetail/travelsdetail.vue')
+},
+{
+    path: '/commentlist',
+    name: 'commentlist',
+    meta: {
+        title: '评论列表',
+    },
+    component: () =>
+        import('./views/commentlist/commentlist.vue')
+}, 
 {
     path: '/order',
     name: 'order',

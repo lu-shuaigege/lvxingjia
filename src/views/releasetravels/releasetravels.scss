@@ -90,6 +90,9 @@
       box-sizing: border-box;
       background: #fff;
       border: 1px solid;
+      .content-bottom-input {
+        width: 100%;
+      }
     }
     .content-ok {
       width: 10rem;

@@ -125,7 +125,7 @@ export default {
       // sessionStorage.setItem("hoteldetailsid", this.hoteldetailsid);
       //路由跳转携带参数
       this.$router.push({
-        name: "hoteldetails",
+        name: "travelsdetail",
         params: {
           // hoteldetailsid: this.hoteldetailsid
         }
