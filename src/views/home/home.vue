@@ -292,21 +292,21 @@ export default {
     //axios请求轮播图
     domesticlistfn: function(x) {
       this.domesticactive = x;
-      this.$api.get(
-        "banners/about-us",
-        {
-          page: 1,
-          pageSize: 10
-        },
-        response => {
-          if (response.status >= 200 && response.status < 300) {
-            // console.log(response.data); //请求成功，response为成功信息参数
-            // this.bannertop_img = response.data.data[0];
-          } else {
-            // console.log(response.message); //请求失败，response为失败信息
-          }
-        }
-      );
+      // this.$api.get(
+      //   "banners/about-us",
+      //   {
+      //     page: 1,
+      //     pageSize: 10
+      //   },
+      //   response => {
+      //     if (response.status >= 200 && response.status < 300) {
+      //       // console.log(response.data); //请求成功，response为成功信息参数
+      //       // this.bannertop_img = response.data.data[0];
+      //     } else {
+      //       // console.log(response.message); //请求失败，response为失败信息
+      //     }
+      //   }
+      // );
     }
   }
 };
