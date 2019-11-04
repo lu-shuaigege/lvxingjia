@@ -3,11 +3,13 @@
   height: 100vh;
   background: rgb(243, 243, 243);
 }
+
 .banner {
   width: 100%;
   height: 5.387rem;
   position: relative;
 }
+
 // 顶部栏
 .bannertop {
   width: 10rem;
@@ -30,6 +32,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 0;
+
     div {
       height: 0.4rem;
       font-family: MicrosoftYaHei;
@@ -40,11 +43,13 @@
       letter-spacing: 0.008rem;
       color: #333333;
     }
+
     img {
       width: 0.28rem;
       height: 0.147rem;
     }
   }
+
   .bannertop-center {
     width: 6.893rem;
     height: 0.8rem;
@@ -54,11 +59,13 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
+
     img {
       width: 0.4rem;
       height: 0.4rem;
       margin-right: 0.24rem;
     }
+
     div {
       height: 0.32rem;
       font-family: MicrosoftYaHei;
@@ -70,19 +77,23 @@
       color: #999999;
     }
   }
+
   .bannertop-right {
     width: 0.467rem;
     height: 0.493rem;
+
     img {
       width: 100%;
       height: 100%;
     }
   }
 }
+
 // 轮播
 .banners {
   margin-top: 1.133rem;
 }
+
 // 播报
 .banner-bottom {
   width: 10rem;
@@ -92,6 +103,7 @@
   position: absolute;
   bottom: 0px;
   left: 0px;
+
   .bobao {
     width: 100%;
     height: 0.427rem;
@@ -103,16 +115,25 @@
     left: 0px;
     display: flex;
     align-items: center;
+
     img {
       width: 0.533rem;
       height: 0.427rem;
-      margin-right: 0.36rem;
+      // margin-right: 0.36rem;
     }
+
     .bobaos {
       width: 8.413rem;
       overflow: hidden;
+      // padding-left: 0.36rem;
+      box-sizing: border-box;
+      // margin-right: 0.347rem;
+
       .news {
+        width: 8.613rem;
         height: 0.333rem;
+        padding-left: 0.36rem;
+        box-sizing: border-box;
         font-family: MicrosoftYaHei;
         font-size: 0.32rem;
         font-weight: normal;
@@ -124,6 +145,7 @@
     }
   }
 }
+
 // 周边游
 .center {
   width: 10rem;
@@ -132,11 +154,13 @@
   margin: 0.253rem 0;
   padding: 1px;
   box-sizing: border-box;
+
   .threeimg {
     width: 7.68rem;
     margin: 0.52rem auto 0 auto;
     display: flex;
     justify-content: space-between;
+
     .threeimgitem {
       width: 1.147rem;
       height: 1.69rem;
@@ -145,11 +169,13 @@
       flex-wrap: wrap;
       align-content: space-between;
       justify-content: center;
+
       img {
         width: 1.147rem;
         height: 1.147rem;
         border-radius: 0.4rem;
       }
+
       div {
         height: 0.32rem;
         font-family: MicrosoftYaHei;
@@ -162,6 +188,7 @@
       }
     }
   }
+
   .threeimg-down {
     width: 9.307rem;
     height: 1.56rem;
@@ -169,10 +196,12 @@
     border-radius: 0.267rem;
     margin: 0.267rem auto 0 auto;
     display: flex;
+
     .threeimg-down-item {
       width: 20%;
       text-align: center;
       border-right: 1px solid #e7e7e7;
+
       .item-p1 {
         height: 0.32rem;
         font-family: MicrosoftYaHei;
@@ -184,6 +213,7 @@
         color: #333333;
         margin-top: 0.347rem;
       }
+
       .item-p2 {
         height: 0.267rem;
         font-family: MicrosoftYaHei;
@@ -196,11 +226,13 @@
         margin: 0.227rem;
       }
     }
+
     .threeimg-down-item:nth-child(5) {
       border-right: 0px;
     }
   }
 }
+
 // 四大类
 .classitem {
   width: 10rem;
@@ -210,15 +242,18 @@
   padding: 1px;
   box-sizing: border-box;
   display: flex;
+
   .classitem-item {
     font-size: 0px;
     width: 25%;
     text-align: center;
+
     img {
       width: 0.667rem;
       height: 0.693rem;
       margin-top: 0.333rem;
     }
+
     p {
       height: 0.293rem;
       font-family: MicrosoftYaHei;
@@ -232,6 +267,7 @@
     }
   }
 }
+
 // 热门推荐
 .hot {
   width: 10rem;
@@ -252,22 +288,26 @@
     color: #333333;
     margin: 0.527rem 0 0.427rem 0.1rem;
   }
+
   .hotlist {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
     .hotlist-item {
       width: 4.533rem;
       height: 6.894rem;
       border-radius: 0.267rem;
 
       margin-bottom: 0.253rem;
+
       .hotitem-top {
         position: relative;
         font-size: 0px;
         border-radius: 0.267rem 0.267rem 0rem 0rem;
         overflow: hidden;
+
         .top {
           position: absolute;
           top: 0px;
@@ -285,12 +325,15 @@
           color: #ffffff;
           display: flex;
           justify-content: center;
+          align-items: center;
         }
+
         img {
           width: 100%;
           height: 4.547rem;
         }
       }
+
       .hotitem-bottom {
         width: 4.533rem;
         height: 2.373rem;
@@ -299,6 +342,7 @@
         border-top: 0;
         padding: 1px;
         box-sizing: border-box;
+
         .hotitem-title {
           width: 100%;
           height: 1rem;
@@ -318,13 +362,16 @@
           -webkit-line-clamp: 2;
           margin: 0.1rem 0;
         }
+
         .money {
           height: 0.36rem;
           padding: 0px 0.2rem;
           box-sizing: border-box;
+
           span {
             display: inline-block;
           }
+
           .moneysp1 {
             height: 0.253rem;
             font-family: MicrosoftYaHei;
@@ -336,6 +383,7 @@
             color: #ff620e;
             margin-right: 0.08rem;
           }
+
           .moneysp2 {
             height: 0.36rem;
             font-family: MicrosoftYaHei-Bold;
@@ -347,6 +395,7 @@
             color: #ff620e;
             margin-right: 0.133rem;
           }
+
           .moneysp3 {
             height: 0.32rem;
             font-family: MicrosoftYaHei;
@@ -370,6 +419,7 @@
   margin: 0.253rem 0;
   padding: 1px 0.347rem;
   box-sizing: border-box;
+
   .domestic-top {
     width: 6.267rem;
     height: 0.56rem;
@@ -384,11 +434,13 @@
     justify-content: space-between;
     align-items: center;
     margin: 0.48rem auto;
+
     .top-center {
       width: 1px;
       height: 0.56rem;
       background-color: #cacaca;
     }
+
     .top-left {
       height: 0.4rem;
       font-family: MicrosoftYaHei-Bold;
@@ -399,14 +451,16 @@
       letter-spacing: 0.024rem;
       color: #2cba55;
     }
-    
+
   }
+
   .domesticlist {
     .item {
       width: 9.307rem;
       height: 6.493rem;
       margin-bottom: 0.4rem;
       border-radius: 0.267rem;
+
       .domestictop {
         width: 9.307rem;
         height: 3.253rem;
@@ -414,6 +468,7 @@
         font-size: 0px;
         border-radius: 0.267rem 0.267rem 0rem 0rem;
         overflow: hidden;
+
         .top {
           position: absolute;
           top: 0px;
@@ -432,12 +487,14 @@
           display: flex;
           justify-content: center;
         }
+
         img {
           width: 9.307rem;
           height: 3.253rem;
           border-radius: 0.267rem 0.267rem 0rem 0rem;
         }
       }
+
       .domestic-bottom {
         width: 9.307rem;
         height: 3.253rem;
@@ -446,6 +503,7 @@
         border-top: 0;
         padding: 1px;
         box-sizing: border-box;
+
         .domestic-title {
           width: 8.4rem;
           height: 0.373rem;
@@ -463,6 +521,7 @@
           -webkit-line-clamp: 1;
           margin: 0.293rem auto 0.2rem;
         }
+
         .domestic-word {
           width: 8.493rem;
           height: 0.967rem;
@@ -480,6 +539,7 @@
           -webkit-line-clamp: 2;
           margin: 0 auto;
         }
+
         .money {
           height: 0.36rem;
           padding: 0px 0.2rem;
@@ -487,9 +547,11 @@
           margin-top: 0.5rem;
           display: flex;
           align-items: flex-end;
+
           div {
             display: inline-block;
           }
+
           .moneysp1 {
             height: 0.253rem;
             font-family: MicrosoftYaHei;
@@ -501,6 +563,7 @@
             color: #ff620e;
             margin-right: 0.08rem;
           }
+
           .moneysp2 {
             height: 0.36rem;
             font-family: MicrosoftYaHei-Bold;
@@ -512,6 +575,7 @@
             color: #ff620e;
             margin-right: 0.133rem;
           }
+
           .moneysp3 {
             height: 0.32rem;
             font-family: MicrosoftYaHei;

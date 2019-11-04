@@ -241,6 +241,19 @@ export const contentsRouter = [{
     },
     component: () =>
         import('./views/order/order.vue')
+
+
+},
+{
+    path: '/orderdetails',
+    name: 'orderdetails',
+    meta: {
+        title: '订单详情',
+    },
+    component: () =>
+        import('./views/orderdetails/orderdetails.vue')
+
+
 },
 {
     path: '/my',
