@@ -36,10 +36,14 @@
             <div class="leftb">￥{{item.money}}</div>
           </div>
           <div class="item-bottom-right">
-            <div v-if="item.zhuangtai==0||item.zhuangtai==1" class="close">取消订单</div>
-            <div v-if="item.zhuangtai==0" class="payorder" @click="payfn()">立即支付</div>
-            <div v-if="item.zhuangtai==2" class="goevaluate">去评价</div>
-            <div v-if="item.zhuangtai==3" class="del">删除</div>
+            <div
+              v-if="item.zhuangtai==0||item.zhuangtai==1"
+              class="close"
+              @click="payfn(item.zhuangtai)"
+            >取消订单</div>
+            <div v-if="item.zhuangtai==0" class="payorder" @click="payfn(item.zhuangtai)">立即支付</div>
+            <div v-if="item.zhuangtai==2" class="goevaluate" @click="payfn(item.zhuangtai)">去评价</div>
+            <div v-if="item.zhuangtai==3" class="del" @click="payfn(item.zhuangtai)">删除</div>
           </div>
         </div>
       </div>
@@ -55,7 +59,8 @@ export default {
   name: "order",
   data() {
     return {
-      topbtnactive: 0,
+      topbtnactive: 0, //订单类型切换状态
+      orderstateid: 0, //订单状态id
       topbtn: [
         {
           id: 0,
@@ -77,7 +82,7 @@ export default {
       orderlist: [
         {
           ordernumber: 123123456,
-          zhuangtai: 0,
+          zhuangtai: 0, //代付款
           title: "登山杖碳素超轻超短伸",
           date: "9月29日",
           chengren: 2,
@@ -90,7 +95,7 @@ export default {
           zhuangtai: 1,
           title:
             ".登山杖碳素超轻超短伸登山杖碳素超轻登山杖碳素超轻超短伸登山杖碳素超轻",
-          date: "9月29日",
+          date: "9月29日//代出行",
           chengren: 2,
           ertong: 1,
           money: 298.0,
@@ -98,7 +103,7 @@ export default {
         },
         {
           ordernumber: 123123456,
-          zhuangtai: 2,
+          zhuangtai: 2,//代点评
           title: "登山杖碳素超轻超短伸",
           date: "9月29日",
           chengren: 2,
@@ -147,9 +152,9 @@ export default {
       this.topbtnactive = x;
     },
     payfn: function(x) {
-      // this.peripheryid = x;
+      this.orderstateid = x;
       //把页面要传的参数存到sessionStorage里面
-      // sessionStorage.setItem("peripheryid", this.peripheryid);
+      sessionStorage.setItem("orderstateid", this.orderstateid);
       //路由跳转携带参数
       this.$router.push({
         name: "orderdetails",

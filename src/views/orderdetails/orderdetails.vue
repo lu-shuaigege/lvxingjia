@@ -25,6 +25,7 @@
         </div>
       </div>
     </div>
+    <!-- 订单编号 -->
     <div class="content-bottom">
       <div class="list">
         <div class="list-left">订单编号 :</div>
@@ -43,13 +44,30 @@
         <div class="list-right">{{item.chuxing}}</div>
       </div>
     </div>
-    <div class="bottom-btn">
+    <!-- 服务评价 -->
+    <div class="content-evaluate" v-show="evaluateok==1">
+      <div class="content-evaluate-top">服务评价</div>
+      <div class="evaluate-list1">
+        <div class="evaluate-left">服务评价</div>
+        <yd-rate slot="left" v-model="rate1" color="#999999" active-color="#2dba55"></yd-rate>
+      </div>
+      <div class="evaluate-list1">
+        <div class="evaluate-left">方案评分</div>
+        <yd-rate slot="left" v-model="rate2" color="#999999" active-color="#2dba55"></yd-rate>
+      </div>
+      <div class="evaluate-list3">评价 : {{evaluateword}}</div>
+    </div>
+    <div class="bottom-btn" v-show="orderstateid==0">
       <div class="left-btn" @click="okfn(2)">取消订单</div>
       <div class="right-btn">立即支付</div>
     </div>
-    <!-- 取消订单弹框 -->
+    <div class="bottom-btn" v-show="orderstateid==2">
+      <div class="centerbtn" @click="okfn(3)">去评价</div>
+    </div>
+    <!-- 弹框 -->
     <div class="nopay" ref="nopay">
-      <div class="nopaycontent">
+      <!-- 取消订单弹框 -->
+      <div class="nopaycontent" v-if="orderstateid==0">
         <div class="nopay-top">
           <div class="nopay-top-left" @click="okfn(0)">取消</div>
           <div class="nopay-top-center">选择取消原因</div>
@@ -62,6 +80,27 @@
           :key="index"
         >{{item}}</div>
       </div>
+      <!-- 评论 -->
+      <div class="evaluate">
+        <div class="evaluate-top">服务评价</div>
+        <div class="evaluate-cneter">
+          <div class="evaluate-list1">
+            <div class="evaluate-left">服务评价</div>
+            <yd-rate slot="left" v-model="rate1" color="#999999" active-color="#2dba55"></yd-rate>
+          </div>
+          <div class="evaluate-list1">
+            <div class="evaluate-left">方案评分</div>
+            <yd-rate slot="left" v-model="rate2" color="#999999" active-color="#2dba55"></yd-rate>
+          </div>
+          <div class="evaluate-list3">
+            <textarea type="text" v-model="evaluateword" />
+          </div>
+        </div>
+        <div class="evaluate-bottom">
+          <div class="evaluate-btn-left" @click="okfn(0)">取消</div>
+          <div class="evaluate-btn-right" @click="okfn(4)">保存</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -71,7 +110,12 @@ export default {
   name: "orderdetails",
   data() {
     return {
-      listactive: 0,
+      listactive: 0, //取消购买弹框点击效果状态
+      orderstateid: 0, //订单状态id
+      rate1: 0, //评论1
+      rate2: 0, //评论2
+      evaluateword: "评价 : 服务态度很好,制作方案很喜欢", //评论内容
+      evaluateok: 0, //评论显示不显示
       nopaylist: ["信息填写错误,重新拍", "我不想买了", "卖家缺货", "其他原因"],
       item: {
         ordernumber: 123123456,
@@ -88,6 +132,12 @@ export default {
       }
     };
   },
+  created() {
+    this.orderstateid = sessionStorage.getItem(
+      "orderstateid",
+      this.orderstateid
+    );
+  },
   methods: {
     nopaylistfn: function(x) {
       this.listactive = x;
@@ -99,6 +149,12 @@ export default {
         this.$refs.nopay.style.top = "100vh";
       } else if (x == 2) {
         this.$refs.nopay.style.top = "0px";
+      } else if (x == 3) {
+        this.$refs.nopay.style.top = "0px";
+      } else if (x == 4) {
+        this.$refs.nopay.style.top = "100vh";
+        this.evaluateok = 1;
+        console.log(this.evaluateok);
       }
     }
   }
