@@ -6,7 +6,7 @@
         <img src="../../assets/img/my/qiandao.png" alt />
         <div>去签到</div>
       </div>
-      <div class="mytop-bottom">
+      <div class="mytop-bottom" @click="myinformationfn()">
         <img src="../../assets/img/my/jifen.png" class="mytop-bottom-left" alt />
         <div class="mytop-bottom-right">
           <div class="mytop-bottom-right-top">{{nikename}}</div>
@@ -31,11 +31,28 @@
           <div class="money-left-bottom">积分余额</div>
         </div>
       </div>
+      <!-- 四图 -->
       <div class="myitem">
         <div class="myitem-item" v-for="(item,index) in myitem" :key="index">
           <img :src="item.img" alt />
           <div class="myitem-item-title">{{item.title}}</div>
         </div>
+      </div>
+      <!-- 列表 -->
+      <div class="mylist">
+        <div class="mylist-list" v-for="(item,indexa) in mylist" :key="indexa">
+          <div class="mylist-list-left">
+            <div class="mylist-list-img">
+              <img class="mylist-list-img-img" :src="item.img" alt />
+            </div>
+
+            <div class="mylist-list-title">{{item.title}}</div>
+          </div>
+          <img class="mylist-list-right" src="../../assets/img/my/right.png" alt />
+        </div>
+      </div>
+      <div class="settledin">
+        <img src="../../assets/img/my/goapply.png" alt />
       </div>
     </div>
     <Tab></Tab>
@@ -71,11 +88,40 @@ export default {
           title: "我的游记",
           img: require("../../assets/img/my/youji.png")
         }
+      ],
+      mylist: [
+        {
+          title: "我的粉丝",
+          img: require("../../assets/img/my/fensi.png")
+        },
+        {
+          title: "发布路线",
+          img: require("../../assets/img/my/releaseroute.png")
+        },
+        {
+          title: "收货地址",
+          img: require("../../assets/img/my/address.png")
+        },
+        {
+          title: "常用旅客",
+          img: require("../../assets/img/my/frequenttravellers.png")
+        },
+        {
+          title: "我的收藏",
+          img: require("../../assets/img/my/collection.png")
+        }
       ]
     };
   },
   components: {
     Tab
+  },
+  methods: {
+    myinformationfn: function() {
+      this.$router.push({
+        name: "myinformation"
+      });
+    }
   }
 };
 </script>

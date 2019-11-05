@@ -1,0 +1,144 @@
+.myinformation {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    padding: 0px 0.347rem;
+    box-sizing: border-box;
+
+    .headportrait-btn {
+        width: 100%;
+        height: 1.987rem;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        opacity: 0;
+        z-index: 2;
+    }
+
+    .camera {
+        position: fixed;
+        top: 100vh;
+        left: 0px;
+    }
+
+    .imgfile {
+        position: fixed;
+        top: 100vh;
+        right: 0px;
+    }
+
+    .headportrait {
+        width: 100%;
+        height: 1.987rem;
+        border-bottom: 1px solid #e7e7e7;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .headportrait-left {
+            height: 0.373rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.373rem;
+            letter-spacing: 0.023rem;
+            color: #333333;
+        }
+
+        .headportrait-right {
+            display: flex;
+            align-items: center;
+
+            .headportrait-right-img {
+
+                width: 1.307rem;
+                height: 1.307rem;
+                border-radius: 50%;
+            }
+
+            .headportrait-right-imgright {
+                margin-left: 0.333rem;
+                width: 0.147rem;
+                height: 0.28rem;
+            }
+        }
+    }
+
+    .gender-btn {
+        width: 100%;
+        height: 1.333rem;
+        position: absolute;
+        left: 0px;
+        top: 4.6rem;
+        opacity: 0;
+        z-index: 2;
+    }
+
+    .myinformation-list {
+        width: 100%;
+        height: 1.333rem;
+        border-bottom: 1px solid #e7e7e7;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .headportrait-left {
+            height: 0.373rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.373rem;
+            letter-spacing: 0.023rem;
+            color: #333333;
+        }
+
+        .headportrait-right {
+            display: flex;
+            align-items: center;
+
+            .word {
+                height: 0.307rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.373rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.307rem;
+                letter-spacing: 0rem;
+                color: #999999;
+            }
+
+            .headportrait-right-img {
+
+                width: 1.307rem;
+                height: 1.307rem;
+                border-radius: 50%;
+            }
+
+            .headportrait-right-imgright {
+                margin-left: 0.333rem;
+                width: 0.147rem;
+                height: 0.28rem;
+            }
+        }
+    }
+
+    .okmyinformation {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+
+        width: 10rem;
+        height: 1.307rem;
+        background-color: #2bbb55;
+        font-family: MicrosoftYaHei;
+        font-size: 0.373rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 1.307rem;
+        letter-spacing: 0.023rem;
+        color: #ffffff;
+        text-align: center;
+    }
+}
