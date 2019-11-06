@@ -285,6 +285,33 @@ export const contentsRouter = [{
         component: () =>
             import('./views/modifynikename/modifynikename.vue')
     },
+    {
+        path: '/fans',
+        name: 'fans',
+        meta: {
+            title: '我的粉丝',
+        },
+        component: () =>
+            import('./views/fans/fans.vue')
+    },
+    {
+        path: '/line',
+        name: 'line',
+        meta: {
+            title: '我的粉丝',
+        },
+        component: () =>
+            import('./views/line/line.vue')
+    },
+    {
+        path: '/releaseline',
+        name: 'releaseline',
+        meta: {
+            title: '我的粉丝',
+        },
+        component: () =>
+            import('./views/releaseline/releaseline.vue')
+    },
 ]
 
 export default new Router({

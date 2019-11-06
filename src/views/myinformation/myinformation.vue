@@ -52,7 +52,13 @@
         <img src="../../assets/img/my/right.png" class="headportrait-right-imgright" alt />
       </div>
     </div>
-    <div class="okmyinformation">保存</div>
+    <div class="myinformation-list">
+      <div class="headportrait-left">详细地址</div>
+      <div class="headportrait-right">
+        <input class="word" v-model="adderssa" type="text" placeholder="请填写详细地址" />
+      </div>
+    </div>
+    <div class="okmyinformation" @click="okmyfn()">保存</div>
     <yd-actionsheet :items="myItemsa" v-model="showa" cancel="取消"></yd-actionsheet>
     <yd-actionsheet :items="myItemsb" v-model="showb" cancel="取消"></yd-actionsheet>
   </div>
@@ -67,6 +73,7 @@ export default {
       gender: "女",
       date: "1990-08-08",
       adderss: "请选择常住地址",
+      adderssa:"",
       tel: "15511111111",
       money: "10000.00",
       jifen: 1111400,
@@ -108,11 +115,13 @@ export default {
   },
   components: {},
   methods: {
-    // myinformationfn: function() {
-    //   this.$router.push({
-    //     name: "myinformation"
-    //   });
-    // },
+    //点击保存跳转我的页面
+    okmyfn: function() {
+      this.$router.push({
+        name: "my"
+      });
+    },
+    // 跳转改变昵称
     nikenamefn: function() {
       this.$router.push({
         name: "modifynikename"

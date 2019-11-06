@@ -1,0 +1,204 @@
+.lines {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+
+    .release {
+        width: 4.667rem;
+        height: 1.2rem;
+        background: #2dba55;
+        box-shadow: 0rem 0.08rem 0.133rem 0rem rgba(0, 134, 41, 0.26);
+        border-radius: 0.6rem;
+        position: fixed;
+        z-index: 9;
+        left: 2.667rem;
+        bottom: 1.013rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .release-item {
+            width: 50%;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.2rem;
+            letter-spacing: 0.008rem;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .release-center {
+            width: 1px;
+            height: 0.64rem;
+            background: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    //   列表
+    .list {
+        width: 100%;
+        padding: 0px 0.347rem;
+        box-sizing: border-box;
+
+        .item {
+            width: 100%;
+            height: 3.747rem;
+            border-bottom: 1px solid #e7e7e7;
+            display: flex;
+            align-items: center;
+
+            .left {
+                width: 3.52rem;
+                height: 2.667rem;
+                border-radius: 0.133rem;
+                overflow: hidden;
+                position: relative;
+                margin-right: 0.267rem;
+
+                .left-top {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 2rem;
+                    height: 0.653rem;
+                    background-color: rgba($color: #2dba55, $alpha: 0.9);
+                    border-radius: 0.267rem 0rem 0.267rem 0rem;
+                    border-radius: 0rem 0rem 0.267rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.267rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.653rem;
+                    letter-spacing: 0.005rem;
+                    color: #ffffff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                img {
+                    width: 9.307rem;
+                    height: 3.253rem;
+                    border-radius: 0.267rem 0.267rem 0rem 0rem;
+                }
+            }
+
+            .right {
+                width: 5.533rem;
+                // height: 3.747rem;
+
+                .title {
+                    height: 0.373rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.373rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.373rem;
+                    letter-spacing: 0.023rem;
+                    color: #333333;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                    margin: 0.133rem auto 0.253rem;
+                }
+
+                .word {
+                    height: 0.32rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.32rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.32rem;
+                    letter-spacing: 0.019rem;
+                    color: #999999;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                    margin: 0.2rem auto 0.453rem;
+                }
+
+                .integral {
+                    height: 0.293rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.293rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.293rem;
+                    letter-spacing: 0.005rem;
+                    color: #cacaca;
+                    margin-bottom: 0.307rem;
+                }
+
+                .money {
+                    height: 0.36rem;
+                    //   padding: 0px 0.2rem;
+                    box-sizing: border-box;
+                    // margin-top: 0.5rem;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: space-between;
+
+                    .money-left {
+                        display: flex;
+                        align-items: flex-end;
+
+                        .moneysp1 {
+                            height: 0.253rem;
+                            font-family: MicrosoftYaHei;
+                            font-size: 0.32rem;
+                            font-weight: normal;
+                            font-stretch: normal;
+                            line-height: 0.253rem;
+                            letter-spacing: 0.007rem;
+                            color: #ff620e;
+                            margin-right: 0.08rem;
+                        }
+
+                        .moneysp2 {
+                            height: 0.36rem;
+                            font-family: MicrosoftYaHei-Bold;
+                            font-size: 0.453rem;
+                            font-weight: bold;
+                            font-stretch: normal;
+                            line-height: 0.36rem;
+                            letter-spacing: 0.009rem;
+                            color: #ff620e;
+                            margin-right: 0.133rem;
+                        }
+
+                        .moneysp3 {
+                            height: 0.32rem;
+                            font-family: MicrosoftYaHei;
+                            font-size: 0.32rem;
+                            font-weight: normal;
+                            font-stretch: normal;
+                            line-height: 0.32rem;
+                            letter-spacing: 0.007rem;
+                            color: #999999;
+                        }
+                    }
+
+                    .money-right {
+                        .ok {
+                            height: 0.373rem;
+                            font-family: MicrosoftYaHei;
+                            font-size: 0.4rem;
+                            font-weight: normal;
+                            font-stretch: normal;
+                            line-height: 0.373rem;
+                            letter-spacing: 0.008rem;
+                            color: #ff620e;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

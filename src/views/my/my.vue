@@ -40,7 +40,12 @@
       </div>
       <!-- 列表 -->
       <div class="mylist">
-        <div class="mylist-list" v-for="(item,indexa) in mylist" :key="indexa">
+        <div
+          class="mylist-list"
+          @click="mylistfn(indexa)"
+          v-for="(item,indexa) in mylist"
+          :key="indexa"
+        >
           <div class="mylist-list-left">
             <div class="mylist-list-img">
               <img class="mylist-list-img-img" :src="item.img" alt />
@@ -121,6 +126,18 @@ export default {
       this.$router.push({
         name: "myinformation"
       });
+    },
+    // 列表点击
+    mylistfn: function(listid) {
+      if (listid == 0) {
+        this.$router.push({
+          name: "fans"
+        });
+      } else if (listid == 1) {
+        this.$router.push({
+          name: "line"
+        });
+      }
     }
   }
 };
