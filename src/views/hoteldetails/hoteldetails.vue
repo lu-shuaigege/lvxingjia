@@ -240,13 +240,9 @@ export default {
     // 跳转预订信息填写页面
     ticketbookingfn: function(x) {
       if (this.twoclass == 1) {
-        console.log(x);
         this.ticketbookingid = x + 0.1;
-        console.log(this.ticketbookingid);
       } else if (this.twoclass == 2) {
-        console.log(x);
         this.ticketbookingid = x + 0.2;
-        console.log(this.ticketbookingid);
       }
 
       //把页面要传的参数存到sessionStorage里面
@@ -321,10 +317,8 @@ export default {
         },
         response => {
           if (response.status >= 200 && response.status < 300) {
-            // console.log(response.data); //请求成功，response为成功信息参数
             // this.bannertop_img = response.data.data[0];
           } else {
-            // console.log(response.message); //请求失败，response为失败信息
           }
         }
       );

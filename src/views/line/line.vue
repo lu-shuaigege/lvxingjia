@@ -107,11 +107,8 @@ export default {
         },
         response => {
           if (response.status >= 200 && response.status < 300) {
-            console.log(response.data); //请求成功，response为成功信息参数
             let data = response.data.data.data;
-            console.log(data);
             for (var index in data) {
-              // console.log(data[index]);
               this.imglist.push(data[index]);
             }
 
@@ -119,12 +116,10 @@ export default {
             this.display = response.data.per_page;
             this.current_page = response.data.current_page;
             this.last_page = response.data.last_page;
-            console.log(this.imglist);
             if (this.current_page == this.last_page) {
               this.updown = "- 我也是有底线的 -";
             }
           } else {
-            console.log(response.message); //请求失败，response为失败信息
           }
         }
       );

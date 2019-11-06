@@ -154,7 +154,6 @@ export default {
       } else if (x == 4) {
         this.$refs.nopay.style.top = "100vh";
         this.evaluateok = 1;
-        console.log(this.evaluateok);
       }
     }
   }

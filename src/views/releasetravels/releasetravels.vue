@@ -85,15 +85,12 @@ export default {
   methods: {
     // 富文本编辑器用得
     onEditorBlur() {
-      console.log("blur", this.messages);
     },
 
     onEditorFocus() {
-      console.log("focus", this.messages);
     },
 
     onEditorReady() {
-      console.log("ready", this.messages);
     },
     // 打开弹窗
     popupupfn: function() {
@@ -102,7 +99,6 @@ export default {
     // 输入框失去焦点时的位置
     handleInputBlur(e) {
       this.blurIndex = e.srcElement.selectionStart;
-      console.log(this.blurIndex);
     },
     // 点击弹窗确定
     popupokfn: function() {

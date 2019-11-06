@@ -77,8 +77,6 @@ export default {
   components: {},
   watch: {
     search(newsearch, oldsearch) {
-      console.log(newsearch);
-      console.log(oldsearch);
       if (newsearch.length == 0) {
         this.no = 0;
       }
@@ -92,7 +90,6 @@ export default {
     },
     //弹框
     popup(x) {
-      console.log(x);
       if (x == 1) {
         this.search = [];
         this.isshow = 0;
@@ -111,10 +108,8 @@ export default {
         },
         response => {
           if (response.status >= 200 && response.status < 300) {
-            // console.log(response.data); //请求成功，response为成功信息参数
             // this.bannertop_img = response.data.data[0];
           } else {
-            // console.log(response.message); //请求失败，response为失败信息
           }
         }
       );
