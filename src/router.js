@@ -298,7 +298,7 @@ export const contentsRouter = [{
         path: '/line',
         name: 'line',
         meta: {
-            title: '我的粉丝',
+            title: '我的线路',
         },
         component: () =>
             import('./views/line/line.vue')
@@ -307,10 +307,46 @@ export const contentsRouter = [{
         path: '/releaseline',
         name: 'releaseline',
         meta: {
-            title: '我的粉丝',
+            title: '维护线路',
         },
         component: () =>
             import('./views/releaseline/releaseline.vue')
+    },
+    {
+        path: '/releaselinenext',
+        name: 'releaselinenext',
+        meta: {
+            title: '维护线路下一步',
+        },
+        component: () =>
+            import('./views/releaselinenext/releaselinenext.vue')
+    },
+    {
+        path: '/setmenu',
+        name: 'setmenu',
+        meta: {
+            title: '套餐设置',
+        },
+        component: () =>
+            import('./views/setmenu/setmenu.vue')
+    },
+    {
+        path: '/applySettledin',
+        name: 'applySettledin',
+        meta: {
+            title: '申请入驻',
+        },
+        component: () =>
+            import('./views/applySettledin/applySettledin.vue')
+    },
+    {
+        path: '/applydetails',
+        name: 'applydetails',
+        meta: {
+            title: '申请入驻详细',
+        },
+        component: () =>
+            import('./views/applydetails/applydetails.vue')
     },
 ]
 

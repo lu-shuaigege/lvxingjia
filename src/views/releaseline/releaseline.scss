@@ -2,6 +2,17 @@
     width: 100%;
     background: rgb(243, 243, 243);
 
+    .linetype-popup {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        opacity: 0;
+        z-index: 9;
+        margin: 0px;
+        height: 1.2rem;
+        width: 100%;
+    }
+
     .top {
         margin-bottom: 0.267rem;
         background: #fff;
@@ -27,6 +38,21 @@
             }
 
             .list-right {
+                display: flex;
+                align-items: center;
+
+                .choice {
+                    margin-right: 0.2rem;
+                    height: 0.347rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.347rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.347rem;
+                    letter-spacing: 0.021rem;
+                    color: #333333;
+                }
+
                 .rightimg {
                     width: 0.147rem;
                     height: 0.28rem;

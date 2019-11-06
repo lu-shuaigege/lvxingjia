@@ -1,9 +1,12 @@
 <template>
   <div class="releaseline">
     <div class="top">
+      <yd-button class="linetype-popup" @click.native="showa = true" size="large">带取消</yd-button>
+      <yd-actionsheet :items="myItemsa" v-model="showa" cancel="取消"></yd-actionsheet>
       <div class="toplist">
         <div class="list-left">选择路线类型</div>
         <div class="list-right">
+          <div class="choice">{{linetype}}</div>
           <img class="rightimg" src="../../assets/img/my/right.png" alt />
         </div>
       </div>
@@ -64,7 +67,7 @@
           <img class="rightimg" src="../../assets/img/my/right.png" alt />
         </div>
       </div>
-      <div class="toplist">
+      <div class="toplist" @click="setmenufn()">
         <div class="list-left">套餐设置</div>
         <div class="list-right">
           <img class="rightimg" src="../../assets/img/my/right.png" alt />
@@ -87,7 +90,7 @@
     </div>
     <div class="downbtn">
       <div class="downbtn-left">取消</div>
-      <div class="downbtn-right">下一步</div>
+      <div class="downbtn-right" @click="releaselinenextfn()">下一步</div>
     </div>
   </div>
 </template>
@@ -107,7 +110,28 @@ export default {
       gocity: "",
       overcity: "",
       setmeal: "",
-      resort: "苏州纳米科技园"
+      resort: "苏州纳米科技园",
+      showa: false,
+      myItemsa: [
+        {
+          label: "摄影游",
+          callback: () => {
+            this.linetype = "摄影游";
+          }
+        },
+        {
+          label: "户外游",
+          callback: () => {
+            this.linetype = "户外游";
+          }
+        },
+        {
+          label: "自由行",
+          callback: () => {
+            this.linetype = "自由行";
+          }
+        }
+      ]
     };
   },
   components: {},
@@ -139,23 +163,16 @@ export default {
         }
       );
     },
-    //跳转线路详情页
-    linedetailsfn: function(x) {
-      this.linedetailsid = x;
-      //把页面要传的参数存到sessionStorage里面
-      sessionStorage.setItem("linedetailsid", this.linedetailsid);
-      //路由跳转携带参数
+    //跳转发布线路下一步
+    releaselinenextfn: function() {
       this.$router.push({
-        name: "linedetails",
-        params: {
-          linedetailsid: this.linedetailsid
-        }
+        name: "releaselinenext"
       });
     },
-    //跳转发布线路
-    releasefn: function() {
+    //跳转套餐设置
+    setmenufn: function() {
       this.$router.push({
-        name: "linedetails"
+        name: "setmenu"
       });
     }
   }

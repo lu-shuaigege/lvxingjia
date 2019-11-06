@@ -56,7 +56,7 @@
           <img class="mylist-list-right" src="../../assets/img/my/right.png" alt />
         </div>
       </div>
-      <div class="settledin">
+      <div class="settledin" @click="applySettledinfn()">
         <img src="../../assets/img/my/goapply.png" alt />
       </div>
     </div>
@@ -138,6 +138,12 @@ export default {
           name: "line"
         });
       }
+    },
+    // 跳转商家入驻
+    applySettledinfn: function() {
+      this.$router.push({
+        name: "applySettledin"
+      });
     }
   }
 };
