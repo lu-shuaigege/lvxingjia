@@ -15,7 +15,7 @@
           <div class="item-top-left">订单号 : {{item.ordernumber}}</div>
           <div :class="item.zhuangtai==0?'item-top-right1':''" v-if="item.zhuangtai==0">待付款</div>
           <div :class="item.zhuangtai==1?'item-top-right1':''" v-if="item.zhuangtai==1">待出行</div>
-          <div :class="item.zhuangtai==2?'item-top-right1':''" v-if="item.zhuangtai==2">待点评</div>
+          <div :class="item.zhuangtai==2?'item-top-right1':''" v-if="item.zhuangtai==2">待确认</div>
           <div :class="item.zhuangtai==3?'item-top-right1':''" v-if="item.zhuangtai==3">已取消</div>
           <div :class="item.zhuangtai==4?'item-top-right1':''" v-if="item.zhuangtai==4">已完成</div>
         </div>
@@ -42,7 +42,7 @@
               @click="payfn(item.zhuangtai)"
             >取消订单</div>
             <div v-if="item.zhuangtai==0" class="payorder" @click="payfn(item.zhuangtai)">立即支付</div>
-            <div v-if="item.zhuangtai==2" class="goevaluate" @click="payfn(item.zhuangtai)">去评价</div>
+            <div v-if="item.zhuangtai==2" class="goevaluate" @click="payfn(item.zhuangtai)">去确认</div>
             <div v-if="item.zhuangtai==3" class="del" @click="payfn(item.zhuangtai)">删除</div>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default {
         },
         {
           id: 3,
-          title: "待点评"
+          title: "待确认"
         }
       ],
       orderlist: [

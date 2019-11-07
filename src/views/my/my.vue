@@ -33,7 +33,7 @@
       </div>
       <!-- 四图 -->
       <div class="myitem">
-        <div class="myitem-item" v-for="(item,index) in myitem" :key="index">
+        <div class="myitem-item" @click="fourfn(index)" v-for="(item,index) in myitem" :key="index">
           <img :src="item.img" alt />
           <div class="myitem-item-title">{{item.title}}</div>
         </div>
@@ -127,6 +127,18 @@ export default {
         name: "myinformation"
       });
     },
+    // 点击四图
+    fourfn: function(item) {
+      if (item == 0) {
+        this.$router.push({
+          name: "mywallet"
+        });
+      } else if (item == 1) {
+        this.$router.push({
+          name: "myintegral"
+        });
+      }
+    },
     // 列表点击
     mylistfn: function(listid) {
       if (listid == 0) {
@@ -136,6 +148,10 @@ export default {
       } else if (listid == 1) {
         this.$router.push({
           name: "line"
+        });
+      } else if (listid == 2) {
+        this.$router.push({
+          name: "harvestaddress"
         });
       }
     },

@@ -56,7 +56,7 @@
     }
 
     .center {
-        margin: 0.267rem 0px;
+        margin: 0.267rem 0px 0px;
         width: 10rem;
         height: 5.027rem;
         background: #ffffff;
@@ -107,6 +107,21 @@
         }
     }
 
+    .centerb {
+        margin: 0px 0px 0.267rem;
+        width: 10rem;
+        background: #ffffff;
+        padding: 1px 0.36rem;
+        box-sizing: border-box;
+
+        .centerb-img {
+            width: 9.28rem;
+            height: 3.47rem;
+            border-radius: 0rem;
+            margin-bottom: 0.39rem;
+        }
+    }
+
     .bottom {
         width: 10rem;
         height: 3.613rem;
@@ -145,4 +160,51 @@
 
     }
 
+    .agreement {
+        display: flex;
+        align-items: center;
+        padding: 1px 0.347rem;
+        box-sizing: border-box;
+        margin: 0.293rem 0px 0.76rem;
+
+        .read {
+            display: flex;
+            align-items: center;
+            height: 0.32rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.32rem;
+            letter-spacing: 0.019rem;
+            color: #999999;
+        }
+
+        .readactive {
+            display: flex;
+            align-items: center;
+            height: 0.32rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.32rem;
+            letter-spacing: 0.019rem;
+            color: #2bbb55;
+        }
+    }
+
+    .down-btn {
+        width: 10rem;
+        height: 1.307rem;
+        background-color: #2bbb55;
+        font-family: MicrosoftYaHei;
+        font-size: 0.373rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 1.307rem;
+        letter-spacing: 0.023rem;
+        color: #ffffff;
+        text-align: center;
+    }
 }

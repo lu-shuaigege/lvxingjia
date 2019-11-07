@@ -348,6 +348,105 @@ export const contentsRouter = [{
         component: () =>
             import('./views/applydetails/applydetails.vue')
     },
+    {
+        path: '/submitaudit',
+        name: 'submitaudit',
+        meta: {
+            title: '等待审核',
+        },
+        component: () =>
+            import('./views/submitaudit/submitaudit.vue')
+    },
+    {
+        path: '/submitauditok',
+        name: 'submitauditok',
+        meta: {
+            title: '审核成功',
+        },
+        component: () =>
+            import('./views/submitauditok/submitauditok.vue')
+    },
+    {
+        path: '/submitauditnook',
+        name: 'submitauditnook',
+        meta: {
+            title: '审核失败',
+        },
+        component: () =>
+            import('./views/submitauditnook/submitauditnook.vue')
+    },
+    {
+        path: '/agreementword',
+        name: 'agreementword',
+        meta: {
+            title: '协议内容',
+        },
+        component: () =>
+            import('./views/agreementword/agreementword.vue')
+    },
+    {
+        path: '/mywallet',
+        name: 'mywallet',
+        meta: {
+            title: '我的钱包',
+        },
+        component: () =>
+            import('./views/mywallet/mywallet.vue')
+    },
+    {
+        path: '/budgetdetailed',
+        name: 'budgetdetailed',
+        meta: {
+            title: '收支明细',
+        },
+        component: () =>
+            import('./views/budgetdetailed/budgetdetailed.vue')
+    },
+    {
+        path: '/gotakemoney',
+        name: 'gotakemoney',
+        meta: {
+            title: '申请提现',
+        },
+        component: () =>
+            import('./views/gotakemoney/gotakemoney.vue')
+    },
+    {
+        path: '/takemoneyok',
+        name: 'takemoneyok',
+        meta: {
+            title: '申请提现成功',
+        },
+        component: () =>
+            import('./views/takemoneyok/takemoneyok.vue')
+    },
+    {
+        path: '/myintegral',
+        name: 'myintegral',
+        meta: {
+            title: '我的积分',
+        },
+        component: () =>
+            import('./views/myintegral/myintegral.vue')
+    },
+    {
+        path: '/integraldetailed',
+        name: 'integraldetailed',
+        meta: {
+            title: '积分明细',
+        },
+        component: () =>
+            import('./views/integraldetailed/integraldetailed.vue')
+    },
+    {
+        path: '/harvestaddress',
+        name: 'harvestaddress',
+        meta: {
+            title: '收货地址',
+        },
+        component: () =>
+            import('./views/harvestaddress/harvestaddress.vue')
+    },
 ]
 
 export default new Router({

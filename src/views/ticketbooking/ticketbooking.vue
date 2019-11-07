@@ -3,15 +3,28 @@
     <div class="top">
       <div class="top-top">苏州乐园森林水世界</div>
       <div class="top-bottom">
-        <div class="top-bottom-left">出行日期</div>
+        <div class="top-bottom-left">入住日期</div>
         <!-- <div class="top-bottom-center">请选择出行日期</div> -->
         <yd-datetime
-          ref="datetime"
-          v-model="datetime8"
+          ref="datetimea"
+          v-model="datetimea"
           slot="right"
           type="date"
           class="top-bottom-center"
-          @click.native="open"
+          @click.native="opena"
+        >请选择出行日期</yd-datetime>
+        <img class="top-bottom-right" src="../../assets/img/Linelist/right.png" alt />
+      </div>
+      <div class="top-bottom">
+        <div class="top-bottom-left">离店日期</div>
+        <!-- <div class="top-bottom-center">请选择出行日期</div> -->
+        <yd-datetime
+          ref="datetimeb"
+          v-model="datetimeb"
+          slot="right"
+          type="date"
+          class="top-bottom-center"
+          @click.native="openb"
         >请选择出行日期</yd-datetime>
         <img class="top-bottom-right" src="../../assets/img/Linelist/right.png" alt />
       </div>
@@ -94,7 +107,7 @@
           </div>
 
           <div class="explain">说明：100积分可抵扣1元人民币，积分抵扣基数为1000。</div>
-        </div> -->
+        </div>-->
       </div>
       <router-link to="/payok">
         <div class="pay-btn">立即支付</div>
@@ -109,8 +122,9 @@ export default {
 
   data() {
     return {
-      ticketbookingid:0,//酒店页面跳转还是门票跳转
-      datetime8: "", // 选择日期
+      ticketbookingid: 0, //酒店页面跳转还是门票跳转
+      datetimea: "", // 选择日期
+      datetimeb: "", // 选择日期
       look: false, //已阅读入驻协议
       money: 10000, //总价
       switch1: false, //选择积分
@@ -133,15 +147,19 @@ export default {
   },
   components: {},
   created() {
-    this.ticketbookingid=sessionStorage.getItem("ticketbookingid");
+    this.ticketbookingid = sessionStorage.getItem("ticketbookingid");
     this.all();
   },
   watch: {},
 
   methods: {
     //选择日期弹框
-    open() {
-      this.$refs.datetime.open();
+    opena() {
+      this.$refs.datetimea.open();
+    },
+    //选择日期弹框
+    openb() {
+      this.$refs.datetimeb.open();
     },
     // 购票数量加减
     downfn: function(x) {

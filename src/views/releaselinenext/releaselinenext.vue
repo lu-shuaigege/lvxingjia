@@ -31,7 +31,7 @@
     </div>
     <div class="downbtn">
       <div class="downbtn-left" @click="releaselinetopfn()">上一步</div>
-      <div class="downbtn-right">发布</div>
+      <div class="downbtn-right" @click="linefn()">发布</div>
     </div>
   </div>
 </template>
@@ -75,6 +75,12 @@ export default {
     releaselinetopfn: function() {
       this.$router.push({
         name: "releaseline"
+      });
+    },
+    //跳转发布线路列表
+    linefn: function() {
+      this.$router.push({
+        name: "line"
       });
     }
   }

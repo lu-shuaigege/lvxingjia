@@ -1,7 +1,7 @@
 <template>
   <div class="orderdetails">
     <div class="top">
-      <div class="top-title">等待买家付款</div>
+      <div class="top-title">等待买家确认订单</div>
     </div>
     <div class="content-top">
       <div class="item-top">
@@ -62,7 +62,8 @@
       <div class="right-btn">立即支付</div>
     </div>
     <div class="bottom-btn" v-show="orderstateid==2">
-      <div class="centerbtn" @click="okfn(3)">去评价</div>
+      <yd-button class="centerbtn" style="margin:0px !important;" @click.native="openConfrim" size="large">确认订单</yd-button>
+      <!-- <div class="centerbtn" @click="okfn(3)">确认订单</div> -->
     </div>
     <!-- 弹框 -->
     <div class="nopay" ref="nopay">
@@ -139,6 +140,16 @@ export default {
     );
   },
   methods: {
+    // 确认订单
+    openConfrim() {
+      this.$dialog.confirm({
+        title: "确认订单",
+        mes: "是否确认该订单",
+        opts: () => {
+          this.$dialog.toast({ mes: "你点了确定", timeout: 1000 });
+        }
+      });
+    },
     nopaylistfn: function(x) {
       this.listactive = x;
     },
@@ -149,9 +160,11 @@ export default {
         this.$refs.nopay.style.top = "100vh";
       } else if (x == 2) {
         this.$refs.nopay.style.top = "0px";
-      } else if (x == 3) {
-        this.$refs.nopay.style.top = "0px";
-      } else if (x == 4) {
+      }
+      // else if (x == 3) {
+      //   this.$refs.nopay.style.top = "0px";
+      // }
+      else if (x == 4) {
         this.$refs.nopay.style.top = "100vh";
         this.evaluateok = 1;
       }

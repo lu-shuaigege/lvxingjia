@@ -29,12 +29,10 @@
     </div>
     <div class="center">
       <div class="toplist">
-        <div class="list-left">起步价</div>
+        <div class="list-left">行程天数</div>
         <div class="list-right">
-          <div class="list-right">
-            <input type="text" class="right-input" placeholder="请输入起步价" />
-            元
-          </div>
+          <div class="choice">{{linetype}}</div>
+          <img class="rightimg" src="../../assets/img/my/right.png" alt />
         </div>
       </div>
       <div class="toplist">

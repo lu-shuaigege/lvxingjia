@@ -1,0 +1,215 @@
+.budgetdetailed {
+    width: 100%;
+    min-height: 100vh;
+    background: rgb(243, 243, 243);
+
+    .top {
+        width: 10rem;
+        height: 1.2rem;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0px 0.4rem;
+        margin-bottom: 0.267rem;
+
+        .shu {
+            width: 1px;
+            height: 0.853rem;
+            background-color: #e7e7e7;
+        }
+
+        .itemactive {
+            border-bottom: 1px solid #2dba55;
+            width: 1.813rem;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.2rem;
+            letter-spacing: 0.023rem;
+            color: #2dba55;
+            text-align: center;
+        }
+
+        .item {
+            width: 1.813rem;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.2rem;
+            letter-spacing: 0.023rem;
+            color: #333333;
+            text-align: center;
+        }
+    }
+
+    .listcontenta {
+        width: 100%;
+        background: #fff;
+
+        .list:last-child {
+            border: 0px;
+        }
+
+        .list {
+            width: 10rem;
+            height: 2.4rem;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e7e7e7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 0.36rem;
+            box-sizing: border-box;
+
+            .left {
+                display: flex;
+                align-items: center;
+
+                .leftimg {
+                    width: 0.613rem;
+                    height: 0.693rem;
+                    margin-right: 0.4rem;
+
+                    img {
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+                }
+
+                .leftcontent {
+                    .leftcontent-top {
+                        height: 0.373rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.373rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.373rem;
+                        letter-spacing: 0.023rem;
+                        color: #333333;
+                        margin-bottom: 0.253rem;
+
+                    }
+
+                    .leftcontent-center {
+                        height: 0.293rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.293rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.293rem;
+                        letter-spacing: 0.017rem;
+                        color: #999999;
+                        margin-bottom: 0.267rem;
+                    }
+
+                    .leftcontent-bottom {
+                        height: 0.24rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.293rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.24rem;
+                        letter-spacing: 0.017rem;
+                        color: #999999;
+                    }
+                }
+            }
+
+            .right {
+                height: 0.253rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.253rem;
+                letter-spacing: 0.019rem;
+                color: #2dba55;
+            }
+        }
+    }
+
+    .listcontentb {
+        width: 100%;
+        background: #fff;
+
+        .list:last-child {
+            border: 0px;
+        }
+
+        .list {
+            width: 10rem;
+            height: 2.4rem;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e7e7e7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 0.36rem;
+            box-sizing: border-box;
+
+            .left {
+                display: flex;
+                align-items: center;
+
+                .leftcontent {
+                    .leftcontent-top {
+                        height: 0.373rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.373rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.373rem;
+                        letter-spacing: 0.023rem;
+                        color: #333333;
+                        margin-bottom: 0.267rem;
+
+                    }
+
+                    .leftcontent-center {
+                        height: 0.24rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.293rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.24rem;
+                        letter-spacing: 0.017rem;
+                        color: #999999;
+                        margin-bottom: 0.28rem;
+                    }
+
+                    .leftcontent-bottom {
+                        height: 0.307rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.293rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.307rem;
+                        letter-spacing: 0.017rem;
+                        color: #999999;
+
+                    }
+                }
+            }
+
+            .right {
+                font-family: MicrosoftYaHei;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.253rem;
+                letter-spacing: 0.019rem;
+                color: #2dba55;
+                text-align: right;
+
+                .rightmoney {
+                    margin-bottom: 0.187rem;
+                }
+            }
+        }
+    }
+}

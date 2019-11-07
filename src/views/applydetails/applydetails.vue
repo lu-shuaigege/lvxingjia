@@ -27,6 +27,9 @@
         <div class="camara-btn">拍照/上传照片</div>
       </div>
     </div>
+    <div class="centerb">
+      <img class="centerb-img" src="../../assets/img/my/add.png" alt />
+    </div>
     <div class="bottom">
       <div class="toplist">
         <div class="title">开户行</div>
@@ -41,6 +44,17 @@
         <input type="text" class="toplist-right" placeholder="请填写身份证" />
       </div>
     </div>
+    <div class="agreement">
+      <yd-checkbox-group v-model="checkboxa">
+        <yd-checkbox shape="circle">
+          <span></span>
+        </yd-checkbox>
+      </yd-checkbox-group>
+      <div :class="checkboxa==false?'read':'readactive'" @click="agreementwordfn()">
+        <div v-show="checkboxa!=false">已</div>阅读入驻协议
+      </div>
+    </div>
+    <div class="down-btn" @click="submitauditfn()">提交</div>
   </div>
 </template>
 
@@ -48,7 +62,9 @@
 export default {
   name: "applydetails",
   data() {
-    return {};
+    return {
+      checkboxa: ["0"]
+    };
   },
   components: {},
   methods: {
@@ -90,7 +106,21 @@ export default {
       this.$router.push({
         name: "setmenu"
       });
-    }
+    },
+
+    //跳转等待审核
+    submitauditfn: function() {
+      this.$router.push({
+        name: "submitaudit"
+      });
+    },
+    
+    //跳转协议内容
+    agreementwordfn: function() {
+      this.$router.push({
+        name: "agreementword"
+      });
+    },
   }
 };
 </script>

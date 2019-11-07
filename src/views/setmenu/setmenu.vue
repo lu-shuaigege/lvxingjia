@@ -11,7 +11,14 @@
         </div>
       </div>
       <div class="bottom-list">
-        <div class="list-left">套餐价格</div>
+        <div class="list-left">成人价格</div>
+        <div class="list-right">
+          <input type="text" class="list-right-input" placeholder="请填写价格" />
+          <div>元</div>
+        </div>
+      </div>
+      <div class="bottom-list">
+        <div class="list-left">儿童价格</div>
         <div class="list-right">
           <input type="text" class="list-right-input" placeholder="请填写价格" />
           <div>元</div>
@@ -60,12 +67,12 @@ export default {
         }
       );
     },
-    //跳转发布线路下一步
-    // releaselinenextfn: function() {
-    //   this.$router.push({
-    //     name: "releaselinenext"
-    //   });
-    // }
+    // 跳转线路首页
+    releaselinenextfn: function() {
+      this.$router.push({
+        name: "releaseline"
+      });
+    }
   }
 };
 </script>

@@ -1,0 +1,46 @@
+.agreementword {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    padding: 1px 0.4rem;
+    box-sizing: border-box;
+
+    .list {
+        .top {
+            display: flex;
+            align-items: center;
+            margin: 0.52rem 0px 0.4rem;
+
+            .shu {
+                width: 0.107rem;
+                height: 0.32rem;
+                background-color: #2dba55;
+                border-radius: 0.053rem;
+                margin-right: 0.24rem;
+            }
+
+            .title {
+                height: 0.36rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.347rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.36rem;
+                letter-spacing: 0.021rem;
+                color: #333333;
+            }
+        }
+
+        .content {
+            padding-left: 0.293rem;
+            box-sizing: border-box;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.571rem;
+            letter-spacing: 0rem;
+            color: #999999;
+        }
+    }
+}
