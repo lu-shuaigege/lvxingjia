@@ -447,6 +447,60 @@ export const contentsRouter = [{
         component: () =>
             import('./views/harvestaddress/harvestaddress.vue')
     },
+    {
+        path: '/addAdministration',
+        name: 'addAdministration',
+        meta: {
+            title: '添加收货地址',
+        },
+        component: () =>
+            import('./views/addAdministration/addAdministration.vue')
+    },
+    {
+        path: '/oftenpassenger',
+        name: 'oftenpassenger',
+        meta: {
+            title: '常用旅客',
+        },
+        component: () =>
+            import('./views/oftenpassenger/oftenpassenger.vue')
+    },
+    {
+        path: '/newaddpassenger',
+        name: 'newaddpassenger',
+        meta: {
+            title: '添加常用旅客',
+        },
+        component: () =>
+            import('./views/newaddpassenger/newaddpassenger.vue')
+    },
+    {
+        path: '/myexchange',
+        name: 'myexchange',
+        meta: {
+            title: '我的兑换',
+        },
+        component: () =>
+            import('./views/myexchange/myexchange.vue')
+    },
+    {
+        path: '/mytravels',
+        name: 'mytravels',
+        meta: {
+            title: '我的兑换',
+        },
+        component: () =>
+            import('./views/mytravels/mytravels.vue')
+    },
+    {
+        path: '/mycollection',
+        name: 'mycollection',
+        meta: {
+            title: '我的兑换',
+        },
+        component: () =>
+            import('./views/mycollection/mycollection.vue')
+    },
 ]
 
 export default new Router({

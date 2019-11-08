@@ -1,6 +1,6 @@
 <template>
   <div class="applySettledin">
-    <div class="list"></div>
+    <img class="lista" src="../../assets/img/my/inapply.png" alt />
     <div class="list" @click="applydetailsfn()">
       <div class="list-left">
         <img src="../../assets/img/my/cooperation.png" alt />

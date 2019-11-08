@@ -137,6 +137,14 @@ export default {
         this.$router.push({
           name: "myintegral"
         });
+      } else if (item == 2) {
+        this.$router.push({
+          name: "myexchange"
+        });
+      } else if (item == 3) {
+        this.$router.push({
+          name: "mytravels"
+        });
       }
     },
     // 列表点击
@@ -152,6 +160,14 @@ export default {
       } else if (listid == 2) {
         this.$router.push({
           name: "harvestaddress"
+        });
+      } else if (listid == 3) {
+        this.$router.push({
+          name: "oftenpassenger"
+        });
+      } else if (listid == 4) {
+        this.$router.push({
+          name: "mycollection"
         });
       }
     },

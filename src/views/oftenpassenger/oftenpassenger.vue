@@ -4,18 +4,7 @@
       <div class="list" v-for="(item,index) in addresslist" :key="index">
         <div class="listleft">
           <div class="lefta">
-            <img
-              @click="activefn(index)"
-              v-if="active!=index"
-              src="../../assets/img/my/noactive.png"
-              alt
-            />
-            <img
-              @click="activefn(item.id)"
-              v-if="active==index"
-              src="../../assets/img/my/isactive.png"
-              alt
-            />
+            <img src="../../assets/img/my/edit.png" alt />
           </div>
           <div class="leftb">
             <div class="leftb-top">
@@ -31,21 +20,16 @@
         </div>
 
         <div class="right">
-          <div class="righta">
-            <img src="../../assets/img/my/edit.png" alt />
-          </div>
           <div class="rightb" @click="delfn()">
             <img src="../../assets/img/my/del.png" alt />
           </div>
         </div>
       </div>
     </div>
-    <div class="down-btn" v-if="ishaveaddress!=0" @click="addfn()">
-      <img src="../../assets/img/my/plusicon.png" alt />新建地址
-    </div>
+    <div class="down-btn" v-if="ishaveaddress!=0" @click="addfn()">+新建地址</div>
     <div class="popup" v-show="isshow==1">
       <div class="content">
-        <div class="con-word">是否确认清空历史记录?</div>
+        <div class="con-word">确认删除该地址吗?</div>
         <div class="con-bottom">
           <div class="nook" @click="popup(0)">取消</div>
           <div class="isok" @click="popup(1)">确认</div>
@@ -54,10 +38,11 @@
     </div>
     <div class="nohave" v-if="ishaveaddress==0">
       <div class="top">
-        <img src="../../assets/img/my/addressimg.png" alt />
+        <img src="../../assets/img/my/passengerimg.png" alt />
       </div>
-      <div class="nohavetitle">您还没有收货地址哦</div>
-      <div class="newaddress-btn" @click="newaddressfn()">新建地址</div>
+      <div class="newaddress-btn" @click="newaddressfn()">
+        <img src="../../assets/img/my/plusicon.png" alt />新建旅客
+      </div>
     </div>
   </div>
 </template>
@@ -130,7 +115,7 @@ export default {
     // 跳转新增地址
     newaddressfn: function() {
       this.$router.push({
-        name: "addAdministration"
+        name: "newaddpassenger"
       });
     },
     //删除
@@ -151,5 +136,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "harvestaddress.scss";
+@import "oftenpassenger.scss";
 </style>
