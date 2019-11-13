@@ -3,7 +3,7 @@
     <div class="top">
       <div class="banner">
         <div class="bannertop">
-          <div class="bannertop-left">
+          <div class="bannertop-left" @click="gocityfn()">
             <div>苏州</div>
             <img class="bottom-img" src="../../assets/img/home/bottom.png" alt />
           </div>
@@ -133,6 +133,7 @@ export default {
     return {
       domesticactive: 0, //国内游状态切换
       peripheryid: 0, //周边游大类
+      code: "",
       // 轮播图
       banners: [
         {
@@ -275,7 +276,25 @@ export default {
   components: {
     Tab
   },
+  created() {
+    // this.getcitiesfn();
+    // console.log(location.hash);
+    // let codeid = location.hash.split("code=")[1];
+    // this.code = codeid.split("&")[0];
+    // this.getcodefn();
+    // this.getcodefna();
+  },
   methods: {
+    //跳转城市列表
+    gocityfn: function() {
+      //路由跳转携带参数
+      this.$router.push({
+        name: "city",
+        params: {
+          peripheryid: this.peripheryid
+        }
+      });
+    },
     //跳转周边游
     peripheryfn: function(x) {
       this.peripheryid = x;
@@ -289,23 +308,29 @@ export default {
         }
       });
     },
-    //axios请求轮播图
-    domesticlistfn: function(x) {
-      this.domesticactive = x;
-      // this.$api.get(
-      //   "banners/about-us",
-      //   {
-      //     page: 1,
-      //     pageSize: 10
-      //   },
-      //   response => {
-      //     if (response.status >= 200 && response.status < 300) {
-      //       // this.bannertop_img = response.data.data[0];
-      //     } else {
-      //     }
-      //   }
-      // );
+    // 获取城市列表
+    getcitiesfn: function() {
+      let url = this.$ajaxUrl.cities;
+      let params = {};
+      this.$http.get(url, params, res => {
+        console.log(res);
+      });
     }
+    // //axios请求token
+    // getcodefn: function() {
+    //   this.$api.get(
+    //     "/wechat/auth",
+    //     {
+    //       code: this.code
+    //     },
+    //     response => {
+    //       if (response.status >= 200 && response.status < 300) {
+    //         console.log(response.data); //请求成功，response为成功信息参数
+    //       } else {
+    //       }
+    //     }
+    //   );
+    // },
   }
 };
 </script>

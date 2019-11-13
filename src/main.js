@@ -2,8 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import axios from './http.js';
+import qs from 'qs'
+import * as Api from './api/api.js';
+Vue.prototype.$api = Api;
+Vue.prototype.$Ajax = axios;
 import './registerServiceWorker'
-
+// 引入jquery
 import $ from 'jquery'
 
 import YDUI from 'vue-ydui'; /* 相当于import YDUI from 'vue-ydui/ydui.rem.js' */
@@ -26,7 +31,16 @@ Vue.use(VueQuillEditor, {
 
 Vue.config.productionTip = false
 
-new Vue({
+import Vant from 'vant';
+import 'vant/lib/index.css';
+
+Vue.use(Vant);
+
+
+import setTitle from './script/settitle.js'; // 公众号设置页面标题
+window.setTitle = setTitle //挂在window的上面。全局可直接使用的额
+
+let vm = new Vue({
   router,
   store,
   render: h => h(App)

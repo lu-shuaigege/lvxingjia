@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import home from './views/home/home.vue'
 
 Vue.use(Router)
 
@@ -501,10 +500,31 @@ export const contentsRouter = [{
         component: () =>
             import('./views/mycollection/mycollection.vue')
     },
+    {
+        path: '/city',
+        name: 'city',
+        meta: {
+            title: '我的兑换',
+        },
+        component: () =>
+            import('./views/city/city.vue')
+    },
 ]
 
-export default new Router({
+const router = new Router({
     mode: 'hash',
     base: process.env.BASE_URL,
     routes: contentsRouter
 })
+
+// 路由变化
+router.afterEach(function (to) {
+    if (to.meta && to.meta.title) {
+        //console.info(to.meta.title)
+        // 根据路由变化设置title
+        setTitle(to.meta.title);
+    }
+})
+
+
+export default router;
