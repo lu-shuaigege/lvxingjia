@@ -3,7 +3,13 @@
     <div class="top">
       <div class="topcontent">
         <img src="../../assets/img/search/chakan.png" alt />
-        <input class="topinput" type="text" placeholder="大家都在搜索“日本樱花”" />
+        <input
+          @click="searchfn()"
+          v-model="searchword"
+          class="topinput"
+          type="text"
+          placeholder="大家都在搜索“日本樱花”"
+        />
       </div>
       <router-link to="/home">
         <div class="over">取消</div>
@@ -26,7 +32,7 @@
           <div>热搜推荐</div>
         </div>
         <div class="record">
-          <div class="record-item" v-for="(item,indexa) in hot" :key="indexa">{{item}}</div>
+          <div class="record-item" v-for="(item,indexa) in hot" :key="indexa">{{item.keywords}}</div>
         </div>
       </div>
     </div>
@@ -50,28 +56,9 @@ export default {
     return {
       no: 1, //暂无历史记录显示不显示
       isshow: 0, //清除历史记录弹框显示不显示
-      search: [
-        "旅游攻略",
-        "北京",
-        "最值得去的城市",
-        "呼和浩特",
-        "丝绸之路",
-        "敦煌莫高窟"
-      ],
-      hot: [
-        "旅游攻略",
-        "北京",
-        "最值得去的城市",
-        "樱花季",
-        "呼和浩特",
-        "丝绸之路",
-        "敦煌莫高窟",
-        "西北沿线",
-        "呼和浩特",
-        "丝绸之路",
-        "敦煌莫高窟",
-        "西北沿线"
-      ]
+      search: [],
+      hot: [],
+      searchword: ""
     };
   },
   components: {},
@@ -82,11 +69,37 @@ export default {
       }
     }
   },
+  created() {
+    this.search = JSON.parse(localStorage.getItem("searchword"));
+    console.log(this.search);
+    if (this.search.length == 0) {
+      this.no = 0;
+    }
+    this.getkeywordsfn();
+  },
   methods: {
     //删除筛选记录
     nosearch: function() {
       this.isshow = 1;
       //   this.search = [];
+    },
+    //手机键盘回车搜索
+    searchfn: function() {
+      let that = this;
+      $(".topinput").on("keypress", function(e) {
+        var keycode = e.keyCode;
+        var searchName = $(this).val();
+        if (keycode == "13") {
+          that.search.unshift(that.searchword);
+          localStorage.setItem("searchword", JSON.stringify(that.search));
+          that.search = JSON.parse(localStorage.getItem("searchword"));
+          let arr = that.search;
+          if (arr.length > 5) {
+            that.search = arr.slice(0, -1);
+          }
+          //请求搜索接口
+        }
+      });
     },
     //弹框
     popup(x) {
@@ -97,22 +110,11 @@ export default {
         this.isshow = 0;
       }
     },
-    //axios请求轮播图
-    domesticlistfn: function(x) {
-      this.domesticactive = x;
-      this.$api.get(
-        "banners/about-us",
-        {
-          page: 1,
-          pageSize: 10
-        },
-        response => {
-          if (response.status >= 200 && response.status < 300) {
-            // this.bannertop_img = response.data.data[0];
-          } else {
-          }
-        }
-      );
+    // 请求热搜关键词
+    getkeywordsfn: function() {
+      this.$request.get(this.$api.keywords, {}, res => {
+        this.hot = res.data.data;
+      });
     }
   }
 };

@@ -4,7 +4,7 @@
       <div class="banner">
         <div class="bannertop">
           <div class="bannertop-left" @click="gocityfn()">
-            <div>苏州</div>
+            <div>{{cityname}}</div>
             <img class="bottom-img" src="../../assets/img/home/bottom.png" alt />
           </div>
           <router-link to="/search">
@@ -22,7 +22,7 @@
         </div>
         <yd-slider class="banners" autoplay="3000">
           <yd-slider-item v-for="(item,index) in banners" :key="index">
-            <img :src="item.url" />
+            <img :src="item.img" style="max-width:100%;max-height:100%" />
           </yd-slider-item>
         </yd-slider>
         <div class="banner-bottom">
@@ -30,7 +30,7 @@
             <img src="../../assets/img/home/laba.png" alt />
             <yd-slider class="bobaos" autoplay="4000">
               <yd-slider-item v-for="(item,indexs) in news" :key="indexs">
-                <div class="news">{{item}}</div>
+                <div class="news">{{item.content}}</div>
               </yd-slider-item>
             </yd-slider>
           </div>
@@ -75,7 +75,8 @@
         <div class="hotlist-item" v-for="(item,indexf) in hotlist" :key="indexf">
           <div class="hotitem-top">
             <div class="top">
-              <p>{{item.class}}</p>&nbsp;|&nbsp;
+              <p>{{item.class}}</p>
+              <div class="shu"></div>
               <p>{{item.add}}</p>
             </div>
             <img :src="item.img" alt />
@@ -131,30 +132,14 @@ export default {
 
   data() {
     return {
+      cityname: "苏州",
       domesticactive: 0, //国内游状态切换
       peripheryid: 0, //周边游大类
       code: "",
       // 轮播图
-      banners: [
-        {
-          url: require("../../assets/img/home/1-banner.png")
-        },
-        {
-          url: require("../../assets/img/home/1-banner.png")
-        },
-        {
-          url: require("../../assets/img/home/1-banner.png")
-        }
-      ],
+      banners: [],
       // 播报
-      news: [
-        "1111111这就是个新闻1",
-        "2222222这就是个新闻2",
-        "3333333这就是个新闻3",
-        "4444444这就是个新闻4",
-        "5555555这就是个新闻5",
-        "6666666这就是个新闻6"
-      ],
+      news: [],
       // 三图
       threeimg: [
         {
@@ -277,12 +262,25 @@ export default {
     Tab
   },
   created() {
+    console.log(localStorage.getItem("cityname"));
+    if (localStorage.getItem("cityname") == null) {
+      this.cityname = "苏州";
+      console.log(this.cityname);
+    } else {
+      this.cityname = localStorage.getItem("cityname");
+    }
     // this.getcitiesfn();
     // console.log(location.hash);
     // let codeid = location.hash.split("code=")[1];
     // this.code = codeid.split("&")[0];
     // this.getcodefn();
     // this.getcodefna();
+    this.getbannerfn();
+    this.getnoticefn();
+    this.cityname = this.$route.query.cityname;
+  },
+  mounted() {
+    console.log(this.cityname);
   },
   methods: {
     //跳转城市列表
@@ -293,6 +291,18 @@ export default {
         params: {
           peripheryid: this.peripheryid
         }
+      });
+    },
+    // 请求轮播图
+    getbannerfn: function() {
+      this.$request.get(this.$api.banner, {}, res => {
+        this.banners = res.data.data;
+      });
+    },
+    // 请求播报
+    getnoticefn: function() {
+      this.$request.get(this.$api.notice, {}, res => {
+        this.news = res.data.data;
       });
     },
     //跳转周边游
@@ -307,30 +317,7 @@ export default {
           peripheryid: this.peripheryid
         }
       });
-    },
-    // 获取城市列表
-    getcitiesfn: function() {
-      let url = this.$ajaxUrl.cities;
-      let params = {};
-      this.$http.get(url, params, res => {
-        console.log(res);
-      });
     }
-    // //axios请求token
-    // getcodefn: function() {
-    //   this.$api.get(
-    //     "/wechat/auth",
-    //     {
-    //       code: this.code
-    //     },
-    //     response => {
-    //       if (response.status >= 200 && response.status < 300) {
-    //         console.log(response.data); //请求成功，response为成功信息参数
-    //       } else {
-    //       }
-    //     }
-    //   );
-    // },
   }
 };
 </script>

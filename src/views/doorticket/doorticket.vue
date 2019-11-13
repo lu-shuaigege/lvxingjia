@@ -21,17 +21,13 @@
         @click="doorticketdetailsfn(item.id)"
       >
         <div class="hotitem-top">
-          <div class="top">
-            <p>{{item.class}}</p>&nbsp;|&nbsp;
-            <p>{{item.add}}</p>
-          </div>
-          <img :src="item.img" alt />
+          <img :src="item.cover_img" alt />
         </div>
         <div class="hotitem-bottom">
-          <div class="hotitem-title">{{item.title}}</div>
+          <div class="hotitem-title">{{item.name}}</div>
           <div class="money">
             <span class="moneysp1">￥</span>
-            <span class="moneysp2">{{item.money}}</span>
+            <span class="moneysp2">{{item.min_price}}</span>
             <span class="moneysp3">起</span>
           </div>
         </div>
@@ -52,89 +48,27 @@ export default {
     return {
       doorticketid: 0,
       // 热门推荐
-      hotlist: [
-        {
-          id: 0,
-          class: "摄影游",
-          add: "苏州",
-          img: require("../../assets/img/home/1-2.png"),
-          title: "东海明珠衢山岛两日游",
-          money: 800
-        },
-        {
-          id: 1,
-          class: "摄影游",
-          add: "苏州",
-          img: require("../../assets/img/home/1-2.png"),
-          title: "东海明珠衢山岛两日游",
-          money: 800
-        },
-        {
-          id: 2,
-          class: "摄影游",
-          add: "苏州",
-          img: require("../../assets/img/home/1-2.png"),
-          title: "【三日游】东海明珠衢山岛两日游 : 漫步沙滩...",
-          money: 800
-        },
-        {
-          id: 3,
-          class: "摄影游",
-          add: "苏州",
-          img: require("../../assets/img/home/1-2.png"),
-          title: "东海明珠衢山岛两日游",
-          money: 800
-        },
-        {
-          id: 4,
-          class: "摄影游",
-          add: "苏州",
-          img: require("../../assets/img/home/1-2.png"),
-          title: "东海明珠衢山岛两日游",
-          money: 800
-        },
-        {
-          id: 5,
-          class: "摄影游",
-          add: "苏州",
-          img: require("../../assets/img/home/1-2.png"),
-          title: "【三日游】东海明珠衢山岛两日游 : 漫步沙滩...",
-          money: 800
-        }
-      ]
+      hotlist: []
     };
   },
   components: {},
+  created() {
+    this.getscenic_spotfn();
+  },
   methods: {
     //跳转门票详情
-    doorticketdetailsfn: function(x) {
-      this.doorticketid = x;
-      //把页面要传的参数存到sessionStorage里面
-      sessionStorage.setItem("doorticketid", this.doorticketid);
+    doorticketdetailsfn: function(id) {
       //路由跳转携带参数
       this.$router.push({
-        name: "doorticketdetails",
-        params: {
-          doorticketid: this.doorticketid
-        }
+        path: `/doorticketdetails/${id}`
       });
     },
-    //axios请求轮播图
-    domesticlistfn: function(x) {
-      this.domesticactive = x;
-      this.$api.get(
-        "banners/about-us",
-        {
-          page: 1,
-          pageSize: 10
-        },
-        response => {
-          if (response.status >= 200 && response.status < 300) {
-            // this.bannertop_img = response.data.data[0];
-          } else {
-          }
-        }
-      );
+    // 请求景点门票列表
+    getscenic_spotfn: function() {
+      this.$request.get(this.$api.scenic_spot, {}, res => {
+        this.hotlist = res.data.data.data;
+        console.log(res.data.data.data);
+      });
     }
   }
 };

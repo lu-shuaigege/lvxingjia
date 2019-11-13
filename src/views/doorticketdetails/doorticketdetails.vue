@@ -144,6 +144,7 @@ export default {
 
   data() {
     return {
+      detailid: 0, //详情id
       islike: 0,
       adultnum: 1,
       twoclass: 1, //套餐类型选择
@@ -235,6 +236,10 @@ export default {
   },
   components: {},
   watch: {},
+  created() {
+    this.detailid = this.$route.params.id;
+    this.getscenic_spotidfn(this.detailid);
+  },
   methods: {
     //套餐选择弹窗
     choicefn: function() {
@@ -332,22 +337,12 @@ export default {
       this.$refs.linedetails.style.overflow = "scroll";
       this.$refs.choicepopup.style.top = "100vh";
     },
-    //axios请求轮播图
-    domesticlistfn: function(x) {
-      this.domesticactive = x;
-      this.$api.get(
-        "banners/about-us",
-        {
-          page: 1,
-          pageSize: 10
-        },
-        response => {
-          if (response.status >= 200 && response.status < 300) {
-            // this.bannertop_img = response.data.data[0];
-          } else {
-          }
-        }
-      );
+    // 请求景点门票详情
+    getscenic_spotidfn: function(id) {
+      this.$request.get(this.$api.scenic_spotid, {}, res => {
+        this.hotlist = res.data.data.data;
+        console.log(res.data.data.data);
+      });
     }
   }
 };

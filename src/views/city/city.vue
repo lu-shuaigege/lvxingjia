@@ -2,7 +2,7 @@
   <div class="city">
     <div class="defaultcity">
       <div class="defaultcity-title">默认城市</div>
-      <div class="defaultcity-item">苏州市</div>
+      <div class="defaultcity-item">{{cityname}}</div>
     </div>
     <div class="content">
       <div class="citylist" v-for="(item,index) in citylist" :key="index">
@@ -11,7 +11,7 @@
 
         <div
           class="list-item"
-          @click="cityid(itema.id)"
+          @click="cityid(itema.id,itema.name)"
           v-for="(itema,indexa) in item"
           :key="indexa"
         >{{itema.name}}</div>
@@ -33,6 +33,7 @@ export default {
   data() {
     return {
       citylist: {},
+      cityname: "苏州",
       a: [
         "A",
         "B",
@@ -65,6 +66,13 @@ export default {
   },
   components: {},
   created() {
+    console.log(localStorage.getItem("cityname"))
+    if (localStorage.getItem("cityname") == null) {
+      this.cityname = "苏州";
+    } else {
+      this.cityname = localStorage.getItem("cityname");
+    }
+
     this.getcitiesfn();
   },
   mounted() {},
@@ -74,8 +82,18 @@ export default {
       document.querySelector("#" + anchorname + "").scrollIntoView(true);
     },
     //点击选择地址
-    cityid: function(cityid) {
+    cityid: function(cityid, cityname) {
+      localStorage.setItem("cityid", cityid);
+      localStorage.setItem("cityname", cityname);
       console.log(cityid);
+      //路由跳转携带参数
+      this.$router.push({
+        name: `home`,
+        query: {
+          cityid: cityid,
+          cityname: cityname
+        }
+      });
     },
 
     //跳转首页

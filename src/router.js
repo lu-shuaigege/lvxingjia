@@ -110,7 +110,7 @@ export const contentsRouter = [{
             import('./views/doorticket/doorticket.vue')
     },
     {
-        path: '/doorticketdetails',
+        path: '/doorticketdetails/:id',
         name: 'doorticketdetails',
         meta: {
             title: '门票详情',
@@ -504,7 +504,7 @@ export const contentsRouter = [{
         path: '/city',
         name: 'city',
         meta: {
-            title: '我的兑换',
+            title: '城市列表',
         },
         component: () =>
             import('./views/city/city.vue')
