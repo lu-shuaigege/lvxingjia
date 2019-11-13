@@ -93,8 +93,10 @@ export default {
     // 获取城市列表
     getcitiesfn: function() {
       let url = this.$api.cities;
-      let params = {};
-      this.$Ajax.get(url, params, res => {
+      let params = {
+        name: 1223
+      };
+      this.$request.get(url, params, res => {
         this.citylist = res.data.data;
       });
     }

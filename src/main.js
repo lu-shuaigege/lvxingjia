@@ -3,10 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from './http.js';
+Vue.prototype.$request = axios; //把调接口封装到原型上
 import qs from 'qs'
 import * as Api from './api/api.js';
-Vue.prototype.$api = Api;
-Vue.prototype.$Ajax = axios;
+Vue.prototype.$api = Api; //把接口名字封装到原型上
+
 import './registerServiceWorker'
 // 引入jquery
 import $ from 'jquery'
