@@ -262,13 +262,6 @@ export default {
     Tab
   },
   created() {
-    console.log(localStorage.getItem("cityname"));
-    if (localStorage.getItem("cityname") == null) {
-      this.cityname = "苏州";
-      console.log(this.cityname);
-    } else {
-      this.cityname = localStorage.getItem("cityname");
-    }
     // this.getcitiesfn();
     // console.log(location.hash);
     // let codeid = location.hash.split("code=")[1];
@@ -280,7 +273,12 @@ export default {
     this.cityname = this.$route.query.cityname;
   },
   mounted() {
-    console.log(this.cityname);
+    if (localStorage.getItem("cityname") == null) {
+      this.cityname = "苏州";
+      console.log(this.cityname);
+    } else {
+      this.cityname = localStorage.getItem("cityname");
+    }
   },
   methods: {
     //跳转城市列表
