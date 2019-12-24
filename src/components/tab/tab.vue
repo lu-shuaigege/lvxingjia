@@ -27,29 +27,29 @@ export default {
         {
           to: "/",
           name: "首页",
-          no_selected: require("../../assets/img/home/home1.png"),
-          selected: require("../../assets/img/home/home2.png"),
+          no_selected: require("@/assets/img/home/home1.png"),
+          selected: require("@/assets/img/home/home2.png"),
           nav_index: 1
         },
         {
           to: "/travels",
           name: "游记",
-          no_selected: require("../../assets/img/home/travels1.png"),
-          selected: require("../../assets/img/home/travels2.png"),
+          no_selected: require("@/assets/img/home/travels1.png"),
+          selected: require("@/assets/img/home/travels2.png"),
           nav_index: 2
         },
         {
-          to: "/order",
+          to: "/orders",
           name: "订单",
-          no_selected: require("../../assets/img/home/order1.png"),
-          selected: require("../../assets/img/home/order2.png"),
+          no_selected: require("@/assets/img/home/order1.png"),
+          selected: require("@/assets/img/home/order2.png"),
           nav_index: 3
         },
         {
-          to: "/my",
+          to: "/me",
           name: "我的",
-          no_selected: require("../../assets/img/home/my1.png"),
-          selected: require("../../assets/img/home/my2.png"),
+          no_selected: require("@/assets/img/home/my1.png"),
+          selected: require("@/assets/img/home/my2.png"),
           nav_index: 4
         }
       ]
@@ -99,19 +99,19 @@ export default {
       }
 
       span {
-        font-size: 0.22rem;
-        line-height: 0.22rem;
+        font-size: 0.29rem;
+        line-height: 0.29rem;
         font-family: 微软雅黑;
         color: rgba(102, 102, 102, 1);
       }
       .okspan {
-        font-size: 0.22rem;
-        line-height: 0.22rem;
+        font-size: 0.29rem;
+        line-height: 0.29rem;
         color: #08c75e;
       }
       .nospan {
-        font-size: 0.22rem;
-        line-height: 0.22rem;
+        font-size: 0.29rem;
+        line-height: 0.29rem;
         color: #666666;
       }
       &.selected {

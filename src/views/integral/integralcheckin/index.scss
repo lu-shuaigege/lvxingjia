@@ -1,0 +1,143 @@
+.integralcheckin {
+    width: 100%;
+    min-height: 100vh;
+    background: rgb(243, 243, 243);
+    padding: 1px;
+    box-sizing: border-box;
+
+    // 顶部栏
+    .bannertop {
+        .topcon {
+            width: 9.28rem;
+            height: 2rem;
+            background: #ffffff;
+            border-radius: 0.133rem;
+            margin: 0.267rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .topcon-left {
+                width: 1.28rem;
+                height: 1.28rem;
+                border-radius: 0.133rem;
+                margin-right: 0.267rem;
+            }
+
+            .topcon-center {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                width: 2.3rem;
+                margin-right: 3.2rem;
+
+                .topcon-center-top {
+                    height: 0.373rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.373rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.373rem;
+                    letter-spacing: 0.008rem;
+                    color: #333333;
+                    margin-bottom: 0.24rem;
+                }
+
+                .topcon-center-bottom {
+                    height: 0.293rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.373rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.293rem;
+                    letter-spacing: 0.008rem;
+                    color: #ff620e;
+                }
+            }
+
+            .topcon-right {
+                width: 1.6rem;
+                height: 0.613rem;
+                border-radius: 0.293rem;
+                border: solid 1px #ff620e;
+                font-family: MicrosoftYaHei;
+                font-size: 0.347rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.613rem;
+                letter-spacing: 0.007rem;
+                color: #ff620e;
+                text-align: center;
+            }
+        }
+    }
+
+    .content-date {
+        width: 9.29rem;
+        border-radius: 0.133rem !important;
+        margin: 0.27rem auto;
+        overflow: hidden;
+        color: #000;
+        background: #fff;
+
+        .content-date-top {
+            width: 100%;
+            height: 1.22rem;
+            background: rgba($color: #2DBA55, $alpha: 0.1);
+            font-size: 0.37rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(45, 186, 85, 1);
+            line-height: 1.22rem;
+            text-align: center;
+        }
+
+        .signinBtn {
+            width: 3.04rem;
+            height: 0.85rem;
+            background: rgba(45, 186, 85, 1);
+            border-radius: 0.85rem;
+            margin: 0.1rem auto 0.56rem;
+            text-align: center;
+            font-size: 0.35rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+            line-height: 0.85rem;
+        }
+    }
+
+    .integralcheckin-bottom {
+        width: 9.28rem;
+        height: 4.853rem;
+        background: #ffffff;
+        border-radius: 0.133rem;
+        padding: 1px 0.7rem 1px 0.48rem;
+        box-sizing: border-box;
+        margin: 0.27rem auto;
+
+        .bottom-title {
+            height: 0.347rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.347rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.347rem;
+            letter-spacing: 0.021rem;
+            color: #333333;
+            margin: 0.573rem auto;
+            text-align: center;
+        }
+
+        .bottom-word {
+            height: 2.56rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.293rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.564rem;
+            letter-spacing: 0.017rem;
+            color: #999999;
+        }
+    }
+}

@@ -1,124 +1,95 @@
 <template>
-  <div class="city">
-    <div class="defaultcity">
-      <div class="defaultcity-title">默认城市</div>
-      <div class="defaultcity-item">{{cityname}}</div>
+    <div class="city">
+        <div class="defaultcity">
+            <div class="defaultcity-title">默认城市</div>
+            <div
+                class="defaultcity-item"
+                @click="cityid(defaultCityId, defaultCityName)"
+            >
+                {{ defaultCityName }}
+            </div>
+        </div>
+        <div class="content">
+            <div
+                class="citylist"
+                v-for="(item, index) in citylist"
+                :key="index"
+            >
+                <i :id="item[0].chart"></i>
+                <div class="title">{{ item[0].chart }}</div>
+                <div
+                    class="list-item"
+                    @click="cityid(itema.id, itema.name)"
+                    v-for="(itema, indexa) in item"
+                    :key="indexa"
+                >
+                    {{ itema.name }}
+                </div>
+            </div>
+        </div>
+        <!-- 侧边字母 -->
+        <div class="rightlist">
+            <div class="alist" v-for="(itemx, indexx) in letter" :key="indexx">
+                <div href="#" @click="anchor(itemx)">{{ itemx }}</div>
+            </div>
+        </div>
     </div>
-    <div class="content">
-      <div class="citylist" v-for="(item,index) in citylist" :key="index">
-        <i :id="item[0].chart"></i>
-        <div class="title" re>{{item[0].chart}}</div>
-
-        <div
-          class="list-item"
-          @click="cityid(itema.id,itema.name)"
-          v-for="(itema,indexa) in item"
-          :key="indexa"
-        >{{itema.name}}</div>
-      </div>
-    </div>
-
-    <div class="rightlist">
-      <div class="alist" v-for="(itemx,indexx) in a" :key="indexx">
-        <div href="#" @click="anchor(itemx)">{{itemx}}</div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
+// import { get_city } from "@/api/api";
 export default {
-  name: "city",
-
-  data() {
-    return {
-      citylist: {},
-      cityname: "苏州",
-      a: [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H",
-        "I",
-        "J",
-        "K",
-        "L",
-        "M",
-        "N",
-        "O",
-        "P",
-        "Q",
-        "R",
-        "S",
-        "T",
-        "U",
-        "V",
-        "W",
-        "X",
-        "Y",
-        "Z"
-      ]
-    };
-  },
-  components: {},
-  created() {
-    console.log(localStorage.getItem("cityname"))
-    if (localStorage.getItem("cityname") == null) {
-      this.cityname = "苏州";
-    } else {
-      this.cityname = localStorage.getItem("cityname");
-    }
-
-    this.getcitiesfn();
-  },
-  mounted() {},
-  methods: {
-    //锚点定位
-    anchor: function(anchorname) {
-      document.querySelector("#" + anchorname + "").scrollIntoView(true);
+    data() {
+        return {
+            citylist: {},
+            defaultCityName: "苏州",
+            defaultCityId: 0,
+            letter: []
+        };
     },
-    //点击选择地址
-    cityid: function(cityid, cityname) {
-      localStorage.setItem("cityid", cityid);
-      localStorage.setItem("cityname", cityname);
-      console.log(cityid);
-      //路由跳转携带参数
-      this.$router.push({
-        name: `home`,
-        query: {
-          cityid: cityid,
-          cityname: cityname
+    components: {},
+    created() {
+        if (JSON.parse(localStorage.getItem("cityNameId")) == null) {
+            this.cityname = "苏州";
+        } else {
+            this.defaultCityName = JSON.parse(
+                localStorage.getItem("cityNameId")
+            ).cityname;
+            this.defaultCityId = JSON.parse(
+                localStorage.getItem("cityNameId")
+            ).cityid;
         }
-      });
-    },
 
-    //跳转首页
-    peripheryfn: function(x) {
-      //把页面要传的参数存到sessionStorage里面
-      sessionStorage.setItem("peripheryid", this.peripheryid);
-      //路由跳转携带参数
-      this.$router.push({
-        name: "periphery",
-        params: {
-          peripheryid: this.peripheryid
-        }
-      });
+        this.getcitiesfn();
+        this.$wechat.timeline(false);
     },
-    // 获取城市列表
-    getcitiesfn: function() {
-      let url = this.$api.cities;
-      let params = {
-        name: 1223
-      };
-      this.$request.get(url, params, res => {
-        this.citylist = res.data.data;
-      });
+    mounted() {},
+    methods: {
+        //锚点定位
+        anchor: function(anchorname) {
+            document.querySelector("#" + anchorname + "").scrollIntoView(true);
+        },
+        //点击选择地址
+        cityid: function(cityid, cityname) {
+            let cityNameId = {
+                cityid: cityid,
+                cityname: cityname
+            };
+            localStorage.setItem("cityNameId", JSON.stringify(cityNameId));
+            this.$router.go(-1); //返回上一层
+        },
+        // 获取城市列表
+
+        getcitiesfn: function() {
+            this.$api.cities.index().then(res => {
+                this.citylist = res;
+                var citylist = this.citylist;
+                for (let item in citylist) {
+                    this.letter.push(item);
+                }
+            });
+        }
     }
-  }
 };
 </script>
 <style lang="scss" scoped>

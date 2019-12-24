@@ -1,7 +1,9 @@
+package-lock.json
 .DS_Store
 node_modules
 dist
 /dist
+/package-lock.json
 
 # local env files
 .env.local
@@ -20,4 +22,3 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-/package-lock.json

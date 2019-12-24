@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true,
     browser: true,
-    jquery: true
+    jquery: true,
   },
   'extends': [
     'plugin:vue/essential',
@@ -11,7 +11,8 @@ module.exports = {
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-unused-vars': 'off'
   },
   parserOptions: {
     parser: 'babel-eslint'
@@ -25,5 +26,8 @@ module.exports = {
         mocha: true
       }
     }
-  ]
-}
+  ],
+  globals: {
+    // wx: true
+  },
+};

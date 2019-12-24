@@ -1,46 +1,68 @@
 import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import axios from './http.js';
-Vue.prototype.$request = axios; //把调接口封装到原型上
-import qs from 'qs'
-import * as Api from './api/api.js';
-Vue.prototype.$api = Api; //把接口名字封装到原型上
+import "@/assets/js/rem"
+import App from '@/App.vue'
+import store from '@/store'
+import '@/router/permission'
+import api from '@/api/index'
+import router from '@/router/index'
+import global from '@/utils/global.js'
+import wechat from '@/utils/wechat.js'
+import jsonp from 'vue-jsonp'
 
-import './registerServiceWorker'
-// 引入jquery
-import $ from 'jquery'
+// vant样式
+// https://youzan.github.io
+import 'vant/lib/index.css';
+import {
+    Area,
+    Button,
+    List,
+    Field,
+    Icon,
+    Popup,
+    Picker,
+    Switch,
+    Toast,
+    Uploader,
+    Swipe,
+    SwipeItem
+} from 'vant';
+Vue.use(Area).use(Button).use(List).use(Field).use(Icon).use(Popup).use(Picker).use(Switch).use(Toast).use(Uploader).use(Swipe).use(SwipeItem)
 
-import YDUI from 'vue-ydui'; /* 相当于import YDUI from 'vue-ydui/ydui.rem.js' */
-import 'vue-ydui/dist/ydui.rem.css'; /* 使用px：import 'vue-ydui/dist/ydui.px.css'; */
+// ydui样式
+// https://vue.ydui.org
+import YDUI from 'vue-ydui';
+import 'vue-ydui/dist/ydui.rem.css';
 Vue.use(YDUI);
 
-import VueQuillEditor from 'vue-quill-editor'
-
-// require styles
-import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css'
-
-Vue.use(VueQuillEditor, {
-  placeholder: '请输入正文...',
-});
+//全局
+Vue.use(global)
 
 
-Vue.config.productionTip = false
-
-import Vant from 'vant';
-import 'vant/lib/index.css';
-
-Vue.use(Vant);
+//过滤
+import * as filters from '@/filters/index.js'
+Object.keys(filters).forEach(key => Vue.filter(key, filters[key]))
 
 
-import setTitle from './script/settitle.js'; // 公众号设置页面标题
-window.setTitle = setTitle //挂在window的上面。全局可直接使用的额
+Vue.prototype.$api = api
+Vue.prototype.$wechat = new wechat()
+Vue.use(jsonp)
 
+String.prototype.isPic = function () {
+    // if (this.substr(0, 4) == 'http') {
+    let filterArr = ['.jpeg', '.gif', '.jpg', '.png', '.bmp', '.pic']
+    for (let i = 0; i < filterArr.length; i++) {
+        let suffix = filterArr[i]
+        if (this.indexOf(suffix) > -1) {
+            return true
+        }
+    }
+    // }
+    return false
+}
+
+Vue.config.productionTip = false;
 let vm = new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+    router,
+    store,
+    render: h => h(App)
+}).$mount('#app');

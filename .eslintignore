@@ -1,3 +1,4 @@
-**/*.js
-**/*.vue
 /* eslint-disable */
+/node_modules
+/src/main.js
+/src/script/*

@@ -1,299 +1,439 @@
 .ticketbooking {
-  width: 100%;
-  background: rgb(243, 243, 243);
-  padding-bottom: 1.467rem;
-  .top {
-    width: 10rem;
-    height: 3.847rem;
-    background-color: #ffffff;
-    padding: 0 0.36rem;
-    box-sizing: border-box;
-    .top-top {
-      height: 1.333rem;
-      font-family: MicrosoftYaHei;
-      font-size: 0.4rem;
-      font-weight: normal;
-      font-stretch: normal;
-      line-height: 1.333rem;
-      letter-spacing: 0.024rem;
-      color: #333333;
-    }
-    .top-bottom {
-      height: 1.2rem;
-      display: flex;
-      align-items: center;
-      border-top: 1px solid #e7e7e7;
-      .top-bottom-left {
-        height: 0.347rem;
-        font-family: MicrosoftYaHei;
-        font-size: 0.347rem;
-        font-weight: normal;
-        font-stretch: normal;
-        line-height: 0.347rem;
-        letter-spacing: 0.021rem;
-        color: #333333;
-        margin-right: 0.533rem;
-      }
-      .top-bottom-center {
-        height: 0.32rem;
-        width: 7.1rem;
-        font-family: MicrosoftYaHei;
-        font-size: 0.32rem;
-        font-weight: normal;
-        font-stretch: normal;
-        line-height: 0.32rem;
-        letter-spacing: 0.019rem;
-        color: #cacaca;
-      }
-      .top-bottom-right {
-        width: 0.147rem;
-        height: 0.28rem;
-      }
-    }
-  }
-  .information {
-    width: 10rem;
-    height: 3.613rem;
-    background-color: #ffffff;
-    padding: 0 0.36rem;
-    box-sizing: border-box;
-    margin: 0.267rem 0px;
-    .information-item1 {
-      height: 1.2rem;
-      font-family: MicrosoftYaHei;
-      font-size: 0.4rem;
-      font-weight: normal;
-      font-stretch: normal;
-      line-height: 1.2rem;
-      letter-spacing: 0.024rem;
-      color: #333333;
-    }
-    .information-item2 {
-      height: 1.2rem;
-      border-top: 1px solid #e7e7e7;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .information-item2-left {
-        height: 0.347rem;
-        font-family: MicrosoftYaHei;
-        font-size: 0.347rem;
-        font-weight: normal;
-        font-stretch: normal;
-        line-height: 0.347rem;
-        letter-spacing: 0.021rem;
-        color: #333333;
-      }
-      .information-item2-right {
-        height: 0.4rem;
-        width: 7.3rem;
-        line-height: 0.4rem;
-      }
-    }
-    .information-item3 {
-      height: 1rem;
-      border-top: 1px solid #e7e7e7;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .information-item2-left {
-        height: 0.347rem;
-        font-family: MicrosoftYaHei;
-        font-size: 0.347rem;
-        font-weight: normal;
-        font-stretch: normal;
-        line-height: 0.347rem;
-        letter-spacing: 0.021rem;
-        color: #333333;
-      }
-      .information-item2-right {
-        height: 0.4rem;
-        width: 7.3rem;
-        line-height: 0.4rem;
-      }
-    }
-  }
-  .tourleader {
-    width: 10rem;
-    height: 3.6rem;
-    background-color: #ffffff;
-    padding: 0 0.36rem;
-    box-sizing: border-box;
-    margin: 0.267rem 0px;
-    .tourleader-title {
-      height: 1.2rem;
-      font-family: MicrosoftYaHei;
-      font-size: 0.4rem;
-      font-weight: normal;
-      font-stretch: normal;
-      line-height: 1.2rem;
-      letter-spacing: 0.024rem;
-      color: #333333;
-    }
-    .tourleader-bottom {
-      width: 100%;
-      height: 2.387rem;
-      font-family: MicrosoftYaHei;
-      font-size: 0.32rem;
-      font-weight: normal;
-      font-stretch: normal;
-      line-height: 0.604rem;
-      letter-spacing: 0.019rem;
-      color: #666666;
-      border-top: 1px solid #e7e7e7;
-      padding-top: 0.2rem;
-      box-sizing: border-box;
-    }
-  }
-  .bookinformation {
-    width: 10rem;
-    height: 4.947rem;
-    background: #ffffff;
-    margin: 0.267rem 0;
-    padding: 1px 0.36rem;
-    box-sizing: border-box;
-    .bookinformation-title {
-      height: 0.4rem;
-      font-family: MicrosoftYaHei;
-      font-size: 0.4rem;
-      font-weight: normal;
-      font-stretch: normal;
-      line-height: 0.4rem;
-      letter-spacing: 0.024rem;
-      color: #333333;
-      margin: 0.4rem 0;
-    }
-    .bookinformation-item {
-      width: 100%;
-      border-top: 1px solid #e7e7e7;
-      padding: 0.4rem 0;
-      box-sizing: border-box;
+    width: 100%;
+    background: rgb(243, 243, 243);
+    padding-bottom: 1.467rem;
 
-      .bookinformation-list {
+    .top {
+        width: 10rem;
+        // height: 3.847rem;
+        background-color: #ffffff;
+        padding: 0 0.36rem;
+        box-sizing: border-box;
+
+        .top-top {
+            // height: 1.333rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.4rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.8rem;
+            letter-spacing: 0.024rem;
+            color: #333333;
+        }
+
+        .topcon {
+            height: 0.32rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.32rem;
+            letter-spacing: 0.019rem;
+            color: #999999;
+            margin: 0.4rem 0 0rem 0;
+            padding-bottom: 0.72rem;
+            display: flex;
+
+            // border-bottom: 1px solid #e7e7e7;
+            .time {
+                margin-right: 0.65rem;
+            }
+        }
+
+        .adultnum {
+            .adult {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 1.2rem;
+                border-top: 1px solid #e7e7e7;
+
+                .adultleft {
+                    display: flex;
+                    align-items: center;
+
+                    .adult-left {
+                        height: 0.347rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.347rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.347rem;
+                        letter-spacing: 0.021rem;
+                        color: #333333;
+                        margin-right: 1.28rem;
+                    }
+
+                    .adult-center {
+                        height: 0.28rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.347rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.28rem;
+                        letter-spacing: 0.021rem;
+                        color: #ff620e;
+                        margin-right: 3.6rem;
+                    }
+                }
+
+
+
+                .adult-right {
+                    display: flex;
+                    align-items: center;
+
+                    .down {
+                        width: 0.653rem;
+                        height: 0.653rem;
+                        background-color: #f3f3f3;
+                        border-radius: 0.093rem;
+                        color: #666666;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.347rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.653rem;
+                        letter-spacing: 0.021rem;
+                        text-align: center;
+                    }
+
+                    .up {
+                        width: 0.653rem;
+                        height: 0.653rem;
+                        background-color: rgba(45, 486, 85, 0.2);
+                        border-radius: 0.093rem;
+                        color: #2dba55;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.347rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.653rem;
+                        letter-spacing: 0.021rem;
+                        text-align: center;
+                    }
+
+                    .adult-right-center {
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.4rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.653rem;
+                        letter-spacing: 0.024rem;
+                        color: #333333;
+                        width: 1rem;
+                        height: 0.653rem;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .top-bottom {
+            height: 1.2rem;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #e7e7e7;
+
+            .top-bottom-left {
+                height: 0.347rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.347rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.347rem;
+                letter-spacing: 0.021rem;
+                color: #333333;
+                margin-right: 0.533rem;
+            }
+
+            .top-bottom-center {
+                height: 0.32rem;
+                width: 7.1rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.32rem;
+                letter-spacing: 0.019rem;
+                color: #cacaca;
+            }
+
+            .top-bottom-right {
+                width: 0.147rem;
+                height: 0.28rem;
+            }
+        }
+    }
+
+    .information {
+        width: 10rem;
+        // height: 3.613rem;
+        background-color: #ffffff;
+        padding: 0 0.36rem;
+        box-sizing: border-box;
+        margin: 0.267rem 0px;
+
+        .information-item1 {
+            height: 1.2rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.4rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.2rem;
+            letter-spacing: 0.024rem;
+            color: #333333;
+        }
+
+        .information-item2 {
+            height: 1.2rem;
+            border-top: 1px solid #e7e7e7;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .information-item2-left {
+                height: 0.347rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.347rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.347rem;
+                letter-spacing: 0.021rem;
+                color: #333333;
+            }
+
+            .information-item2-right {
+                height: 0.4rem;
+                width: 7.3rem;
+                line-height: 0.4rem;
+            }
+        }
+
+        .information-item3 {
+            height: 1.2rem;
+            border-top: 1px solid #e7e7e7;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .information-item2-left {
+                height: 0.347rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.347rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.347rem;
+                letter-spacing: 0.021rem;
+                color: #333333;
+            }
+
+            .information-item2-right {
+                height: 0.4rem;
+                width: 7.3rem;
+                line-height: 0.4rem;
+            }
+        }
+    }
+
+    .tourleader {
+        width: 10rem;
+        height: 3.6rem;
+        background-color: #ffffff;
+        padding: 0 0.36rem;
+        box-sizing: border-box;
+        margin: 0.267rem 0px;
+
+        .tourleader-title {
+            height: 1.2rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.4rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.2rem;
+            letter-spacing: 0.024rem;
+            color: #333333;
+        }
+
+        .tourleader-bottom {
+            width: 100%;
+            height: 2.387rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.604rem;
+            letter-spacing: 0.019rem;
+            color: #666666;
+            border-top: 1px solid #e7e7e7;
+            padding-top: 0.2rem;
+            box-sizing: border-box;
+        }
+    }
+
+    .bookinformation {
+        width: 10rem;
+        //height: 4.947rem;
+        background: #ffffff;
+        margin: 0.267rem 0;
+        padding: 1px 0.36rem;
+        box-sizing: border-box;
+
+        .bookinformation-title {
+            height: 0.4rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.4rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.4rem;
+            letter-spacing: 0.024rem;
+            color: #333333;
+            margin: 0.4rem 0;
+        }
+
+        .bookinformation-item {
+            width: 100%;
+            border-top: 1px solid #e7e7e7;
+            padding: 0.4rem 0;
+            box-sizing: border-box;
+
+            .bookinformation-list {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.333rem;
+
+                .name {
+                    height: 0.36rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.347rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.36rem;
+                    letter-spacing: 0.021rem;
+                    color: #333333;
+                }
+
+                .namephone {
+                    height: 0.28rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.347rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.28rem;
+                    letter-spacing: 0rem;
+                    color: #666666;
+                }
+            }
+
+            .bookinformation-list:nth-child(2) {
+                margin-bottom: 0px;
+            }
+
+            .bookinformation-btn {
+                width: 4.64rem;
+                height: 1.04rem;
+                border-radius: 0.133rem;
+                border: solid 1px #2dba55;
+                color: #2dba55;
+                margin: 0 auto;
+                font-family: MicrosoftYaHei;
+                font-size: 0.373rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 1.04rem;
+                letter-spacing: 0.023rem;
+                color: #2dba55;
+                text-align: center;
+            }
+        }
+    }
+
+    .bookbottom {
+        width: 10rem;
+        height: 4.8rem;
+        background: #ffffff;
+        margin: 0.267rem 0;
+        padding: 1px 0.36rem;
+        box-sizing: border-box;
+
+        .bookbottom-title {
+            height: 0.4rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.4rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.4rem;
+            letter-spacing: 0.024rem;
+            color: #333333;
+            margin: 0.4rem 0;
+        }
+
+        .bookbottom-bottom {
+            width: 100%;
+            height: 3.587rem;
+            border-top: 1px solid #e7e7e7;
+            padding: 0.32rem 0;
+            box-sizing: border-box;
+
+            .proposal {
+                outline: none !important;
+                -webkit-appearance: none !important;
+                border-radius: 0 !important;
+                border: 0px;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .bottom {
+        width: 10rem;
+        height: 1.467rem;
+        background: #ffffff;
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 0.333rem;
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
 
-        .name {
-          height: 0.36rem;
-          font-family: MicrosoftYaHei;
-          font-size: 0.347rem;
-          font-weight: normal;
-          font-stretch: normal;
-          line-height: 0.36rem;
-          letter-spacing: 0.021rem;
-          color: #333333;
+        .bottom-left-btn {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            .left-btn-left {
+                height: 0.387rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.387rem;
+                letter-spacing: 0.019rem;
+                color: #333333;
+                margin-left: 0.347rem;
+            }
+
+            .left-btn-right {
+                font-family: MicrosoftYaHei-Bold;
+                font-size: 0.427rem;
+                font-weight: normal;
+                letter-spacing: 0.025rem;
+                color: #ff620e;
+            }
         }
-        .namephone {
-          height: 0.28rem;
-          font-family: MicrosoftYaHei;
-          font-size: 0.347rem;
-          font-weight: normal;
-          font-stretch: normal;
-          line-height: 0.28rem;
-          letter-spacing: 0rem;
-          color: #666666;
+
+        .bottom-right-btn {
+            width: 50%;
+            height: 100%;
+            background-color: #2dba55;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.467rem;
+            letter-spacing: 0.023rem;
+            color: #ffffff;
+            text-align: center;
         }
-      }
-      .bookinformation-list:nth-child(2) {
-        margin-bottom: 0px;
-      }
-      .bookinformation-btn {
-        width: 4.64rem;
-        height: 1.04rem;
-        border-radius: 0.133rem;
-        border: solid 1px #2dba55;
-        color: #2dba55;
-        margin: 0 auto;
-        font-family: MicrosoftYaHei;
-        font-size: 0.373rem;
-        font-weight: normal;
-        font-stretch: normal;
-        line-height: 1.04rem;
-        letter-spacing: 0.023rem;
-        color: #2dba55;
-        text-align: center;
-      }
     }
-  }
-  .bookbottom {
-    width: 10rem;
-    height: 4.8rem;
-    background: #ffffff;
-    margin: 0.267rem 0;
-    padding: 1px 0.36rem;
-    box-sizing: border-box;
-    .bookbottom-title {
-      height: 0.4rem;
-      font-family: MicrosoftYaHei;
-      font-size: 0.4rem;
-      font-weight: normal;
-      font-stretch: normal;
-      line-height: 0.4rem;
-      letter-spacing: 0.024rem;
-      color: #333333;
-      margin: 0.4rem 0;
-    }
-    .bookbottom-bottom {
-      width: 100%;
-      height: 3.587rem;
-      border-top: 1px solid #e7e7e7;
-      padding: 0.32rem 0;
-      box-sizing: border-box;
-      .proposal {
-        outline: none !important;
-        -webkit-appearance: none !important;
-        border-radius: 0 !important;
-        border: 0px;
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-  .bottom {
-    width: 10rem;
-    height: 1.467rem;
-    background: #ffffff;
-    display: flex;
-    position: fixed;
-    left: 0px;
-    bottom: 0px;
-    .bottom-left-btn {
-      width: 50%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      .left-btn-left {
-        height: 0.387rem;
-        font-family: MicrosoftYaHei;
-        font-size: 0.32rem;
-        font-weight: normal;
-        font-stretch: normal;
-        line-height: 0.387rem;
-        letter-spacing: 0.019rem;
-        color: #333333;
-        margin-left: 0.347rem;
-      }
-      .left-btn-right {
-        font-family: MicrosoftYaHei-Bold;
-        font-size: 0.427rem;
-        font-weight: normal;
-        letter-spacing: 0.025rem;
-        color: #ff620e;
-      }
-    }
-    .bottom-right-btn {
-      width: 50%;
-      height: 100%;
-      background-color: #2dba55;
-      font-family: MicrosoftYaHei;
-      font-size: 0.373rem;
-      font-weight: normal;
-      font-stretch: normal;
-      line-height: 1.467rem;
-      letter-spacing: 0.023rem;
-      color: #ffffff;
-      text-align: center;
-    }
-  }
 }

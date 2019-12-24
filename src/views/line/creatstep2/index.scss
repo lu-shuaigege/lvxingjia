@@ -1,0 +1,211 @@
+.releaselinenext {
+    width: 100%;
+    background: rgb(243, 243, 243);
+
+    .images {
+        width: 10rem;
+        background: #ffffff;
+        padding: 1px 0.36rem;
+        box-sizing: border-box;
+
+        .title {
+            height: 0.36rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.36rem;
+            letter-spacing: 0.023rem;
+            color: #333333;
+            margin: 0.413rem 0px 0.4rem;
+
+        }
+
+        .imgcontent {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            .nannerImg_div {
+                width: 1.87rem;
+                height: 1.87rem;
+                margin: 0px 0.27rem 0.27rem 0px;
+                position: relative;
+                border-radius: 0.1rem;
+                overflow: hidden;
+
+                .delImg {
+                    width: 0.29rem;
+                    height: 0.29rem;
+                    background: rgba(0, 0, 0, 0.5);
+                    border-radius: 50%;
+                    color: #fff;
+                    text-align: center;
+                    line-height: 0.29rem;
+                    position: absolute;
+                    right: 0.05rem;
+                    top: 0.05rem;
+                }
+
+                .nannerImg {
+                    width: 1.87rem;
+                    height: 1.87rem;
+                }
+            }
+
+
+        }
+
+        .is {
+            height: 0.333rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.333rem;
+            letter-spacing: 0.019rem;
+            color: #cacaca;
+            margin-bottom: 0.48rem;
+        }
+    }
+
+    .destination {
+        width: 10rem;
+        height: 4.253rem;
+        background: #ffffff;
+        margin: 0.28rem 0px;
+        padding: 1px 0.36rem;
+        box-sizing: border-box;
+
+        .title {
+            height: 0.36rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.36rem;
+            letter-spacing: 0.023rem;
+            color: #333333;
+            margin: 0.413rem 0px 0.4rem;
+
+        }
+
+        .word {
+            height: 2.72rem;
+            width: 100%;
+
+            textarea {
+                padding: 0px;
+                height: 2.2rem;
+            }
+        }
+    }
+
+    .downbtn {
+        width: 10rem;
+        height: 1.333rem;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .downbtn-left {
+            width: 4rem;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.333rem;
+            letter-spacing: 0.023rem;
+            color: #999999;
+            text-align: center;
+        }
+
+        .downbtn-right {
+            width: 6rem;
+            height: 1.333rem;
+            background-color: #2dba55;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.333rem;
+            letter-spacing: 0.023rem;
+            color: #ffffff;
+            text-align: center;
+        }
+    }
+
+    // 草稿和已下架进来按钮
+    .tobereleased {
+        width: 10rem;
+        height: 1.333rem;
+        background-color: #ffffff;
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .go_left {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .go_edit {
+                text-align: center;
+                width: 50%;
+                height: 100%;
+                font-size: 0px;
+
+                img {
+                    width: 0.467rem;
+                    height: 0.36rem;
+                    margin: 0.24rem auto 0.127rem;
+                }
+
+                .go_edit_text {
+                    font-family: MicrosoftYaHeiLight;
+                    font-size: 0.32rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.32rem;
+                    letter-spacing: 0.019rem;
+                    color: #999999;
+                }
+            }
+
+            .go_del {
+                img {
+                    width: 0.413rem;
+                    height: 0.4rem;
+                    margin: 0.24rem auto 0.127rem;
+                }
+            }
+
+            .shu {
+                width: 1px;
+                height: 0.533rem;
+                background-color: #e1e1e1;
+            }
+        }
+
+        .go_tight {
+            width: 50%;
+            height: 100%;
+            background-color: #2dba55;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.307rem;
+            letter-spacing: 0.023rem;
+            color: #ffffff;
+            text-align: center;
+        }
+    }
+}

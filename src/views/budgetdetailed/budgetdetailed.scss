@@ -3,6 +3,15 @@
     min-height: 100vh;
     background: rgb(243, 243, 243);
 
+    .noline {
+        text-align: center;
+        padding-top: 4rem;
+
+        img {
+            width: 5rem;
+        }
+    }
+
     .top {
         width: 10rem;
         height: 1.2rem;
@@ -49,7 +58,7 @@
 
     .listcontenta {
         width: 100%;
-        background: #fff;
+        //background: #fff;
 
         .list:last-child {
             border: 0px;
@@ -121,14 +130,20 @@
             }
 
             .right {
-                height: 0.253rem;
-                font-family: MicrosoftYaHei;
-                font-size: 0.32rem;
-                font-weight: normal;
-                font-stretch: normal;
-                line-height: 0.253rem;
-                letter-spacing: 0.019rem;
-                color: #2dba55;
+                height: 100%;
+                padding: 0.73rem 0 0;
+                box-sizing: border-box;
+                text-align: right;
+
+                div {
+                    margin-bottom: 0.2rem;
+                    height: 0.27rem;
+                    font-size: 0.32rem;
+                    font-family: Microsoft YaHei;
+                    font-weight: 400;
+                    color: rgba(45, 186, 85, 1);
+                    line-height: 0.27rem;
+                }
             }
         }
     }

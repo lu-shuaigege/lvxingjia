@@ -1,0 +1,224 @@
+.applyclub {
+    width: 100%;
+    min-height: 100vh;
+    background: rgb(243, 243, 243);
+    padding: 1px 0px;
+    box-sizing: border-box;
+
+    .tips {
+        height: 0.267rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.267rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.267rem;
+        letter-spacing: 0.016rem;
+        color: #ff620e;
+        margin: 0.267rem 0px 0.267rem 0.36rem;
+
+    }
+
+    .top {
+        width: 10rem;
+        height: 3.613rem;
+        background: #ffffff;
+        padding: 0px 0.36rem;
+        box-sizing: border-box;
+
+        .toplist:last-child {
+            border-bottom: 0px;
+        }
+
+        .toplist {
+            border-bottom: 1px solid #e7e7e7;
+            width: 100%;
+            height: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .title {
+                height: 0.347rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.347rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.347rem;
+                letter-spacing: 0.021rem;
+                color: #333333;
+            }
+
+            .toplist-right {
+                width: 7.787rem;
+                height: 100%;
+                line-height: 1.5em;
+            }
+        }
+    }
+
+    .center {
+        margin: 0.267rem 0px 0px;
+        width: 10rem;
+        height: 5.027rem;
+        background: #ffffff;
+        padding: 1px 0.36rem;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+
+        .center-item {
+            width: 4.107rem;
+            margin-top: 0.48rem;
+            .uploadbutton{
+                width:2.67rem;
+                height:0.64rem;
+                line-height: 0.64rem;
+                border-radius: 3px;
+                background:rgba(43,187,85,1);
+                padding: 0;
+                margin-left: 0.7rem;
+            }
+
+            .img {
+                width: 4.107rem;
+                height: 2.613rem;
+            }
+
+            .center-tittle {
+                height: 0.32rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.32rem;
+                letter-spacing: 0rem;
+                color: #000000;
+                margin-top: 0.227rem;
+                margin-bottom: 0.213rem;
+                text-align: center;
+
+            }
+
+            .camara-btn {
+                width: 2.667rem;
+                height: 0.653rem;
+                background-color: #2bbb55;
+                border-radius: 0.08rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.653rem;
+                letter-spacing: 0rem;
+                color: #ffffff;
+                margin: 0px auto;
+                text-align: center;
+            }
+        }
+    }
+
+    .centerb {
+        margin: 0px 0px 0.267rem;
+        width: 10rem;
+        background: #ffffff;
+        padding: 1px 0.36rem;
+        box-sizing: border-box;
+
+        .centerb-img {
+            width: 9.28rem;
+            height: 3.47rem;
+            border-radius: 0rem;
+            margin-bottom: 0.39rem;
+        }
+    }
+
+    .bottom {
+        width: 10rem;
+        height: 3.613rem;
+        background: #ffffff;
+        padding: 0px 0.36rem;
+        box-sizing: border-box;
+
+        .toplist:last-child {
+            border-bottom: 0px;
+        }
+
+        .toplist {
+            border-bottom: 1px solid #e7e7e7;
+            width: 100%;
+            height: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .title {
+                height: 0.347rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.347rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.347rem;
+                letter-spacing: 0.021rem;
+                color: #333333;
+            }
+
+            .toplist-right {
+                width: 7rem;
+                height: 100%;
+                line-height: 1.5em;
+            }
+        }
+
+    }
+
+    .agreement {
+        display: flex;
+        align-items: center;
+        padding: 1px 0.347rem;
+        box-sizing: border-box;
+        margin: 0.293rem 0px 0.76rem;
+
+        .read {
+            display: flex;
+            align-items: center;
+            height: 0.32rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.32rem;
+            letter-spacing: 0.019rem;
+            color: #999999;
+        }
+
+        .readactive {
+            display: flex;
+            align-items: center;
+            height: 0.32rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.32rem;
+            letter-spacing: 0.019rem;
+            color: #2bbb55;
+        }
+    }
+
+    .down-btn {
+        width: 10rem;
+        height: 1.307rem;
+        background-color: #2bbb55;
+        font-family: MicrosoftYaHei;
+        font-size: 0.373rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 1.307rem;
+        letter-spacing: 0.023rem;
+        color: #ffffff;
+        text-align: center;
+    }
+}
+.van-uploader__input-wrapper{
+    text-align: center !important;
+}

@@ -1,0 +1,674 @@
+.linedetails {
+    .islike {
+        width: 0.467rem;
+        height: 0.413rem;
+        position: fixed;
+        top: 0.267rem;
+        right: 0.627rem;
+        z-index: 99;
+    }
+
+    .banners {
+        width: 100%;
+        height: 5.333rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .content {
+        width: 10rem;
+        background: rgb(243, 243, 243);
+        border-radius: 0.267rem 0.267rem 0rem 0rem;
+        margin-top: -0.2rem;
+        position: relative;
+        z-index: 99;
+        margin-bottom: 1.5rem;
+    }
+}
+
+// 最上面主要信息
+.top {
+    width: 10rem;
+    height: 3.4rem;
+    background: #ffffff;
+    border-radius: 0.267rem 0.267rem 0rem 0rem;
+    padding: 1px 0.347rem;
+    box-sizing: border-box;
+
+    .titel {
+        //height: 0.373rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.373rem;
+        font-weight: bold;
+        font-stretch: normal;
+        //line-height: 0.373rem;
+        letter-spacing: 0.023rem;
+        color: #333333;
+        margin-top: 0.52rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+
+    .word {
+        width: 100%;
+        height: 0.887rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.32rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.457rem;
+        letter-spacing: 0.019rem;
+        color: #999999;
+        margin-top: 0.2rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    .top-list {
+        width: 100%;
+        height: 0.507rem;
+        margin-top: 0.2rem;
+        display: flex;
+
+        div {
+            height: 0.507rem;
+            background-color: #f3f3f3;
+            border-radius: 0.04rem;
+            padding: 0.107rem 0.2rem;
+            box-sizing: border-box;
+            font-family: MicrosoftYaHei;
+            font-size: 0.293rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.293rem;
+            letter-spacing: 0.005rem;
+            color: #666666;
+            margin-right: 0.267rem;
+        }
+    }
+
+    .money {
+        height: 0.36rem;
+        //   padding: 0px 0.2rem;
+        box-sizing: border-box;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        div {
+            display: inline-block;
+        }
+
+        .money-left {
+            .moneysp1 {
+                height: 0.253rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.253rem;
+                letter-spacing: 0.007rem;
+                color: #ff620e;
+                margin-right: 0.08rem;
+            }
+
+            .moneysp2 {
+                height: 0.36rem;
+                font-family: MicrosoftYaHei-Bold;
+                font-size: 0.453rem;
+                font-weight: bold;
+                font-stretch: normal;
+                line-height: 0.36rem;
+                letter-spacing: 0.009rem;
+                color: #ff620e;
+                margin-right: 0.133rem;
+            }
+
+            .moneysp3 {
+                height: 0.32rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.32rem;
+                letter-spacing: 0.007rem;
+                color: #999999;
+            }
+        }
+
+        .money-right {
+            .salesvolume {
+                float: right;
+                height: 0.293rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.293rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.293rem;
+                letter-spacing: 0.005rem;
+                color: #666666;
+
+                .salesvolume-span {
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.32rem;
+                    font-weight: normal;
+                    letter-spacing: 0.007rem;
+                    color: #2dba55;
+                }
+            }
+        }
+    }
+}
+
+// 选择套餐类型
+.choice {
+    width: 10rem;
+    height: 1.333rem;
+    margin: 0.267rem auto;
+    padding: 0px 0.333rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    background: #fff;
+
+    .choiceleft {
+        height: 0.36rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.373rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.36rem;
+        letter-spacing: 0.023rem;
+        color: #333333;
+        margin-right: 0.453rem;
+    }
+
+    .choicecenter {
+        height: 0.36rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.347rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.36rem;
+        letter-spacing: 0.021rem;
+        color: #999999;
+        margin-right: 5.3rem;
+    }
+
+    img {
+        width: 0.147rem;
+        height: 0.28rem;
+    }
+}
+
+// 景点介绍
+.word {
+    width: 10rem;
+    background: #fff;
+    margin: 0.253rem 0;
+    padding-bottom: 0.627rem;
+
+    .iswordtop {
+
+        width: 100%;
+        height: 1.08rem;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 0.56rem;
+        box-sizing: border-box;
+        border: 1px solid #e7e7e7;
+        background: #fff;
+        position: fixed;
+        top: 0px;
+        z-index: 999;
+
+        .word-item-active {
+            width: 1.35rem;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.293rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.04rem;
+            letter-spacing: 0.017rem;
+            color: #2dba55;
+            border-bottom: 1px solid #2dba55;
+            text-align: center;
+        }
+
+        .word-item {
+            width: 1.35rem;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.293rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.04rem;
+            letter-spacing: 0.017rem;
+            color: #333333;
+            border-bottom: 1px solid #fff;
+            text-align: center;
+        }
+
+    }
+
+    .wordtop {
+        width: 100%;
+        height: 1.08rem;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 0.56rem;
+        box-sizing: border-box;
+        border: 1px solid #e7e7e7;
+
+        .word-item-active {
+            width: 1.35rem;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.293rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.04rem;
+            letter-spacing: 0.017rem;
+            color: #2dba55;
+            border-bottom: 1px solid #2dba55;
+            text-align: center;
+        }
+
+        .word-item {
+            width: 1.35rem;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.293rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.04rem;
+            letter-spacing: 0.017rem;
+            color: #333333;
+            border-bottom: 1px solid #fff;
+            text-align: center;
+        }
+    }
+
+    .word-all {
+        padding: 1px 0.347rem;
+        box-sizing: border-box;
+
+        .wordtitle {
+            height: 1rem;
+            line-height: 1rem;
+            color: rgba(45, 186, 85, 1);
+            font-size: 0.35rem;
+        }
+
+        .word-noword {
+            width: 100%;
+            height: 3.84rem;
+            font-size: 0.35rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(45, 186, 85, 1);
+            line-height: 3.84rem;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.buy {
+    width: 10rem;
+    height: 1.307rem;
+    background-color: #2DBA55;
+    font-family: MicrosoftYaHei;
+    font-size: 0.373rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.307rem;
+    letter-spacing: 0.023rem;
+    color: #ffffff;
+    text-align: center;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+}
+
+// 选择套餐弹窗
+.choicepopup {
+    position: fixed;
+    top: 100vh;
+    // top: 0px;
+    left: 0px;
+    width: 10rem;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    display: flex;
+    align-items: flex-end;
+
+    .choicepopupcon {
+        width: 10rem;
+        // height: 9.427rem;
+        background-color: #ffffff;
+        border-radius: 0.267rem 0.267rem 0rem 0rem;
+        position: relative;
+        padding: 0.533rem 0px 1.307rem;
+        box-sizing: border-box;
+
+        .choicepopupclose {
+            position: absolute;
+            top: 0.533rem;
+            right: 0.347rem;
+            width: 0.373rem;
+            height: 0.373rem;
+        }
+
+        .choicepopupcon-title {
+            width: 100%;
+            height: 0.427rem;
+            margin-top: 0.493rem;
+            text-align: center;
+            font-family: MicrosoftYaHei;
+            font-size: 0.427rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.427rem;
+            letter-spacing: 0.025rem;
+            color: #333333;
+        }
+
+        .choicepopupclose {
+            width: 0.373rem;
+            height: 0.373rem;
+            position: absolute;
+            top: 0.533rem;
+            right: 0.347rem;
+            z-index: 9;
+        }
+    }
+
+    .popupcon {
+        width: 100%;
+        padding: 0px 0.347rem;
+        box-sizing: border-box;
+
+        .popupcon-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.533rem;
+
+            .top-left {
+                width: 2.667rem;
+                height: 2.667rem;
+                border-radius: 0.133rem;
+                margin-right: 0.507rem;
+            }
+
+            .top-right {
+                height: 1.134rem;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .top-right-top {
+                    width: 100%;
+                    height: 0.347rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.427rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.347rem;
+                    letter-spacing: 0.025rem;
+                    color: #ff620e;
+                    margin-bottom: 0.387rem;
+                }
+
+                .top-right-bottom {
+                    width: 100%;
+                    height: 0.373rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.373rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.373rem;
+                    letter-spacing: 0.023rem;
+                    color: #666666;
+                }
+            }
+        }
+
+        .popupcon-item {
+            padding: 0.4rem 0px 0.147rem;
+            box-sizing: border-box;
+            border-top: 1px solid #e7e7e7;
+
+            .popupcon-item-bynum {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 1.026rem;
+
+                .bynum-left {
+                    height: 0.373rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.373rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.373rem;
+                    letter-spacing: 0.023rem;
+                    color: #333333;
+                }
+
+                .bynum-right {
+                    display: flex;
+                    align-items: center;
+
+                    .down {
+                        width: 0.653rem;
+                        height: 0.653rem;
+                        background-color: #f3f3f3;
+                        border-radius: 0.093rem;
+                        color: #666666;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.347rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.653rem;
+                        letter-spacing: 0.021rem;
+                        text-align: center;
+                    }
+
+                    .up {
+                        width: 0.653rem;
+                        height: 0.653rem;
+                        background-color: rgba(45, 486, 85, 0.2);
+                        border-radius: 0.093rem;
+                        color: #2dba55;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.347rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.653rem;
+                        letter-spacing: 0.021rem;
+                        text-align: center;
+                    }
+
+                    .bynum-right-center {
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.4rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.653rem;
+                        letter-spacing: 0.024rem;
+                        color: #333333;
+                        width: 1rem;
+                        height: 0.653rem;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .popupcon-item-title {
+                height: 0.373rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.373rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.373rem;
+                letter-spacing: 0.023rem;
+                color: #333333;
+                margin-bottom: 0.4rem;
+            }
+
+            .twoclasstype {
+                display: flex;
+                flex-wrap: wrap;
+
+                .twoclass-item {
+                    border-radius: 0.067rem;
+                    margin-right: 0.28rem;
+                    margin-bottom: 0.253rem;
+                    text-align: center;
+                    border: solid 1px #fff;
+                    padding: 0.2rem 0.36rem;
+                    box-sizing: border-box;
+                    background-color: #f3f3f3;
+                    color: #666666;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    div {
+                        height: 0.347rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.347rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.347rem;
+                        letter-spacing: 0.021rem;
+                    }
+                }
+
+                .twoclass-item-active {
+                    border-radius: 0.067rem;
+                    margin-right: 0.28rem;
+                    margin-bottom: 0.253rem;
+                    text-align: center;
+                    border: solid 1px #2dba55;
+                    padding: 0.2rem 0.36rem;
+                    box-sizing: border-box;
+                    background-color: rgb(234, 248, 238);
+                    color: #2dba55;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    div {
+                        height: 0.347rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.347rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.347rem;
+                        letter-spacing: 0.021rem;
+                    }
+                }
+            }
+
+            .twoclass {
+                display: flex;
+                flex-wrap: wrap;
+
+                .twoclass-item {
+                    border-radius: 0.067rem;
+                    margin-right: 0.28rem;
+                    margin-bottom: 0.253rem;
+                    text-align: center;
+                    border: solid 1px #fff;
+                    padding: 0.2rem 0.36rem;
+                    box-sizing: border-box;
+                    background-color: #f3f3f3;
+                    color: #666666;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    div {
+                        height: 0.347rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.347rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.347rem;
+                        letter-spacing: 0.021rem;
+                    }
+                }
+
+                .twoclass-item-active {
+                    border-radius: 0.067rem;
+                    margin-right: 0.28rem;
+                    margin-bottom: 0.253rem;
+                    text-align: center;
+                    border: solid 1px #2dba55;
+                    padding: 0.2rem 0.36rem;
+                    box-sizing: border-box;
+                    background-color: rgb(234, 248, 238);
+                    color: #2dba55;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    div {
+                        height: 0.347rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.347rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.347rem;
+                        letter-spacing: 0.021rem;
+                    }
+                }
+            }
+
+            .explain {
+                height: 0.32rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.32rem;
+                letter-spacing: 0.019rem;
+                color: #999999;
+            }
+        }
+    }
+
+    .pay-btn {
+        width: 10rem;
+        height: 1.307rem;
+        background-color: #2dba55;
+        font-family: MicrosoftYaHei;
+        font-size: 0.373rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 1.307rem;
+        letter-spacing: 0.023rem;
+        color: #ffffff;
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+    }
+}

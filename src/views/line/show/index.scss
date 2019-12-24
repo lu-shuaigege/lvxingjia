@@ -1,0 +1,925 @@
+.linedetails {
+    padding-bottom: 0.1rem;
+
+    .islike {
+        width: 0.467rem;
+        height: 0.413rem;
+        position: fixed;
+        top: 0.267rem;
+        right: 0.627rem;
+        z-index: 99;
+    }
+
+    .banners {
+        width: 100%;
+        height: 5.333rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .content {
+        width: 10rem;
+        min-height: 100vh;
+        background: rgb(243, 243, 243);
+        border-radius: 0.267rem 0.267rem 0rem 0rem;
+        margin-top: -0.2rem;
+        position: relative;
+        z-index: 99;
+    }
+}
+
+// 最上面主要信息
+.top {
+    width: 10rem;
+    height: 4.027rem;
+    background: #ffffff;
+    border-radius: 0.267rem 0.267rem 0rem 0rem;
+    padding: 1px 0.347rem;
+    box-sizing: border-box;
+
+    .titel {
+        //height: 0.373rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.373rem;
+        font-weight: bold;
+        font-stretch: normal;
+        //line-height: 0.373rem;
+        letter-spacing: 0.023rem;
+        color: #333333;
+        margin-top: 0.52rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+
+    .topword {
+        width: 100%;
+        height: 0.887rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.32rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.457rem;
+        letter-spacing: 0.019rem;
+        color: #999999;
+        margin-top: 0.2rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    .top-list {
+        width: 100%;
+        height: 0.507rem;
+        margin-top: 0.2rem;
+        display: flex;
+
+        div {
+            height: 0.507rem;
+            background-color: #f3f3f3;
+            border-radius: 0.04rem;
+            padding: 0.107rem 0.2rem;
+            box-sizing: border-box;
+            font-family: MicrosoftYaHei;
+            font-size: 0.293rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.293rem;
+            letter-spacing: 0.005rem;
+            color: #666666;
+            margin-right: 0.267rem;
+        }
+    }
+
+    .money {
+        height: 0.36rem;
+        //   padding: 0px 0.2rem;
+        box-sizing: border-box;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        div {
+            display: inline-block;
+        }
+
+        .money-left {
+            .moneysp1 {
+                height: 0.253rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.253rem;
+                letter-spacing: 0.007rem;
+                color: #ff620e;
+                margin-right: 0.08rem;
+            }
+
+            .moneysp2 {
+                height: 0.36rem;
+                font-family: MicrosoftYaHei-Bold;
+                font-size: 0.453rem;
+                font-weight: bold;
+                font-stretch: normal;
+                line-height: 0.36rem;
+                letter-spacing: 0.009rem;
+                color: #ff620e;
+                margin-right: 0.133rem;
+            }
+
+            .moneysp3 {
+                height: 0.32rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.32rem;
+                letter-spacing: 0.007rem;
+                color: #999999;
+            }
+        }
+
+        .money-right {
+            .salesvolume {
+                float: right;
+                height: 0.293rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.293rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.293rem;
+                letter-spacing: 0.005rem;
+                color: #666666;
+
+                .salesvolume-span {
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.32rem;
+                    font-weight: normal;
+                    letter-spacing: 0.007rem;
+                    color: #2dba55;
+                }
+            }
+        }
+    }
+}
+
+// 主办方
+.sponsor {
+    width: 100%;
+    height: 1.333rem;
+    background: #ffffff;
+    padding: 1px 0.347rem;
+    box-sizing: border-box;
+    margin: 0.253rem 0;
+    display: flex;
+    align-items: center;
+
+    .sponsor-left {
+        height: 0.387rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.373rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.387rem;
+        letter-spacing: 0.023rem;
+        color: #333333;
+    }
+
+    img {
+        width: 0.8rem;
+        height: 0.8rem;
+        margin: 0 0.227rem 0 0.267rem;
+        border-radius: 50%;
+    }
+
+    .sponsorname {
+        height: 0.347rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.347rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.347rem;
+        letter-spacing: 0.021rem;
+        color: #666666;
+    }
+}
+
+// 套餐价格
+.packageprice {
+    width: 10rem;
+    height: 2.667rem;
+    background: #fff;
+    padding: 1px 0 0 0.347rem;
+    box-sizing: border-box;
+    margin: 0.253rem 0;
+    overflow: hidden;
+
+    .packageprice-title {
+        height: 0.347rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.347rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.347rem;
+        letter-spacing: 0.021rem;
+        color: #333333;
+        margin: 0.387rem 0 0.333rem 0;
+    }
+
+    .packageprice-list {
+        width: 100%;
+        height: 1.307rem;
+        overflow: scroll;
+        display: flex;
+
+        .list-item:last-child {
+            width: 2.21rem;
+            height: 1.31rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .more {
+                width: 3.213rem;
+                font-size: 0.3rem;
+                font-family: Microsoft YaHei;
+                font-weight: 400;
+                color: rgba(153, 153, 153, 1);
+                line-height: 0.3rem;
+                text-align: center;
+            }
+
+        }
+
+        .list-itemactive {
+            height: 1.307rem;
+            background-color: #2DBA55;
+            border-radius: 0.067rem;
+            text-align: center;
+            margin-right: 0.133rem;
+
+            .packageprice-item {
+                width: 2.213rem;
+
+                .itemdate {
+                    height: 0.24rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.267rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.24rem;
+                    letter-spacing: 0.016rem;
+                    color: #fff;
+                    margin-top: 0.347rem;
+                }
+
+                .itemmoney {
+                    height: 0.24rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.293rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.24rem;
+                    letter-spacing: 0.017rem;
+                    color: #fff;
+                    margin-top: 0.147rem;
+                }
+            }
+        }
+
+        .list-item {
+            height: 1.307rem;
+            background-color: #f3f3f3;
+            border-radius: 0.067rem;
+            text-align: center;
+            margin-right: 0.133rem;
+
+            .packageprice-item {
+                width: 2.213rem;
+
+                .itemdate {
+                    height: 0.24rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.267rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.24rem;
+                    letter-spacing: 0.016rem;
+                    color: #999999;
+                    margin-top: 0.347rem;
+                }
+
+                .itemmoney {
+                    height: 0.24rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.293rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.24rem;
+                    letter-spacing: 0.017rem;
+                    color: #ff620e;
+                    margin-top: 0.147rem;
+                }
+            }
+        }
+    }
+}
+
+// 集合地选择
+.address {
+    width: 10rem;
+    //   height: 2.667rem;
+    background: #fff;
+    padding: 1px 0 0 0.347rem;
+    box-sizing: border-box;
+    margin: 0.253rem 0;
+
+    .address-title {
+        height: 0.347rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.347rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.347rem;
+        letter-spacing: 0.021rem;
+        color: #333333;
+        margin: 0.387rem 0 0.333rem 0;
+    }
+
+    .address-list {
+        margin-top: 0.347rem;
+        padding-bottom: 0.533rem;
+
+        .no-address {
+            height: 1rem;
+            font-size: 0.35rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(153, 153, 153, 1);
+            line-height: 1rem;
+            text-align: center;
+        }
+
+        .address-item {
+            width: 9.28rem;
+            height: 1.067rem;
+            background-color: #ffffff;
+            border-radius: 0.067rem;
+            border: solid 1px #e7e7e7;
+            margin-bottom: 0.253rem;
+            padding-left: 0.36rem;
+            box-sizing: border-box;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.067rem;
+            letter-spacing: 0.019rem;
+            color: #666666;
+        }
+
+        .address-item-active {
+            width: 9.28rem;
+            height: 1.067rem;
+            background-color: #ffffff;
+            border-radius: 0.067rem;
+            border: solid 1px #2DBA55;
+            margin-bottom: 0.253rem;
+            padding-left: 0.36rem;
+            box-sizing: border-box;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.067rem;
+            letter-spacing: 0.019rem;
+            color: #2DBA55;
+        }
+    }
+}
+
+// 已报名人员
+.enrolment {
+    width: 10rem;
+    height: 3.24rem;
+    background: #fff;
+    padding: 1px 0.347rem;
+    box-sizing: border-box;
+    margin: 0.253rem 0;
+
+    .enrolment-title {
+        height: 0.347rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.347rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.347rem;
+        letter-spacing: 0.021rem;
+        color: #333333;
+        margin: 0.387rem 0 0.333rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        // font-size: 0;
+        .enrolment-title-left {
+            display: flex;
+            align-items: flex-end;
+
+            .enrolment-ok {
+                height: 0.307rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.293rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.307rem;
+                letter-spacing: 0.017rem;
+                color: #999999;
+            }
+        }
+
+        img {
+            width: 0.147rem;
+            height: 0.28rem;
+        }
+    }
+
+    .no-enrolmentlist {
+        width: 100;
+        font-size: 0.35rem;
+        font-family: Microsoft YaHei;
+        font-weight: 400;
+        color: rgba(153, 153, 153, 1);
+        line-height: 1.893rem;
+        text-align: center;
+    }
+
+    .enrolmentlist {
+        width: 100%;
+        margin-top: 0.493rem;
+        display: flex;
+        overflow: scroll;
+
+        .enrolment-item {
+            width: 0.987rem;
+            height: 1.48rem;
+            font-size: 0;
+            margin-right: 0.69rem;
+
+            img {
+                width: 0.987rem;
+                height: 0.987rem;
+                border-radius: 50%;
+                margin-bottom: 0.187rem;
+            }
+
+            .name {
+                width: 100%;
+                height: 0.307rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.293rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.307rem;
+                letter-spacing: 0.017rem;
+                color: #999999;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+            }
+        }
+    }
+}
+
+// 景点介绍
+.word {
+    width: 10rem;
+    background: #fff;
+    margin: 0.253rem 0;
+    padding-bottom: 0.627rem;
+
+    .iswordtop {
+
+        width: 100%;
+        height: 1.08rem;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0.56rem;
+        box-sizing: border-box;
+        border: 1px solid #e7e7e7;
+        background: #fff;
+        position: fixed;
+        top: 0px;
+        z-index: 999;
+
+        .word-item-active {
+            width: 1.35rem;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.293rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.04rem;
+            letter-spacing: 0.017rem;
+            color: #2dba55;
+            border-bottom: 1px solid #2dba55;
+            text-align: center;
+        }
+
+        .word-item {
+            width: 1.35rem;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.293rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.04rem;
+            letter-spacing: 0.017rem;
+            color: #333333;
+            border-bottom: 1px solid #fff;
+            text-align: center;
+        }
+
+    }
+
+    .wordtop {
+        width: 100%;
+        height: 1.08rem;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0.56rem;
+        box-sizing: border-box;
+        border: 1px solid #e7e7e7;
+        background: #fff;
+
+        .word-item-active {
+            width: 1.35rem;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.293rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.04rem;
+            letter-spacing: 0.017rem;
+            color: #2dba55;
+            border-bottom: 1px solid #2dba55;
+            text-align: center;
+        }
+
+        .word-item {
+            width: 1.35rem;
+            height: 100%;
+            font-family: MicrosoftYaHei;
+            font-size: 0.293rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.04rem;
+            letter-spacing: 0.017rem;
+            color: #333333;
+            border-bottom: 1px solid #fff;
+            text-align: center;
+        }
+    }
+
+    .word-all {
+        padding: 1px 0.347rem;
+        box-sizing: border-box;
+
+        .wordtitle {
+            height: 1rem;
+            line-height: 1rem;
+            color: rgba(45, 186, 85, 1);
+            font-size: 0.35rem;
+        }
+
+        .word-noword {
+            width: 100%;
+            height: 3.84rem;
+            font-size: 0.35rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(45, 186, 85, 1);
+            line-height: 3.84rem;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+// 猜你喜欢
+.like {
+    width: 10rem;
+    background: #fff;
+    padding: 1px 0.347rem;
+    box-sizing: border-box;
+    margin: 0 0 1.56rem;
+
+    .like-title {
+        height: 0.347rem;
+        font-family: MicrosoftYaHei;
+        font-size: 0.347rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 0.347rem;
+        letter-spacing: 0.021rem;
+        color: #333333;
+        margin: 0.387rem 0 0.333rem 0;
+    }
+
+    .hotlist {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .hotlist-item {
+            width: 4.533rem;
+            height: 6.894rem;
+            border-radius: 0.267rem;
+
+            margin-bottom: 0.253rem;
+
+            .hotitem-top {
+                height: 4.547rem;
+                position: relative;
+                font-size: 0px;
+                border-radius: 0.267rem 0.267rem 0rem 0rem;
+                overflow: hidden;
+
+                .top {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 2rem;
+                    height: 0.653rem;
+                    background-color: rgba($color: #333333, $alpha: 0.9);
+                    border-radius: 0rem 0rem 0.267rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.267rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.653rem;
+                    letter-spacing: 0.005rem;
+                    color: #ffffff;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    padding: 0px 0.05rem;
+                    box-sizing: border-box;
+
+                    .shu {
+                        height: 0.3rem;
+                        width: 1px;
+                        background: #fff;
+
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    height: 4.547rem;
+                }
+            }
+
+            .hotitem-bottom {
+                width: 4.533rem;
+                height: 2.373rem;
+                border-radius: 0rem 0rem 0.267rem 0.267rem;
+                border: solid 1px #e7e7e7;
+                border-top: 0;
+                padding: 1px;
+                box-sizing: border-box;
+
+                .hotitem-title {
+                    width: 100%;
+                    height: 1rem;
+                    padding: 0px 0.2rem;
+                    box-sizing: border-box;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.373rem;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    line-height: 0.537rem;
+                    letter-spacing: 0.008rem;
+                    color: #333333;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    margin: 0.1rem 0;
+                }
+
+                .money {
+                    height: 0.36rem;
+                    padding: 0px 0.2rem;
+                    box-sizing: border-box;
+
+                    span {
+                        display: inline-block;
+                    }
+
+                    .moneysp1 {
+                        height: 0.253rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.32rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.253rem;
+                        letter-spacing: 0.007rem;
+                        color: #ff620e;
+                        margin-right: 0.08rem;
+                    }
+
+                    .moneysp2 {
+                        height: 0.36rem;
+                        font-family: MicrosoftYaHei-Bold;
+                        font-size: 0.453rem;
+                        font-weight: bold;
+                        font-stretch: normal;
+                        line-height: 0.36rem;
+                        letter-spacing: 0.009rem;
+                        color: #ff620e;
+                        margin-right: 0.133rem;
+                    }
+
+                    .moneysp3 {
+                        height: 0.32rem;
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.32rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        line-height: 0.871rem;
+                        letter-spacing: 0.007rem;
+                        color: #999999;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.buy {
+    width: 10rem;
+    height: 1.307rem;
+    background-color: #2DBA55;
+    font-family: MicrosoftYaHei;
+    font-size: 0.373rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.307rem;
+    letter-spacing: 0.023rem;
+    color: #ffffff;
+    text-align: center;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+}
+
+// 草稿和已下架进来按钮
+.tobereleased {
+    width: 10rem;
+    height: 1.333rem;
+    background-color: #ffffff;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .go_left {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .go_edit {
+            text-align: center;
+            width: 50%;
+            height: 100%;
+            font-size: 0px;
+
+            img {
+                width: 0.373rem;
+                height: 0.427rem;
+                margin: 0.24rem auto 0.127rem;
+            }
+
+            .go_edit_text {
+                font-family: MicrosoftYaHeiLight;
+                font-size: 0.32rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.32rem;
+                letter-spacing: 0.019rem;
+                color: #999999;
+            }
+        }
+
+        .go_del {
+            img {
+                width: 0.453rem;
+                height: 0.413rem;
+                margin: 0.24rem auto 0.127rem;
+            }
+        }
+
+        .shu {
+            width: 1px;
+            height: 0.533rem;
+            background-color: #e1e1e1;
+        }
+    }
+
+    .go_tight {
+        width: 50%;
+        height: 100%;
+        background-color: #2dba55;
+        font-family: MicrosoftYaHei;
+        font-size: 0.373rem;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 1.307rem;
+        letter-spacing: 0.023rem;
+        color: #ffffff;
+        text-align: center;
+    }
+}
+
+// 弹框
+.popup {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .contents {
+        width: 8rem;
+        height: 4.667rem;
+        background-color: #ffffff;
+        border-radius: 0.133rem;
+
+        .con-word {
+            width: 100%;
+            height: 3.32rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.427rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 3.32rem;
+            letter-spacing: 0.021rem;
+            color: #333333;
+            text-align: center;
+        }
+
+        .con-bottom {
+            width: 100%;
+            height: 1.347rem;
+            border-top: 1px solid #e7e7e7;
+            display: flex;
+            font-family: MicrosoftYaHei;
+            font-size: 0.373rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 1.347rem;
+            letter-spacing: 0.019rem;
+            color: #666666;
+            text-align: center;
+
+            .nook {
+                width: 50%;
+                height: 100%;
+                border-right: 1px solid #f3f3f3;
+                color: #666666;
+            }
+
+            .isok {
+                width: 50%;
+                height: 100%;
+                color: #2dba55;
+            }
+        }
+    }
+}

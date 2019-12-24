@@ -1,12 +1,14 @@
 .book {
   width: 100%;
   background: rgb(243, 243, 243);
+
   // 上面
   .top {
     height: 4.973rem;
     background-color: #ffffff;
     padding: 1px 0.36rem;
     box-sizing: border-box;
+
     .information {
       height: 1rem;
       font-family: MicrosoftYaHei;
@@ -18,6 +20,7 @@
       color: #333333;
       margin-top: 0.4rem;
     }
+
     .topcon {
       height: 0.32rem;
       font-family: MicrosoftYaHei;
@@ -32,39 +35,50 @@
       display: flex;
       // border-bottom: 1px solid #e7e7e7;
     }
+
     .top-bottom {
       .adult {
         display: flex;
-
+        justify-content: space-between;
         align-items: center;
-
         height: 1.2rem;
         border-top: 1px solid #e7e7e7;
-        .adult-left {
-          height: 0.347rem;
-          font-family: MicrosoftYaHei;
-          font-size: 0.347rem;
-          font-weight: normal;
-          font-stretch: normal;
-          line-height: 0.347rem;
-          letter-spacing: 0.021rem;
-          color: #333333;
-          margin-right: 1.28rem;
+
+        .adultleft {
+          display: flex;
+          align-items: center;
+
+          .adult-left {
+            height: 0.347rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.347rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.347rem;
+            letter-spacing: 0.021rem;
+            color: #333333;
+            margin-right: 1.28rem;
+          }
+
+          .adult-center {
+            height: 0.28rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.347rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.28rem;
+            letter-spacing: 0.021rem;
+            color: #ff620e;
+            margin-right: 3.6rem;
+          }
         }
-        .adult-center {
-          height: 0.28rem;
-          font-family: MicrosoftYaHei;
-          font-size: 0.347rem;
-          font-weight: normal;
-          font-stretch: normal;
-          line-height: 0.28rem;
-          letter-spacing: 0.021rem;
-          color: #ff620e;
-          margin-right: 3.6rem;
-        }
+
+
+
         .adult-right {
           display: flex;
           align-items: center;
+
           .down {
             width: 0.653rem;
             height: 0.653rem;
@@ -79,6 +93,7 @@
             letter-spacing: 0.021rem;
             text-align: center;
           }
+
           .up {
             width: 0.653rem;
             height: 0.653rem;
@@ -93,6 +108,7 @@
             letter-spacing: 0.021rem;
             text-align: center;
           }
+
           .adult-right-center {
             font-family: MicrosoftYaHei;
             font-size: 0.4rem;
@@ -109,6 +125,7 @@
       }
     }
   }
+
   // 中间
   .bookcenter {
     width: 10rem;
@@ -117,6 +134,7 @@
     margin: 0.267rem 0;
     padding: 1px 0.36rem;
     box-sizing: border-box;
+
     .center-title {
       height: 0.4rem;
       font-family: MicrosoftYaHei;
@@ -128,6 +146,7 @@
       color: #333333;
       margin: 0.4rem 0;
     }
+
     .center-item {
       width: 100%;
       height: 1.2rem;
@@ -135,6 +154,7 @@
       align-items: center;
       border-top: 1px solid #e7e7e7;
       justify-content: space-between;
+
       .item-left {
         height: 0.347rem;
         font-family: MicrosoftYaHei;
@@ -145,6 +165,7 @@
         letter-spacing: 0.021rem;
         color: #333333;
       }
+
       .item-right {
         outline: none !important;
         -webkit-appearance: none !important;
@@ -155,6 +176,7 @@
       }
     }
   }
+
   .bookinformation {
     width: 10rem;
     height: 4.947rem;
@@ -162,6 +184,7 @@
     margin: 0.267rem 0;
     padding: 1px 0.36rem;
     box-sizing: border-box;
+
     .bookinformation-title {
       height: 0.4rem;
       font-family: MicrosoftYaHei;
@@ -173,6 +196,7 @@
       color: #333333;
       margin: 0.4rem 0;
     }
+
     .bookinformation-item {
       width: 100%;
       border-top: 1px solid #e7e7e7;
@@ -194,6 +218,7 @@
           letter-spacing: 0.021rem;
           color: #333333;
         }
+
         .namephone {
           height: 0.28rem;
           font-family: MicrosoftYaHei;
@@ -205,9 +230,11 @@
           color: #666666;
         }
       }
+
       .bookinformation-list:nth-child(2) {
         margin-bottom: 0px;
       }
+
       .bookinformation-btn {
         width: 4.64rem;
         height: 1.04rem;
@@ -226,6 +253,7 @@
       }
     }
   }
+
   .bookbottom {
     width: 10rem;
     height: 4.8rem;
@@ -233,6 +261,7 @@
     margin: 0.267rem 0;
     padding: 1px 0.36rem;
     box-sizing: border-box;
+
     .bookbottom-title {
       height: 0.4rem;
       font-family: MicrosoftYaHei;
@@ -244,12 +273,14 @@
       color: #333333;
       margin: 0.4rem 0;
     }
+
     .bookbottom-bottom {
       width: 100%;
       height: 3.587rem;
       border-top: 1px solid #e7e7e7;
       padding: 0.32rem 0;
       box-sizing: border-box;
+
       .proposal {
         outline: none !important;
         -webkit-appearance: none !important;
@@ -260,21 +291,25 @@
       }
     }
   }
+
   .clause {
     height: 1.107rem;
     padding: 1px 0.36rem;
     box-sizing: border-box;
   }
+
   .bottom {
     width: 10rem;
     height: 1.467rem;
     background: #ffffff;
     display: flex;
+
     .bottom-left-btn {
       width: 50%;
       height: 100%;
       display: flex;
       align-items: center;
+
       .left-btn-left {
         height: 0.387rem;
         font-family: MicrosoftYaHei;
@@ -286,6 +321,7 @@
         color: #333333;
         margin-left: 0.347rem;
       }
+
       .left-btn-right {
         font-family: MicrosoftYaHei-Bold;
         font-size: 0.427rem;
@@ -294,6 +330,7 @@
         color: #ff620e;
       }
     }
+
     .bottom-right-btn {
       width: 50%;
       height: 100%;
