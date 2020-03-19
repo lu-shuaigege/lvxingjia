@@ -1,29 +1,11 @@
 <template>
     <div class="myinformation">
-        <yd-button
-            class="headportrait-btn"
-            @click.native="showa = true"
-        ></yd-button>
-        <!-- <input type="file" accept="image/*" capture="camera" class="camera" /> -->
-        <input
-            type="file"
-            @change="getfile($event)"
-            accept="image/*"
-            class="imgfile"
-        />
+        <van-uploader :after-read="uploadFmImg" class="upload-fm"></van-uploader>
         <div class="headportrait">
             <div class="headportrait-left">头像</div>
             <div class="headportrait-right">
-                <img
-                    :src="myData.headimgurl"
-                    class="headportrait-right-img"
-                    alt
-                />
-                <img
-                    src="@/assets/img/my/right.png"
-                    class="headportrait-right-imgright"
-                    alt
-                />
+                <img :src="myData.headimgurl" class="headportrait-right-img" />
+                <img src="@/assets/img/my/right.png" class="headportrait-right-imgright" />
             </div>
         </div>
 
@@ -50,11 +32,7 @@
             <div class="headportrait-left">性别</div>
             <div class="headportrait-right">
                 <div class="word">{{ myData.sex | sexType }}</div>
-                <img
-                    src="@/assets/img/my/right.png"
-                    class="headportrait-right-imgright"
-                    alt
-                />
+                <img src="@/assets/img/my/right.png" class="headportrait-right-imgright" alt />
             </div>
         </div>
         <div class="myinformation-list">
@@ -67,35 +45,18 @@
                     type="date"
                     v-model="myData.birthday"
                 ></yd-datetime>
-                <img
-                    src="@/assets/img/my/right.png"
-                    class="headportrait-right-imgright"
-                    alt
-                />
+                <img src="@/assets/img/my/right.png" class="headportrait-right-imgright" alt />
             </div>
         </div>
         <div class="myinformation-list">
             <div class="headportrait-left">详细地址</div>
             <div class="headportrait-right">
-                <input
-                    class="word"
-                    v-model="myData.address"
-                    type="text"
-                    placeholder="请填写详细地址"
-                />
+                <input class="word" v-model="myData.address" type="text" placeholder="请填写详细地址" />
             </div>
         </div>
         <div class="okmyinformation" @click="okmyfn()">保存</div>
-        <yd-actionsheet
-            :items="myItemsa"
-            v-model="showa"
-            cancel="取消"
-        ></yd-actionsheet>
-        <yd-actionsheet
-            :items="myItemsb"
-            v-model="showb"
-            cancel="取消"
-        ></yd-actionsheet>
+        <yd-actionsheet :items="myItemsa" v-model="showa" cancel="取消"></yd-actionsheet>
+        <yd-actionsheet :items="myItemsb" v-model="showb" cancel="取消"></yd-actionsheet>
     </div>
 </template>
 
@@ -104,12 +65,13 @@ export default {
     name: "myinformation",
     data() {
         return {
+            // isok: false,
             myData: {
-                headimgurls: process.env.VUE_APP_BASE_API, //图片前缀
+                headimgurls: process.env.VUE_APP_IMGURL, //图片前缀
                 headimgurl: "",
                 mobile: "",
                 nickname: "请输入昵称",
-                sex: "",
+                sex: 1,
                 birthday: "",
                 address: " "
             },
@@ -146,24 +108,34 @@ export default {
         if (this.$route.query.nickname) {
             this.myData.nickname = this.$route.query.nickname;
         }
+        // console.log(this.$store.state.user);
+        // if (
+        //     (this.$store.state.user != null ||
+        //         this.$store.state.user != undefined) &&
+        //     this.isok
+        // ) {
+        //     this.myData = this.$store.state.user;
+        // }
     },
     methods: {
         // 获取用户信息
         getMyInfo: function() {
             this.$api.user.me().then(res => {
                 this.myData = res;
+                // this.isok = true;
                 if (localStorage.getItem("nickname")) {
                     this.myData.nickname = localStorage.getItem("nickname");
                 }
             });
         },
         //上传图片
-        getfile: function(e) {
-            this.file = e.target.files[0];
-            let formData = new FormData();
-            formData.append("imgfile", this.file);
+        // 上传封面图
+        uploadFmImg(file) {
+            var formData = new FormData();
+            formData.append("upfile", file.file);
             this.$api.upload.store(formData).then(res => {
-                this.myData.headimgurl = this.headimgurls + res.data.image_url;
+                this.myData.headimgurl =
+                    process.env.VUE_APP_IMGURL + res.data.image_url;
             });
         },
         //保存
@@ -199,6 +171,16 @@ export default {
         },
         // 跳转改变昵称
         nikenamefn: function() {
+            let user = {
+                headimgurl: this.myData.headimgurl,
+                mobile: this.myData.mobile,
+                nickname: this.myData.nickname,
+                sex: this.myData.sex,
+                birthday: this.myData.birthday,
+                address: this.myData.address
+            };
+            console.log(user);
+            this.$store.commit("setUser", user);
             this.$router.push({
                 path: "/me/modifynikename",
                 query: { nickname: this.myData.nickname }

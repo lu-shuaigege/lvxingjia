@@ -1,12 +1,5 @@
 .linedetails {
-    .islike {
-        width: 0.467rem;
-        height: 0.413rem;
-        position: fixed;
-        top: 0.267rem;
-        right: 0.627rem;
-        z-index: 99;
-    }
+    height: 100vh;
 
     .banners {
         width: 100%;
@@ -26,8 +19,21 @@
         margin-top: -0.2rem;
         position: relative;
         z-index: 99;
-        margin-bottom: 1.4rem;
+        // margin-bottom: 1.4rem;
+        display: flex;
+        align-content: space-between;
+        flex-wrap: wrap;
     }
+}
+
+.linedetails_all {
+    height: 92vh;
+    // overflow: scroll;
+}
+
+.bottomDom {
+    width: 100%;
+    height: 1.3rem;
 }
 
 // 最上面主要信息
@@ -105,6 +111,15 @@
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
+
+        .islike {
+            width: 0.467rem;
+            height: 0.413rem;
+            // position: fixed;
+            // top: 0.267rem;
+            // right: 0.627rem;
+            // z-index: 99;
+        }
 
         div {
             display: inline-block;
@@ -344,6 +359,7 @@
     position: fixed;
     left: 0px;
     bottom: 0px;
+    z-index: 99;
 }
 
 // 选择套餐弹窗

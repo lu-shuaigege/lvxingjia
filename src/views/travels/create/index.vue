@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="popup-ok-con-center">游记发布成功!</div>
-                <div class="popup-ok-con-bottom">恭喜您成功获得100积分！</div>
+                <div class="popup-ok-con-bottom" v-show="num!=0">恭喜您成功获得{{num}}积分！</div>
                 <div class="popup-ok-con-btn" @click="popupokfn()">确定</div>
             </div>
         </div>
@@ -83,11 +83,12 @@
 export default {
     data() {
         return {
-            imgAfterUrl: process.env.VUE_APP_BASE_API,
+            imgAfterUrl: process.env.VUE_APP_IMGURL,
             imgshow: 0, //判断有没有封面
             blurIndex: 0, //输入框焦点失去时的位置
             index: "", //点击的哪个输入框
             word: "", //编辑的输入文字内容
+            num: "", //获得积分
             //   接口总数据
             contents: {
                 img: ""
@@ -106,6 +107,9 @@ export default {
     components: {},
     created() {
         this.$wechat.timeline(false);
+        // if (this.$route.query.id) {
+        //     this.id = this.$route.query.id;
+        // }
         this.id = this.$route.query.id;
         if (this.id != undefined) {
             this.imgshow = 1;
@@ -166,6 +170,7 @@ export default {
                 arr.push("");
             }
             this.content = arr;
+            console.log(this.content);
         },
         //上传图片
         afterRead(file) {
@@ -173,6 +178,10 @@ export default {
             let formData = new FormData();
             formData.append("upfile", file.file);
             this.$api.upload.store(formData).then(res => {
+                console.log(res);
+                if (!res) {
+                    return;
+                }
                 if (this.blurIndex == "") {
                     this.content.push(res.data.image_url);
                 } else {
@@ -193,17 +202,16 @@ export default {
                         wordRight
                     );
                 }
-                console.log(this.content);
                 this.andword(this.content);
                 this.blurIndex = "";
                 this.index = "";
                 // this.content.splice(this.index, 0, res.data.image_url);
+                console.log(this.content);
             });
         },
         //改变数组
         venueInput(index, e) {
             this.content[index] = e.target.value;
-            console.log(this.content);
         },
         //点击输入框
         click(index) {
@@ -219,7 +227,7 @@ export default {
                 this.imgshow = "1";
             });
         },
-        //编辑内容
+        //删除内容图片
         editContent(index) {
             this.content.splice(index, 1);
             this.andword(this.content);
@@ -231,18 +239,47 @@ export default {
                 cover_img: this.contents.img,
                 content: this.content
             };
-            this.$api.travelnotes.release(param).then(res => {
-                if (res == null) {
+            if (param.cover_img == "") {
+                this.$toast("请上传封面图");
+                return;
+            }
+            if (param.name == "") {
+                this.$toast("请输入标题");
+                return;
+            }
+            if (
+                (param.content[0] == "" || param.content[0] == "\n") &&
+                param.content[1].slice(0, 1) != "/"
+            ) {
+                this.$toast("请输入正文内容");
+                return;
+            }
+
+            if (this.id == undefined) {
+                this.$api.travelnotes.release(param).then(res => {
                     this.$refs.popupok.style.top = "0px";
-                }
-            });
-            this.$api.travelnotes
-                .update(this.id, param.name, param.cover_img, param.content)
-                .then(res => {
-                    this.item = res;
-                    this.contentTitle = res.name;
-                    this.content = res.content;
+                    if (res == null) {
+                        this.num = 0;
+                    } else {
+                        this.num = res.num;
+                    }
                 });
+            }
+            let paramUpdata = {
+                name: this.contentTitle,
+                cover_img: this.contents.img,
+                content: this.content
+            };
+            if (this.id != undefined) {
+                this.$api.travelnotes.update(this.id, paramUpdata).then(res => {
+                    this.$toast("游记修改成功");
+                    setTimeout(() => {
+                        this.$router.push({
+                            path: "/me/travels"
+                        });
+                    }, 1000);
+                });
+            }
         },
         // 点击弹窗确定
         popupokfn: function() {
@@ -254,10 +291,12 @@ export default {
         //获取游记内容
         show() {
             this.$api.travelnotes.show(this.id).then(res => {
+                console.log(res);
                 this.item = res;
                 this.contents.img = res.cover_img;
                 this.contentTitle = res.name;
                 this.content = res.content;
+                this.content.push("");
             });
         }
     }

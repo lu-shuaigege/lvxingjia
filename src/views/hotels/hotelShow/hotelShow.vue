@@ -1,100 +1,91 @@
 <template>
     <div class="linedetails" ref="linedetails">
-        <img
-            class="islike"
-            @click="collection(1)"
-            v-show="islike == 0"
-            src="@/assets/img/Linelist/like.png"
-        />
-        <img
-            class="islike"
-            @click="collection(0)"
-            v-show="islike == 1"
-            src="@/assets/img/Linelist/xihuan.png"
-        />
-        <!-- 轮播图 -->
-        <div class="banners">
-            <img :src="imgAfterUrl + datas.cover_img" />
-        </div>
-        <!-- 内容区 -->
-        <div class="content">
-            <!-- 最上面主要信息 -->
-            <div class="top">
-                <div class="titel">{{ datas.name }}</div>
-                <div class="word">{{ datas.profile }}</div>
+        <div class="linedetails_all">
+            <!-- 轮播图 -->
+            <div class="banners">
+                <img :src="imgAfterUrl + datas.cover_img" />
+            </div>
+            <!-- 内容区 -->
+            <div class="content">
+                <!-- 最上面主要信息 -->
+                <div class="top">
+                    <div class="titel">{{ datas.name }}</div>
+                    <div class="word">{{ datas.profile }}</div>
 
-                <div class="money">
-                    <div class="money-left">
-                        <div class="moneysp1">￥</div>
-                        <div class="moneysp2">{{ datas.min_price / 100 }}</div>
-                        <div class="moneysp3">起</div>
-                    </div>
-                    <div class="money-right">
-                        <div class="salesvolume"></div>
+                    <div class="money">
+                        <div class="money-left">
+                            <div class="moneysp1">￥</div>
+                            <div class="moneysp2">{{ datas.min_price / 100 }}</div>
+                            <div class="moneysp3">起</div>
+                        </div>
+                        <div class="money-right">
+                            <div class="salesvolume"></div>
+                        </div>
+                        <img
+                            class="islike"
+                            @click="collection(1)"
+                            v-show="islike == 0"
+                            src="@/assets/img/Linelist/like2.png"
+                        />
+                        <img
+                            class="islike"
+                            @click="collection(0)"
+                            v-show="islike == 1"
+                            src="@/assets/img/Linelist/xihuan.png"
+                        />
                     </div>
                 </div>
-            </div>
-            <!-- 选择套餐类型 -->
-            <div class="choice" @click="choicefn()">
-                <div class="choiceleft">选择</div>
-                <div class="choicecenter">请选择套餐类型</div>
-                <img src="@/assets/img/Linelist/right.png" alt />
-            </div>
-            <!-- 景点介绍 -->
-            <div class="word">
-                <div v-show="istop" class="iswordtop">
-                    <div
-                        :class="
+                <!-- 选择套餐类型 -->
+                <div class="choice" @click="choicefn()">
+                    <div class="choiceleft">选择</div>
+                    <div class="choicecenter">请选择套餐类型</div>
+                    <img src="@/assets/img/Linelist/right.png" alt />
+                </div>
+                <!-- 景点介绍 -->
+                <div class="word">
+                    <div v-show="istop" class="iswordtop">
+                        <div
+                            :class="
                             activeid === 0 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(0)"
-                    >
-                        酒店介绍
-                    </div>
-                    <div
-                        :class="
+                            @click="active(0)"
+                        >酒店介绍</div>
+                        <div
+                            :class="
                             activeid === 1 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(1)"
-                    >
-                        注意事项
+                            @click="active(1)"
+                        >注意事项</div>
                     </div>
-                </div>
-                <div class="wordtop">
-                    <div
-                        :class="
+                    <div class="wordtop">
+                        <div
+                            :class="
                             activeid === 0 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(0)"
-                    >
-                        酒店介绍
-                    </div>
-                    <div
-                        :class="
+                            @click="active(0)"
+                        >酒店介绍</div>
+                        <div
+                            :class="
                             activeid === 1 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(1)"
-                    >
-                        注意事项
+                            @click="active(1)"
+                        >注意事项</div>
+                    </div>
+                    <div class="word-all">
+                        <div>
+                            <div class="wordtitle wordtitle1">酒店介绍</div>
+                            <div v-html="datas.introduction"></div>
+                        </div>
+                        <div>
+                            <div class="wordtitle wordtitle2">注意事项</div>
+                            <div v-html="datas.note"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="word-all">
-                    <div>
-                        <div class="wordtitle wordtitle1">
-                            酒店介绍
-                        </div>
-                        <div v-html="datas.introduction"></div>
-                    </div>
-                    <div>
-                        <div class="wordtitle wordtitle2">
-                            注意事项
-                        </div>
-                        <div v-html="datas.note"></div>
-                    </div>
-                </div>
+                <div class="bottomDom"></div>
             </div>
-            <div class="buy" @click="choicefn()">立即预定</div>
         </div>
+        <div class="buy" @click="choicefn()">立即预定</div>
         <!-- 选择套餐弹窗 -->
         <div class="choicepopup" ref="choicepopup">
             <div class="choicepopupcon">
@@ -107,17 +98,10 @@
                 />
                 <div class="popupcon">
                     <div class="popupcon-top">
-                        <img
-                            class="top-left"
-                            :src="imgAfterUrl + datas.cover_img"
-                        />
+                        <img class="top-left" :src="imgAfterUrl + datas.cover_img" />
                         <div class="top-right">
-                            <div class="top-right-top">
-                                ¥{{ price_money / 100 }}
-                            </div>
-                            <div class="top-right-bottom">
-                                {{ setmeal_name }}
-                            </div>
+                            <div class="top-right-top">¥{{ price_money / 100 }}</div>
+                            <div class="top-right-bottom">{{ setmeal_name }}</div>
                         </div>
                     </div>
                     <div class="popupcon-item">
@@ -168,7 +152,7 @@
                                 v-for="(item, indexa) in get_attr.single"
                                 :key="indexa - 10"
                             >
-                                <div>套餐{{ indexa + 1 }}</div>
+                                <div>{{ item.name }}</div>
                             </div>
                             <div
                                 v-show="twoclass == 2"
@@ -192,9 +176,7 @@
                                 <div>标准间</div>
                             </div>
                         </div>
-                        <div v-show="twoclass == 2" class="explain">
-                            说明:若有其他房型需求,请在填写预定信息时进行备注说明。
-                        </div>
+                        <div v-show="twoclass == 2" class="explain">说明:若有其他房型需求,请在填写预定信息时进行备注说明。</div>
                     </div>
                     <div class="popupcon-item">
                         <div class="popupcon-item-bynum">
@@ -202,9 +184,7 @@
                             <div class="bynum-right">
                                 <div class="down" @click="downfn(1)">-</div>
                                 <!--<div class="bynum-right-center">{{allPrices}}</div>-->
-                                <div class="bynum-right-center">
-                                    {{ adultnum }}
-                                </div>
+                                <div class="bynum-right-center">{{ adultnum }}</div>
                                 <div class="up" @click="downfn(2)">+</div>
                             </div>
                         </div>
@@ -222,7 +202,7 @@ export default {
     data() {
         return {
             role: "", //角色
-            imgAfterUrl: process.env.VUE_APP_BASE_API,
+            imgAfterUrl: process.env.VUE_APP_IMGURL,
             activeid: 0, //点击介绍
             istop: false, //是否吸顶显示
             btn_height: 0, //线路介绍按钮高度

@@ -36,7 +36,7 @@ export default class wechat {
                         desc: desc, // 分享描述
                         // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                         link: location.origin + "/home/line/show?id=" + linedetailid + "&mode=" + mode + "&type=" + type + "&share_code=" + share_code + "&share=1",
-                        imgUrl: 'http://travel.admin.dev.zhangxinkeji.com' + imgUrl, // 分享图标
+                        imgUrl: process.env.VUE_APP_IMGURL + imgUrl, // 分享图标
                         success: function () {
                             // 设置成功
                             // alert("线路详情分享到朋友ok");
@@ -46,7 +46,7 @@ export default class wechat {
                         title: title, // 分享标题
                         // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                         link: location.origin + "/home/line/show?id=" + linedetailid + "&mode=" + mode + "&type=" + type + "&share_code=" + share_code + "&share=1",
-                        imgUrl: 'http://travel.admin.dev.zhangxinkeji.com' + imgUrl, // 分享图标
+                        imgUrl: process.env.VUE_APP_IMGURL + imgUrl, // 分享图标
                         success: function () {
                             // 设置成功
                             // alert("线路详情分享到朋友圈ok");

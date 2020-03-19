@@ -1,144 +1,125 @@
 <template>
     <div class="linedetails" ref="linedetails">
-        <img
-            class="islike"
-            @click="collection(1)"
-            v-show="islike == 0"
-            src="@/assets/img/Linelist/like.png"
-        />
-        <img
-            class="islike"
-            @click="collection(0)"
-            v-show="islike == 1"
-            src="@/assets/img/Linelist/xihuan.png"
-        />
         <!-- 轮播图 -->
-        <div class="banners">
-            <img :src="imgAfterUrl + datas.cover_img" />
-        </div>
-        <!-- 内容区 -->
-        <div class="content">
-            <!-- 最上面主要信息 -->
-            <div class="top">
-                <div class="titel">{{ datas.name }}</div>
-                <div class="word">{{ datas.desc }}</div>
+        <div class="linedetails_all">
+            <div class="banners">
+                <img v-if="datas.cover_img" :src="imgAfterUrl + datas.cover_img" />
+                <!-- <img v-if="!datas.cover_img" src="@/assets/img/hom/noimg.png" /> -->
+            </div>
+            <!-- 内容区 -->
+            <div class="content">
+                <!-- 最上面主要信息 -->
+                <div class="top">
+                    <div class="titel">{{ datas.name }}</div>
+                    <div class="word">{{ datas.desc }}</div>
 
-                <div class="money">
-                    <div class="money-left">
-                        <div class="moneysp1">￥</div>
-                        <div class="moneysp2">{{ datas.min_price / 100 }}</div>
-                        <div class="moneysp3">起</div>
-                    </div>
-                    <div class="money-right">
-                        <div class="salesvolume"></div>
+                    <div class="money">
+                        <div class="money-left">
+                            <div class="moneysp1">￥</div>
+                            <div class="moneysp2">{{ datas.min_price / 100 }}</div>
+                            <div class="moneysp3">起</div>
+                        </div>
+                        <div class="money-right">
+                            <div class="salesvolume"></div>
+                        </div>
+                        <img
+                            class="islike"
+                            @click="collection(1)"
+                            v-show="islike == 0"
+                            src="@/assets/img/Linelist/like2.png"
+                        />
+                        <img
+                            class="islike"
+                            @click="collection(0)"
+                            v-show="islike == 1"
+                            src="@/assets/img/Linelist/xihuan.png"
+                        />
                     </div>
                 </div>
-            </div>
-            <!-- 选择套餐类型 -->
-            <div class="choice" @click="choicefn()">
-                <div class="choiceleft">选择</div>
-                <div class="choicecenter">请选择套餐类型</div>
-                <img src="@/assets/img/Linelist/right.png" alt />
-            </div>
-            <!-- 景点介绍 -->
-            <div class="word" ref="word">
-                <div v-show="istop" class="iswordtop">
-                    <div
-                        :class="
+                <!-- 选择套餐类型 -->
+                <div class="choice" @click="choicefn()">
+                    <div class="choiceleft">选择</div>
+                    <div class="choicecenter">请选择套餐类型</div>
+                    <img src="@/assets/img/Linelist/right.png" alt />
+                </div>
+                <!-- 景点介绍 -->
+                <div class="word" ref="word">
+                    <div v-show="istop" class="iswordtop">
+                        <div
+                            :class="
                             activeid === 0 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(0)"
-                    >
-                        景点介绍
-                    </div>
-                    <div
-                        :class="
+                            @click="active(0)"
+                        >景点介绍</div>
+                        <div
+                            :class="
                             activeid === 1 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(1)"
-                    >
-                        行程安排
-                    </div>
-                    <div
-                        :class="
+                            @click="active(1)"
+                        >交通指南</div>
+                        <div
+                            :class="
                             activeid === 2 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(2)"
-                    >
-                        费用说明
-                    </div>
-                    <div
-                        :class="
+                            @click="active(2)"
+                        >预定须知</div>
+                        <div
+                            :class="
                             activeid === 3 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(3)"
-                    >
-                        注意事项
+                            @click="active(3)"
+                        >领队必读</div>
                     </div>
-                </div>
-                <div class="wordtop">
-                    <div
-                        :class="
+                    <div class="wordtop">
+                        <div
+                            :class="
                             activeid === 0 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(0)"
-                    >
-                        景点介绍
-                    </div>
-                    <div
-                        :class="
+                            @click="active(0)"
+                        >景点介绍</div>
+                        <div
+                            :class="
                             activeid === 1 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(1)"
-                    >
-                        行程安排
-                    </div>
-                    <div
-                        :class="
+                            @click="active(1)"
+                        >交通指南</div>
+                        <div
+                            :class="
                             activeid === 2 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(2)"
-                    >
-                        费用说明
-                    </div>
-                    <div
-                        :class="
+                            @click="active(2)"
+                        >预定须知</div>
+                        <div
+                            :class="
                             activeid === 3 ? 'word-item-active' : 'word-item'
                         "
-                        @click="active(3)"
-                    >
-                        注意事项
+                            @click="active(3)"
+                        >领队必读</div>
+                    </div>
+                    <div class="word-all">
+                        <div>
+                            <div class="wordtitle wordtitle1" ref="wordtitle1">景点介绍</div>
+                            <div v-html="get_detail.introduce"></div>
+                        </div>
+                        <div>
+                            <div class="wordtitle wordtitle2">交通指南</div>
+                            <div v-html="get_detail.traffic_guide"></div>
+                        </div>
+                        <div>
+                            <div class="wordtitle wordtitle3">预定须知</div>
+                            <div v-html="get_detail.reserve_notice"></div>
+                        </div>
+                        <div>
+                            <div class="wordtitle wordtitle4">领队必读</div>
+                            <div v-html="get_detail.leader_read"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="word-all">
-                    <div>
-                        <div class="wordtitle wordtitle1">
-                            景点介绍
-                        </div>
-                        <div v-html="get_detail.introduce"></div>
-                    </div>
-                    <div>
-                        <div class="wordtitle wordtitle2">
-                            行程安排
-                        </div>
-                        <div v-html="get_detail.traffic_guide"></div>
-                    </div>
-                    <div>
-                        <div class="wordtitle wordtitle3">
-                            费用说明
-                        </div>
-                        <div v-html="get_detail.reserve_notice"></div>
-                    </div>
-                    <div>
-                        <div class="wordtitle wordtitle4">
-                            行程安排
-                        </div>
-                        <div v-html="get_detail.leader_read"></div>
-                    </div>
-                </div>
+                <div class="bottomDom"></div>
             </div>
-            <div class="buy" @click="choicefn()">立即预定</div>
         </div>
+        <div class="buy" @click="choicefn()">立即预定</div>
+
         <!-- 选择套餐弹窗 -->
         <div class="choicepopup" ref="choicepopup">
             <div class="choicepopupcon">
@@ -150,17 +131,10 @@
                 />
                 <div class="popupcon">
                     <div class="popupcon-top">
-                        <img
-                            class="top-left"
-                            :src="imgAfterUrl + datas.cover_img"
-                        />
+                        <img class="top-left" :src="imgAfterUrl + datas.cover_img" />
                         <div class="top-right">
-                            <div class="top-right-top">
-                                ¥{{ price_money / 100 }}
-                            </div>
-                            <div class="top-right-bottom">
-                                {{ setmeal_name }}
-                            </div>
+                            <div class="top-right-top">¥{{ price_money / 100 }}</div>
+                            <div class="top-right-bottom">{{ setmeal_name }}</div>
                         </div>
                     </div>
                     <div class="popupcon-item">
@@ -232,7 +206,7 @@
                                 v-for="(item, indexb) in get_price.team"
                                 :key="indexb - 10"
                             >
-                                <div>套餐{{ indexb + 1 }}</div>
+                                <div>{{ item.name }}</div>
                             </div>
                         </div>
                     </div>
@@ -241,9 +215,7 @@
                             <div class="bynum-left">购买数量</div>
                             <div class="bynum-right">
                                 <div class="down" @click="downfn(1)">-</div>
-                                <div class="bynum-right-center">
-                                    {{ adultnum }}
-                                </div>
+                                <div class="bynum-right-center">{{ adultnum }}</div>
                                 <div class="up" @click="downfn(2)">+</div>
                             </div>
                         </div>
@@ -260,7 +232,7 @@ export default {
     data() {
         return {
             role: "", //角色
-            imgAfterUrl: process.env.VUE_APP_BASE_API,
+            imgAfterUrl: process.env.VUE_APP_IMGURL,
             activeid: 0, //点击介绍
             detailid: 0, //详情id
             type: 3, //收藏类型，1 游记 2 线路 3门票 4酒店

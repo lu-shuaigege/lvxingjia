@@ -75,7 +75,7 @@ export default {
     name: "applypartners",
      data() {
         return {
-            headimgurl:process.env.VUE_APP_BASE_API,
+            headimgurl:process.env.VUE_APP_IMGURL,
             checkboxa: ["0"],
             positive: [],
             back: [],

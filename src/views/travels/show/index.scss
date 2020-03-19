@@ -1,18 +1,11 @@
 .travelsdetail {
-    .islike {
-        width: 0.467rem;
-        height: 0.413rem;
-        position: absolute;
-        top: 0.267rem;
-        right: 0.627rem;
-        z-index: 99;
-    }
 
     //   顶部图片
     .banners {
         width: 100%;
         // height: 5.333rem;
         position: relative;
+        text-align: center;
 
         .share {
             position: absolute;
@@ -31,8 +24,8 @@
         }
 
         .banners-img {
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
         }
     }
 
@@ -45,6 +38,15 @@
         margin-top: -0.2rem;
         position: relative;
         z-index: 99;
+
+        .islike {
+            width: 0.467rem;
+            height: 0.413rem;
+            position: absolute;
+            top: 0.767rem;
+            right: 0.627rem;
+            z-index: 1;
+        }
 
         .content-top {
             width: 100%;
@@ -123,10 +125,23 @@
 
             .word-content {
                 width: 100%;
+                padding: 0.4rem 0rem;
 
                 .con-item {
                     .travels {
                         width: 100%;
+                        white-space: pre-wrap;
+                        /* css3.0 */
+                        white-space: -moz-pre-wrap;
+                        /* Firefox */
+                        white-space: -pre-wrap;
+                        /* Opera 4-6 */
+                        white-space: -o-pre-wrap;
+                        /* Opera 7 */
+                        word-wrap: break-word;
+                        /* Internet Explorer 5.5+ */
+                        font-size: 0.35rem;
+                        line-height: 0.5rem;
                     }
 
                     .con-img {
@@ -188,6 +203,7 @@
                 display: flex;
                 align-items: center;
                 position: fixed;
+                z-index: 99;
                 bottom: 0px;
                 left: 0px;
                 padding: 1px 0.347rem 0px;
@@ -210,7 +226,7 @@
                     border-radius: 0.4rem;
                     padding-left: 0.467rem;
                     box-sizing: border-box;
-                    line-height: 1.5rem;
+                    line-height: 0.5rem;
                 }
 
                 .submission {

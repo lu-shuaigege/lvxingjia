@@ -32,21 +32,21 @@ export default {
                     id: 2,
                     can_apply: 0,
                     img: require("@/assets/img/my/cooperation.png"),
-                    title: "合作伙伴申请认证",
+                    title: "合伙人申请入驻",
                     content: "线上接单,订单量大,无需风里雨里"
                 },
                 {
                     id: 3,
                     can_apply: 0,
                     img: require("@/assets/img/my/branchoffice.png"),
-                    title: "分公司申请认证",
+                    title: "加盟商申请入驻",
                     content: "线上接单,订单量大,无需风里雨里"
                 },
                 {
                     id: 4,
                     can_apply: 0,
                     img: require("@/assets/img/my/exit.png"),
-                    title: "出境社申请认证",
+                    title: "出境社申请入驻",
                     content: "线上接单,订单量大,无需风里雨里"
                 }
             ],

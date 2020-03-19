@@ -2,10 +2,12 @@
 export default {
     addresses: '/my/addresses', //收货地址
     banner: '/index/banner', //首页轮播图接口
+    buy: '/integral/exchange/buy',//积分商品购买
     cities: '/cities', //城市列表接口
     collection: '/collection', //收藏
     comments: '/travelnote/comments', //游记评论
     exchange_order: '/integral/exchange/order', //积分兑换
+    encryption: 'Upload/lxjEncrypt', //加密id
     fans: '/my/fans', //用户信息
     goods: '/integral/goods', //积分商城列表
     hotel: '/hotel', //酒店接口

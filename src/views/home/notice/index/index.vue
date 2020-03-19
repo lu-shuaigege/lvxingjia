@@ -80,9 +80,9 @@ export default {
             }
             if (type === 2) {
                 this.$router.push({
-                    path: "/me/submitauditnook",
+                    path: "/me/applyclub",
                     query: {
-                        id: detailsId
+                        type: detailsId
                     }
                 });
             }

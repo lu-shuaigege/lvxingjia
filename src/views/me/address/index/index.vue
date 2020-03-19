@@ -38,9 +38,14 @@
                 </div>
             </div>
         </div>
-        <div class="down-btn" v-if="addressList.length" @click="addfn()">
+        <!-- <div class="down-btn" v-if="addressList.length>0&&integralorder==0" @click="addfn()">
             <img src="@/assets/img/my/plusicon.png" />新建地址
+        </div> -->
+        <div class="down-addbtn" @click="addfn()">
+            <span>+</span>
+            新建地址
         </div>
+        <div class="down-btn" v-if="integralorder==1" @click="okaddress()">确认</div>
         <div class="popup" v-show="isshow == 1">
             <div class="content">
                 <div class="con-word">是否确认删除?</div>
@@ -67,10 +72,15 @@ export default {
             id: "",
             active: 0,
             isshow: 0,
-            addressList: []
+            addressList: [],
+            integralorder: 0 //是否从积分商城过来
         };
     },
     created() {
+        if (this.$route.query.integralorder) {
+            this.integralorder = this.$route.query.integralorder;
+        }
+
         this.getAddress();
         this.$wechat.timeline(false);
     },
@@ -106,6 +116,13 @@ export default {
                 address: address
             };
             localStorage.setItem("shop_address", JSON.stringify(shop_address));
+        },
+        // 确认选择
+        okaddress() {
+            // this.$router.push({
+            //     path: "/home/integral/integralorder"
+            // });
+            this.$router.go(-1);
         },
         // 跳转新增地址
         addfn: function() {

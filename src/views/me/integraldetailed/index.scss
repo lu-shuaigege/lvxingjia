@@ -47,10 +47,11 @@
         }
     }
 
-    .noline{
+    .noline {
         text-align: center;
         padding-top: 4rem;
-        img{
+
+        img {
             width: 5rem;
         }
     }
@@ -75,6 +76,7 @@
             box-sizing: border-box;
 
             .left {
+                width: 6.4rem;
                 display: flex;
                 align-items: center;
 
@@ -93,15 +95,21 @@
                     }
 
                     .leftcontent-center {
-                        height: 0.24rem;
+                        max-width: 6.4rem;
+                        // height: 0.24rem;
                         font-family: MicrosoftYaHei;
                         font-size: 0.293rem;
                         font-weight: normal;
                         font-stretch: normal;
-                        line-height: 0.24rem;
+                        line-height: 0.3rem;
                         letter-spacing: 0.017rem;
                         color: #999999;
                         margin-bottom: 0.28rem;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 1;
                     }
 
                     .leftcontent-bottom {

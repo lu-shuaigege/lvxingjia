@@ -128,6 +128,13 @@ const homeRouter = {
                     },
                     component: () => import('@/views/line/search/index.vue')
                 },
+                {
+                    path: 'contract',
+                    meta: {
+                        title: '预定须知和合同范本'
+                    },
+                    component: () => import('@/views/line/contract/contract.vue')
+                },
             ]
         },
         {

@@ -25,9 +25,9 @@
                     <div class="list-right">
                         <div class="title">{{ item.goods.name }}</div>
                         <div class="right-bottom">
-                            <div class="integral">{{ item.integral }}</div>
+                            <div class="integral">￥{{ item.amount }}+{{ item.integral }}</div>
                             <div class="integralb">积分</div>
-                            <s class="money">￥{{ item.goods.expend }}</s>
+                            <!-- <s class="money"></s> -->
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
 export default {
     data() {
         return {
-            imgAfterUrl: process.env.VUE_APP_BASE_API,
+            imgAfterUrl: process.env.VUE_APP_IMGURL,
             myexchangelist: [],
             loading: false,
             finished: false,

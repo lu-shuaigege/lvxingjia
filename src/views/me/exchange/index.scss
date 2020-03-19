@@ -53,7 +53,7 @@
 
                 .right-bottom {
                     display: flex;
-                    align-items: center;
+                    align-items: flex-end;
 
                     .integral {
                         height: 0.36rem;
@@ -68,9 +68,9 @@
                     }
 
                     .integralb {
-                        height: 0.32rem;
+                        // height: 0.32rem;
                         font-family: MicrosoftYaHei;
-                        font-size: 0.32rem;
+                        font-size: 0.3rem;
                         font-weight: normal;
                         font-stretch: normal;
                         line-height: 0.32rem;

@@ -201,6 +201,13 @@
                 line-height: 0.347rem;
                 letter-spacing: 0.021rem;
                 color: #333333;
+                display: flex;
+                align-items: center;
+
+                .justred {
+                    color: red;
+                    margin-right: 0.1rem;
+                }
             }
 
             .information-item2-right {
@@ -226,6 +233,13 @@
                 line-height: 0.347rem;
                 letter-spacing: 0.021rem;
                 color: #333333;
+                display: flex;
+                align-items: center;
+
+                .justred {
+                    color: red;
+                    margin-right: 0.1rem;
+                }
             }
 
             .information-item2-right {
@@ -268,6 +282,56 @@
             border-top: 1px solid #e7e7e7;
             padding-top: 0.2rem;
             box-sizing: border-box;
+        }
+    }
+
+    .tips {
+        width: 100%;
+        padding: 1px 0.4rem;
+        box-sizing: border-box;
+        color: rgb(255, 0, 0);
+    }
+
+    .agreement {
+        display: flex;
+        align-items: center;
+        padding: 1px 0.347rem;
+        box-sizing: border-box;
+        margin: 0.293rem 0px;
+
+        .yuan {
+            display: flex;
+
+            label {
+                display: flex;
+
+            }
+        }
+
+        .read {
+            display: flex;
+            align-items: center;
+            height: 0.32rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.32rem;
+            letter-spacing: 0.019rem;
+            color: #999999;
+        }
+
+        .readactive {
+            display: flex;
+            align-items: center;
+            height: 0.32rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.32rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.32rem;
+            letter-spacing: 0.019rem;
+            color: #2bbb55;
         }
     }
 
@@ -394,6 +458,7 @@
         position: fixed;
         left: 0px;
         bottom: 0px;
+        z-index: 99;
 
         .bottom-left-btn {
             width: 50%;

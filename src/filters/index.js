@@ -43,6 +43,7 @@ function exinType (value) {
     if(value === 3) {return "线路返积分";}
     if(value === 4) {return "兑换";}
     if(value === 5) {return "抵扣";}
+    if(value === 6) {return "订单取消积分返还";}
 }
 
 // 订单详情状态

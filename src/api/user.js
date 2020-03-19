@@ -1,5 +1,7 @@
 import api from './api';
-import {http} from '../utils/http';
+import {
+    http
+} from '../utils/http';
 
 const user = {
     me() {
@@ -12,6 +14,14 @@ const user = {
         return http({
             url: `${api.user}`,
             method: 'put',
+            params: data,
+        })
+    },
+    encryption(data) {
+        return http({
+            baseURL: "http://admin.lvxingj.zhangxinkeji.com/",
+            url: `${api.encryption}`,
+            method: 'get',
             params: data,
         })
     }

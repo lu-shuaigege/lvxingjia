@@ -34,11 +34,11 @@
         <!-- 订单编号 -->
         <div class="content-center">
             <div class="list">
-                <div class="list-left">订单编号 :</div>
+                <div class="list-left">预定人姓名 :</div>
                 <div class="list-right">{{ data.name }}</div>
             </div>
             <div class="list">
-                <div class="list-left">创建时间 :</div>
+                <div class="list-left">联系方式 :</div>
                 <div class="list-right">{{ data.mobile }}</div>
             </div>
         </div>
@@ -106,7 +106,7 @@ export default {
     data() {
         return {
             isshow: 0,
-            imgAfterUrl: process.env.VUE_APP_BASE_API,
+            imgAfterUrl: process.env.VUE_APP_IMGURL,
             orderlist: [],
             id: 0,
             data: {} //获取的数据

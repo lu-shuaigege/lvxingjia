@@ -69,7 +69,7 @@ export default {
             list: [],
             loading: false,
             finished: false,
-            imgAfterUrl: process.env.VUE_APP_BASE_API //图片前缀
+            imgAfterUrl: process.env.VUE_APP_IMGURL //图片前缀
         };
     },
     components: { Tab },

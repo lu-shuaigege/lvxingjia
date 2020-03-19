@@ -1,17 +1,5 @@
 <template>
     <div class="linedetails" ref="linedetails">
-        <img
-            class="islike"
-            @click="collection(1)"
-            v-show="islike == 0"
-            src="@/assets/img/Linelist/like.png"
-        />
-        <img
-            class="islike"
-            @click="collection(0)"
-            v-show="islike == 1"
-            src="@/assets/img/Linelist/xihuan.png"
-        />
         <!-- 轮播图 -->
         <yd-slider class="banners" autoplay="3000">
             <yd-slider-item v-for="(item, index) in banners" :key="index">
@@ -30,14 +18,33 @@
                     <div class="overadd">目的地：{{ destinations_name }}</div>
                 </div>
                 <div class="money">
-                    <div class="money-left">
-                        <div class="moneysp1">￥</div>
-                        <div class="moneysp2">{{ datas.min_prices / 100 }}</div>
-                        <div class="moneysp3">起</div>
+                    <div class="moneyLeft">
+                        <div class="money-left">
+                            <div class="moneysp1">￥</div>
+                            <div class="moneysp2">{{ datas.min_prices / 100 }}</div>
+                            <div class="moneysp3">起</div>
+                        </div>
+                        <div
+                            v-if="role==2||role==3||role==4"
+                            class="commission"
+                        >返佣:￥{{datas.sub_commission / 100}}</div>
                     </div>
+
                     <div class="money-right">
                         <div class="salesvolume"></div>
                     </div>
+                    <img
+                        class="islike"
+                        @click="collection(1)"
+                        v-show="islike == 0"
+                        src="@/assets/img/Linelist/like2.png"
+                    />
+                    <img
+                        class="islike"
+                        @click="collection(0)"
+                        v-show="islike == 1"
+                        src="@/assets/img/Linelist/xihuan.png"
+                    />
                 </div>
             </div>
             <!-- 主办方 -->
@@ -45,7 +52,8 @@
                 <div class="sponsor-left">主办方 :</div>
                 <img v-if="!have_headimgurl" :src="sponsor_headimgurl" alt />
                 <img v-if="have_headimgurl" src="../../../assets/img/Linelist/defaulthead.png" />
-                <div class="sponsorname" v-if="datas.realname">{{ datas.realname }}</div>
+                <div class="sponsorname" v-if="datas.sponsor==null">驴行家旅行社</div>
+                <div class="sponsorname" v-if="datas.sponsor!=null">{{ datas.sponsor.realname }}</div>
             </div>
             <!-- 套餐价格 -->
             <div class="packageprice">
@@ -195,7 +203,7 @@
                         :key="indexf"
                     >
                         <div class="hotitem-top">
-                            <div class="top">
+                            <div class="top" v-if="!item">
                                 <p>{{ item.mode | modeFilter }}</p>
                                 <div class="shu"></div>
                                 <p>{{ item.becitys.name }}</p>
@@ -214,8 +222,20 @@
                 </div>
             </div>
             <div v-if="linePath != 1" class="buy" @click="buyfn(2)">立即预定</div>
-            <div v-if="linePath == 1&&status==-1" class="tobereleased">
+            <div
+                v-if="(linePath == 1&&status==-1)||(linePath == 1&&status==2)"
+                class="tobereleased"
+            >
                 <div class="go_left">
+                    <textarea id="bar" class="copy_textarea" v-model="copy"></textarea>
+                    <button
+                        class="btn release-item"
+                        ref="release"
+                        data-clipboard-action="cut"
+                        data-clipboard-target="#bar"
+                        @click="pc"
+                        v-if="datas.pub_type==1"
+                    ></button>
                     <div class="go_edit" @click="toEdit(linedetailid)">
                         <img src="@/assets/img/Linelist/edit.png" alt />
                         <div class="go_edit_text">编辑</div>
@@ -248,17 +268,19 @@ import functions from "@/utils/functions.js";
 // 微信
 import apiWechat from "@/api/wechat";
 import weixinSdk from "weixin-js-sdk";
+import Clipboard from "clipboard";
 export default {
     data() {
         return {
-            imgAfterUrl: process.env.VUE_APP_BASE_API, //地址前缀
+            imgAfterUrl: process.env.VUE_APP_IMGURL, //地址前缀
+            role: "",
             islike: 0, //是否收藏
             type: "", //收藏类型，1 游记 2 线路 3门票 4酒店
             mode: "", //出游方式 1户外游 2自由行 3摄影游 4亲子游 5跟团游
             rotation_time: 0, //轮播时间
             linedetailid: "", //线路id
             banners: [], // 轮播图
-            datas: {}, //获取数据
+            datas: { sponsor: {} }, //获取数据
             becitys_name: "", //出发地
             destinations_name: "", //目的地
             sponsor_headimgurl: "", //主办方头像
@@ -283,6 +305,12 @@ export default {
             delShow: 0, //删除确认弹框
             prices: [], //页面设置价钱的数组
             btn_height: 0, //线路介绍按钮高度
+            pub_type: 0, //发布端1pc   2手机
+            copy: "", //复制内容
+            uk: "", //用户id
+            ukok: false,
+            ak: "", //线路id
+            akok: false,
 
             some_days: "", //选择日期
             price: "", //选择日期的成人价格
@@ -299,9 +327,12 @@ export default {
         this.linedetailid = localStorage.getItem("linedetailid");
         this.linedetailid = this.$route.query.id;
         this.type = this.$route.query.type;
-        this.mode = this.$route.query.mode;
+        if (this.$route.query.mode) {
+            this.mode = this.$route.query.mode;
+        }
         this.linePath = this.$route.query.linePath;
-        this.share = this.$route.query.share;
+        // this.share = this.$route.query.share;
+        this.share_code = this.$route.query.share_code;
         this.status = this.$route.query.status;
         this.dates = this.$route.query.dateStr;
         this.price_active = this.dates;
@@ -330,6 +361,7 @@ export default {
             this.datas.desc,
             this.banners[0]
         );
+        this.getMyInfo();
     },
     mounted() {
         // 监听事件
@@ -338,14 +370,17 @@ export default {
             this.$refs.word.style.margin = "0.253rem 0 1.5rem";
         }
         this.btn_height = $(".iswordtop").height();
+        if (this.linePath == 1 && this.pub_type == 2) {
+            this.$refs.release.style.display = "none";
+        }
     },
     updated() {
         // jquery方法修改
-        $(".word-all")
-            .find("div")
-            .find("div")
-            .find("img")
-            .css("width", "100%");
+        // $(".word-all")
+        //     .find("div")
+        //     .find("div")
+        //     .find("img")
+        //     .css("width", "100%");
         // jquery方法修改
         $(".word-all")
             .find("div")
@@ -356,26 +391,41 @@ export default {
     methods: {
         //获取日期
         getDate(datesList) {
-            let dateList = [];
-            for (let i = 0; i < 7; i++) {
-                let datesTime = new Date();
-                datesTime.setDate(datesTime.getDate() + i);
-                let istime = functions.fmtDate(datesTime, "yyyy-MM-dd");
-                for (let z = 0; z < datesList.length; z++) {
-                    if (datesList[z].is_default == 1) {
-                        dateList.push({
-                            some_day: istime,
-                            price: datesList[z].price / 100,
-                            price_children: datesList[z].price_children / 100
-                        });
-                    }
-                }
-                for (let y = 0; y < datesList.length; y++) {
-                    if (datesList[y].some_day == dateList[i].some_day) {
-                        dateList[i].price = datesList[y].price / 100;
-                        dateList[i].price_children =
-                            datesList[y].price_children / 100;
-                    }
+            var dateList = [];
+            // for (let i = 0; i < 7; i++) {
+            //     let datesTime = new Date();
+            //     datesTime.setDate(datesTime.getDate() + i);
+            //     let istime = functions.fmtDate(datesTime, "yyyy-MM-dd");
+            //     for (let z = 0; z < datesList.length; z++) {
+            //         // if (datesList[z].is_default == 1) {
+            //         //     dateList.push({
+            //         //         some_day: istime,
+            //         //         price: datesList[z].price / 100,
+            //         //         price_children: datesList[z].price_children / 100
+            //         //     });
+            //         // }
+            //         if (datesList[z].is_default == 1) {
+            //             dateList.push({
+            //                 some_day: istime,
+            //                 price: "暂无套餐"
+            //             });
+            //         }
+            //     }
+            //     for (let y = 0; y < datesList.length; y++) {
+            //         if (datesList[y].some_day == dateList[i].some_day) {
+            //             dateList[i].price = datesList[y].price / 100;
+            //             dateList[i].price_children =
+            //                 datesList[y].price_children / 100;
+            //         }
+            //     }
+            // }
+            for (let y = 0; y < 6; y++) {
+                if (datesList[y]) {
+                    dateList.push({
+                        some_day: datesList[y].some_day,
+                        price: datesList[y].price / 100,
+                        price_children: datesList[y].price_children / 100
+                    });
                 }
             }
             this.datemoney = dateList;
@@ -427,13 +477,14 @@ export default {
                 let hots = res;
                 _this.banners = hots.banners; //轮播图
                 _this.datas = hots; //页面所有数据
-                if (!_this.is_share_code) {
-                    _this.share_code = _this.datas.share_code; //分享码
-                }
+                // if (_this.is_share_code) {
+                _this.share_code = _this.datas.share_code; //分享码
+                // }
                 _this.type = _this.datas.type; //收藏类型，1 游记 2 线路 3门票 4酒店
                 _this.becitys_name = _this.datas.becitys.name; //出发地
                 _this.destinations_name = _this.datas.destinations.name; //目的地
-                this.prices = hots.prices; //时间套餐价格列表
+                _this.pub_type = _this.datas.pub_type; //是否手机发布
+                _this.prices = hots.prices; //时间套餐价格列表
                 let prices = hots.prices; //时间套餐价格列表
                 _this.address = hots.venue; //集合地列表
                 _this.get_detail = res.detail; //页面详细简介
@@ -465,13 +516,13 @@ export default {
                 _this.getDate(prices);
                 _this.$wechat.init(
                     true,
-                    this.linedetailid,
-                    this.mode,
-                    this.type,
-                    this.share_code,
-                    this.datas.name,
-                    this.datas.desc,
-                    this.banners[0]
+                    _this.linedetailid,
+                    _this.mode,
+                    _this.type,
+                    _this.share_code,
+                    _this.datas.name,
+                    _this.datas.desc,
+                    _this.banners[0]
                 );
             });
         },
@@ -490,7 +541,7 @@ export default {
         some_day(some_day, price, price_children) {
             let datesTime = new Date();
             let istime = functions.fmtDate(datesTime, "yyyy-MM-dd");
-            if (price == "暂无数据") {
+            if (price == "暂无套餐") {
                 this.$toast("暂无套餐");
                 return;
             }
@@ -606,6 +657,7 @@ export default {
                 some_day: this.some_days, //出行日期
                 price: this.price, //成人价格
                 price_children: this.price_children, //儿童价格
+                address_activeid: this.address_activeid,//集合地id
                 resort: this.resort, //集合地
                 obj_id: this.linedetailid, //线路id
                 type: 1, //类型 1散客 2团体
@@ -635,13 +687,18 @@ export default {
             if (_this.linetype === undefined) {
                 _this.linetype = "";
             }
-            this.$api.itineraries
+            if (!_this.mode) {
+                _this.mode = "";
+            }
+            _this.$api.itineraries
                 .index(_this.type, "", 1, "", "", _this.mode, "")
                 .then(res => {
+                    _this.hotlist = [];
                     let hots = res.data;
-                    for (let i = 0; i < hots.length; i++) {
-                        _this.hotlist.push(hots[i]);
-                    }
+                    // for (let i = 0; i < 4; i++) {
+                    //     _this.hotlist.push(hots[i]);
+                    // }
+                    _this.hotlist = hots.slice(0, 4);
                 });
         },
         //猜你喜欢跳转线路详情
@@ -660,6 +717,50 @@ export default {
                     id: id
                 }
             });
+        },
+        // 获取用户信息
+        getMyInfo: function() {
+            this.$api.user.me().then(res => {
+                this.role = res.role;
+                localStorage.setItem("role", res.role);
+                this.user_id = res.id;
+                this.$api.user
+                    .encryption({ eptnum: this.user_id })
+                    .then(res => {
+                        this.uk = res.data.eptstr;
+                        this.ukok = true;
+                        this.copy = `${this.imgAfterUrl}/Itinerary/index/uk/${this.uk}/ak/${this.ak}.html`;
+                    });
+                this.$api.user
+                    .encryption({ eptnum: this.linedetailid })
+                    .then(res => {
+                        this.akok = true;
+                        this.ak = res.data.eptstr;
+                        this.copy = `${this.imgAfterUrl}/Itinerary/index/uk/${this.uk}/ak/${this.ak}.html`;
+                    });
+            });
+        },
+        //生成链接到pc发布
+        pc() {
+            if (this.ukok && this.akok) {
+                var clipboard = new Clipboard(".btn");
+                clipboard.on("success", e => {
+                    // success("复制成功"); //这里你如果引入了elementui的提示就可以用，没有就注释即可
+                    this.$toast("已复制到剪切板，请粘贴网址发布");
+                    // 释放内存
+                    clipboard.destroy();
+                });
+                clipboard.on("error", e => {
+                    // 不支持复制
+                    console.log("该浏览器不支持自动复制");
+                    // 释放内存
+                    clipboard.destroy();
+                });
+                console.log(this.copy);
+                // this.$toast("已复制到剪切板，请粘贴网址发布");
+            } else {
+                this.$toast("接口加载中，请稍加等待后再试");
+            }
         },
         //删除
         del() {
@@ -705,7 +806,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "index";
-.yd-slider.banners > div.yd-slider-pagination {
-    bottom: 0.3rem !important;
-}
+// .yd-slider.banners > div.yd-slider-pagination {
+//     bottom: 0.3rem !important;
+// }
 </style>

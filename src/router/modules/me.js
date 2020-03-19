@@ -127,7 +127,7 @@ const meRouter = {
         {
             path: 'applybranch',
             meta: {
-                title: '分公司申请认证'
+                title: '加盟商申请认证'
             },
             name: 'applybranch',
             component: () => import('@/views/applybranch/applybranch.vue')

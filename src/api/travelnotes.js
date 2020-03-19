@@ -49,15 +49,17 @@ const travelnotes = {
             data: params
         })
     },
-    update(id,name,cover_img,content) {
+    update(id,data) {
         return http({
             url: `${api.travelnotes}/${id}`,
             method: 'put',
-            params: {
-                name:name,
-                cover_img:cover_img,
-                content:content
-            },
+            data: data
+        });
+    },
+    del(id) {
+        return http({
+            url: `${api.travelnotes}/${id}`,
+            method: 'delete',
         });
     },
 };

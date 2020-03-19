@@ -81,7 +81,7 @@ export default {
             page: 1,
             user_id: 0, //用户id
             copy: "", //复制内容
-            imgAfterUrl: process.env.VUE_APP_BASE_API
+            imgAfterUrl: process.env.VUE_APP_IMGURL
         };
     },
     components: {},
@@ -127,9 +127,13 @@ export default {
                 });
             } else if (status === 2) {
                 this.$router.push({
-                    path: "/me/creatstep1",
+                    path: "/home/line/show",
                     query: {
-                        id: id
+                        linePath: 1,
+                        status: status,
+                        id: id,
+                        mode: mode,
+                        type: type
                     }
                 });
             }
@@ -144,7 +148,10 @@ export default {
         getMyInfo: function() {
             this.$api.user.me().then(res => {
                 this.user_id = res.id;
-                this.copy = `http://travel.admin.dev.zhangxinkeji.com/Itinerary/index/userId/${this.user_id}.html`;
+                // this.copy = `${this.imgAfterUrl}/Itinerary/index/userId/${this.user_id}.html`;
+                this.$api.user.encryption({eptnum:this.user_id}).then(res => {
+                    this.copy = `${this.imgAfterUrl}/Itinerary/index/uk/${res.data.eptstr}.html`;
+                });
             });
         },
         //生成链接到pc发布

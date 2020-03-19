@@ -13,7 +13,9 @@
         </div>
         <div class="fanslist">
             <div class="noline" v-if="finished && !fansData.length">
-                <div><img alt src="@/assets/img/Linelist/noline.png" /></div>
+                <div>
+                    <img alt src="@/assets/img/Linelist/noline.png" />
+                </div>
             </div>
             <van-list
                 v-if="!finished || fansData.length"
@@ -22,11 +24,7 @@
                 finished-text="没有更多了"
                 @load="onLoad"
             >
-                <div
-                    class="listitem"
-                    v-for="(item, index) in fansData"
-                    :key="index"
-                >
+                <div class="listitem" v-for="(item, index) in fansData" :key="index">
                     <div class="listitem-left" v-if="item.userinfo">
                         <img :src="item.userinfo.headimgurl" alt />
                         <div class="title">{{ item.userinfo.nickname }}</div>

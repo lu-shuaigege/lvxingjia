@@ -4,7 +4,7 @@ import {
 } from '../utils/http';
 
 const orders = {
-    store(obj_id, order_type, type, total, count, name, mobile, idcard, traveller_ids, use_date = '', start_date = '', end_date = '', price_num = 0, price_children_num = 0, rewards_points, share_code) {
+    store(obj_id, order_type, type, total, count, name, mobile, idcard, traveller_ids, use_date = '', start_date = '', end_date = '', price_num = 0, price_children_num = 0, rewards_points, share_code, venue_id, venue, remarks) {
         return http({
             url: `${api.orders}`,
             method: 'post',
@@ -24,7 +24,10 @@ const orders = {
                 price_num: price_num,
                 price_children_num: price_children_num,
                 rewards_points: rewards_points,
-                share_code: share_code
+                share_code: share_code,
+                venue_id: venue_id,
+                venue: venue,
+                remarks: remarks
             }
         })
     },

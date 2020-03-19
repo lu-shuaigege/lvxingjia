@@ -48,7 +48,7 @@ export default {
         domesticlistfn: function() {
             let _this = this;
             this.$api.itineraries
-                .enroll(_this.linedetailid, 1, _this.dates)
+                .enroll(_this.linedetailid, 1, _this.date)
                 .then(res => {
                     _this.enrolmentstafflist = res.data;
                     if (_this.enrolmentstafflist.length == 0) {

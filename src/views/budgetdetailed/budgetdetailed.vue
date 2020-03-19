@@ -138,7 +138,7 @@ export default {
             this.loading= false;
             this.finished= false;
             this.list = [];
-            this.onLoad();
+            // this.onLoad();
         },
         // 跳转商家入驻
         applySettledinfn: function() {

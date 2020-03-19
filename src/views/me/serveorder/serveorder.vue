@@ -125,7 +125,7 @@
 export default {
     data() {
         return {
-            imgAfterUrl: process.env.VUE_APP_BASE_API,
+            imgAfterUrl: process.env.VUE_APP_IMGURL,
             loading: false,
             finished: false,
             page: 1,

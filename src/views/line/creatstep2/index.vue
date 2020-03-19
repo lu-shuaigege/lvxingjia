@@ -25,6 +25,7 @@
                 style="padding: 0"
             />
         </div>
+
         <div class="destination">
             <div class="title">行程安排</div>
             <van-field
@@ -89,7 +90,7 @@
 export default {
     data() {
         return {
-            imgAfterUrl: process.env.VUE_APP_BASE_API,
+            imgAfterUrl: process.env.VUE_APP_IMGURL,
             id: "",
             imageList: [],
             listData: {
@@ -114,7 +115,6 @@ export default {
             var formData = new FormData();
             formData.append("upfile", file.file);
             this.$api.upload.store(formData).then(res => {
-                console.log(res);
                 this.imageList.push(res.data.image_url);
             });
         },

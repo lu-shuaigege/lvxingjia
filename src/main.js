@@ -24,9 +24,10 @@ import {
     Toast,
     Uploader,
     Swipe,
-    SwipeItem
+    SwipeItem,
+    DatetimePicker
 } from 'vant';
-Vue.use(Area).use(Button).use(List).use(Field).use(Icon).use(Popup).use(Picker).use(Switch).use(Toast).use(Uploader).use(Swipe).use(SwipeItem)
+Vue.use(Area).use(Button).use(List).use(Field).use(Icon).use(Popup).use(Picker).use(Switch).use(Toast).use(Uploader).use(Swipe).use(SwipeItem).use(DatetimePicker)
 
 // ydui样式
 // https://vue.ydui.org

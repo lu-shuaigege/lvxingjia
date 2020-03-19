@@ -51,7 +51,7 @@
                                         alt
                                     />
                                     <div>
-                                        {{ item.travel.user_info.nickname }}
+                                        {{ item.travel.user_info.nickname.slice(0,4) }}
                                     </div>
                                 </div>
                             </div>
@@ -225,7 +225,7 @@ export default {
             itinerary: [], //线路
             scenic_spot: [], //门票
             hotel: [], //酒店
-            imgAfterUrl: process.env.VUE_APP_BASE_API, //图片前缀
+            imgAfterUrl: process.env.VUE_APP_IMGURL, //图片前缀
 
             loading: false,
             finished: false,

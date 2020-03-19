@@ -141,14 +141,19 @@
 
             .center-right-top {
                 width: 6.2rem;
-                height: 0.36rem;
+                // height: 0.36rem;
                 font-family: MicrosoftYaHei;
                 font-size: 0.347rem;
                 font-weight: normal;
                 font-stretch: normal;
-                line-height: 0.36rem;
+                line-height: 0.6rem;
                 letter-spacing: 0.021rem;
                 color: #333333;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
                 margin-bottom: 0.12rem;
             }
 

@@ -35,6 +35,91 @@
         }
     }
 
+    .cityHistory {
+        width: 100%;
+        padding: 0rem 0.35rem;
+        box-sizing: border-box;
+        background: #fff;
+
+        .cityHistory-title {
+            // height: 0.29rem;
+            font-size: 0.29rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            line-height: 0.29rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .cityHistory-del {
+                width: 0.35rem;
+            }
+        }
+
+        .cityHistory-list {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            .cityHistory-item {
+                height: 0.8rem;
+                margin: 0.2rem 0.2rem 0.2rem 0rem;
+                border-radius: 0.067rem;
+                border: solid 1px #08c75e;
+                font-size: 0.29rem;
+                font-family: Microsoft YaHei;
+                font-weight: 400;
+                color: rgba(45, 186, 85, 1);
+                line-height: 0.8rem;
+                text-align: center;
+                padding: 0rem 0.2rem;
+
+            }
+        }
+    }
+
+    .hotcity {
+        width: 100%;
+        padding: 0rem 0.35rem;
+        box-sizing: border-box;
+        background: #fff;
+
+        .hotcity-title {
+            // height: 0.29rem;
+            font-size: 0.29rem;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            line-height: 0.29rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hotcity-list {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            .hotcity-item {
+                width: 2rem;
+                height: 0.8rem;
+                margin: 0.2rem 0.2rem 0.2rem 0rem;
+                border-radius: 0.067rem;
+                border: solid 1px #08c75e;
+                font-size: 0.29rem;
+                font-family: Microsoft YaHei;
+                font-weight: 400;
+                color: rgba(45, 186, 85, 1);
+                line-height: 0.8rem;
+                text-align: center;
+                padding: 0rem 0.2rem;
+
+            }
+        }
+    }
+
     .citylist {
         width: 100%;
 

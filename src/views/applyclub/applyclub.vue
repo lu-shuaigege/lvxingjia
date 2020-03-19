@@ -4,7 +4,7 @@
         <div class="top">
             <div class="toplist">
                 <div class="title">公司名称</div>
-                <input type="text" class="toplist-right" placeholder="请填写姓名" v-model="name" />
+                <input type="text" class="toplist-right" placeholder="请填写公司名称" v-model="name" />
             </div>
             <div class="toplist">
                 <div class="title">手机号</div>
@@ -85,7 +85,7 @@
             </div>
         </div>
         <div class="agreement">
-            <yd-checkbox-group v-model="checkboxa">
+            <yd-checkbox-group v-model="checkboxa" class="circle">
                 <yd-checkbox shape="circle">
                     <span></span>
                 </yd-checkbox>
@@ -102,7 +102,8 @@
 export default {
     data() {
         return {
-            headimgurl: process.env.VUE_APP_BASE_API, //图片地址前缀
+            headimgurl: process.env.VUE_APP_IMGURL, //图片地址前缀
+            align: false, //上一次申请状态
             checkboxa: ["0"], //是否已阅读入住协议
             positive: "", //身份证正面
             back: "", //身份证反面
@@ -125,7 +126,7 @@ export default {
         this.type = this.$route.query.type;
         this.again = this.$route.query.again;
         this.echo();
-        if (this.$store.state.settledin.name) {
+        if (Object.keys(this.$store.state.settledin).length !== 0) {
             this.positive = this.$store.state.settledin.positive;
             this.back = this.$store.state.settledin.back;
             this.business_license = this.$store.state.settledin.business_license;
@@ -177,30 +178,14 @@ export default {
                 bank_account_name: this.bank_account_name,
                 bank_account: this.bank_account
             };
-            this.$store.commit("step1", data);
+            this.$store.commit("settledin", data);
             this.$router.push({
                 path: "agreementword"
             });
         },
         //提交申请
         apply() {
-            if (this.checkboxa[1] != false) {
-                this.$toast("请勾选阅读入驻协议");
-                return;
-            }
-            if (this.positive == "") {
-                this.$toast("请上传身份证正面");
-                return;
-            }
-            if (this.back == "") {
-                this.$toast("请上传身份证反面");
-                return;
-            }
-            if (this.business_license == "" && this.type != 2) {
-                this.$toast("请上传营业执照");
-                return;
-            }
-            if (this.name == "") {
+            if (this.name == "" || this.name == undefined) {
                 this.$toast("请填写姓名");
                 return;
             }
@@ -224,16 +209,35 @@ export default {
                 this.$toast("请输入正确的证件号码");
                 return;
             }
-            if (this.bank == "") {
+            if (this.positive == "") {
+                this.$toast("请上传身份证正面");
+                return;
+            }
+            if (this.back == "") {
+                this.$toast("请上传身份证反面");
+                return;
+            }
+            if (this.business_license == "" && this.type != 2) {
+                this.$toast("请上传营业执照");
+                return;
+            }
+            if (this.bank == "" || this.bank == undefined) {
                 this.$toast("请填写开户行");
                 return;
             }
-            if (this.bank_account_name == "") {
+            if (
+                this.bank_account_name == "" ||
+                this.bank_account_name == undefined
+            ) {
                 this.$toast("请填写开户名");
                 return;
             }
-            if (this.bank_account == "") {
+            if (this.bank_account == "" || this.bank_account == undefined) {
                 this.$toast("请填写开户账号");
+                return;
+            }
+            if (this.checkboxa[1] != false) {
+                this.$toast("请勾选阅读入驻协议");
                 return;
             }
             this.$api.settled_in
@@ -255,16 +259,38 @@ export default {
                     });
                 });
         },
+        // 获取上一次申请状态和数据
+        applyold() {
+            this.$api.settled_in.show().then(res => {
+                for (let i = 0; i < res.length; i++) {
+                    if (res[i].id) {
+                        this.positive = res[i].positive;
+                        this.back = res[i].back;
+                        if (res[i].business_license) {
+                            this.business_license = res[i].business_license;
+                        }
+                        // this.type = res[i].type;
+                        this.name = res[i].name;
+                        this.mobile = res[i].mobile;
+                        this.id_card = res[i].id_card;
+                        this.bank = res[i].bank;
+                        this.bank_account_name = res[i].bank_account_name;
+                        this.bank_account = res[i].bank_account;
+                    }
+                }
+            });
+        },
         //获取上次全部的申请数据
         echo() {
             this.$api.settled_in.show(this.type).then(res => {
+                this.applyold();
                 if (res.status == 0) {
                     this.$router.push({
                         path: "submitaudit"
                     });
                     return;
                 }
-                if (res.status == 1) {
+                if (res.status == 1 || res.can_apply == 3) {
                     this.$router.push({
                         path: "submitauditok"
                     });
@@ -300,6 +326,19 @@ export default {
                 this.bank_account = res.bank_account;
                 this.status = res.status;
                 this.can_apply = res.can_apply;
+
+                if (Object.keys(this.$store.state.settledin).length !== 0) {
+                    this.positive = this.$store.state.settledin.positive;
+                    this.back = this.$store.state.settledin.back;
+                    this.business_license = this.$store.state.settledin.business_license;
+                    this.type = this.$store.state.settledin.type;
+                    this.name = this.$store.state.settledin.name;
+                    this.mobile = this.$store.state.settledin.mobile;
+                    this.id_card = this.$store.state.settledin.id_card;
+                    this.bank = this.$store.state.settledin.bank;
+                    this.bank_account_name = this.$store.state.settledin.bank_account_name;
+                    this.bank_account = this.$store.state.settledin.bank_account;
+                }
             });
         }
     }

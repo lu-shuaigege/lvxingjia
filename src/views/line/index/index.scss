@@ -130,7 +130,7 @@
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
                     -webkit-line-clamp: 2;
-                    margin: 0.6rem auto 0.2rem;
+                    margin: 0.5rem auto 0.2rem;
                 }
 
                 .word {
@@ -139,7 +139,7 @@
                     font-size: 0.32rem;
                     font-weight: normal;
                     font-stretch: normal;
-                    //line-height: 0.32rem;
+                    // line-height: 0.32rem;
                     letter-spacing: 0.019rem;
                     color: #999999;
                     overflow: hidden;
@@ -147,14 +147,27 @@
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
                     -webkit-line-clamp: 1;
-                    margin: 0.2rem auto 0.2rem;
+                    margin: 0.1rem auto 0.2rem;
+                }
+
+                .integral {
+                    // width: 1.6rem;
+                    // height: 0.293rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.293rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.293rem;
+                    letter-spacing: 0.005rem;
+                    color: #cacaca;
+                    margin: 0.2rem auto 0.25rem;
                 }
 
                 .money {
                     height: 0.36rem;
                     //   padding: 0px 0.2rem;
                     box-sizing: border-box;
-                    margin-top: 0.5rem;
+                    margin-top: 0.3rem;
                     display: flex;
                     align-items: flex-end;
                     justify-content: space-between;
@@ -201,7 +214,7 @@
                     }
 
                     .money-right {
-                        .integral {
+                        .commission {
                             float: right;
                             height: 0.293rem;
                             font-family: MicrosoftYaHei;

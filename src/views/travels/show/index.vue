@@ -2,11 +2,15 @@
     <div class="travelsdetail">
         <!-- banner图 -->
         <div class="banners">
+            <img class="banners-img" :src="imgAfterUrl + data.cover_img" />
+        </div>
+        <!-- 内容区 -->
+        <div class="content">
             <img
                 class="islike"
                 @click="collection(1)"
                 v-show="islike == 0"
-                src="@/assets/img/Linelist/like.png"
+                src="@/assets/img/Linelist/like2.png"
             />
             <img
                 class="islike"
@@ -14,10 +18,6 @@
                 v-show="islike == 1"
                 src="@/assets/img/Linelist/xihuan.png"
             />
-            <img class="banners-img" :src="imgAfterUrl + data.cover_img" />
-        </div>
-        <!-- 内容区 -->
-        <div class="content">
             <div class="content-top">
                 <div class="content-top-top">
                     <div class="nikename-top">
@@ -29,13 +29,14 @@
                 <!-- <div class="content-top-bottom">{{ top.word }}</div> -->
                 <div class="word-content">
                     <div v-for="(item, index) in data.content" :key="index" class="con-item">
-                        <textarea
+                        <pre
                             name="travels"
                             id="travels"
                             class="travels"
                             :value="item"
+                            v-html="item"
                             v-if="item.indexOf('.jpg')==-1&&item.indexOf('.jpeg')==-1&&item.indexOf('.png')==-1&&item.indexOf('.gif')==-1&&item.indexOf('.bmp')==-1&&item.indexOf('.pic')==-1"
-                        ></textarea>
+                        ></pre>
                         <div
                             class="con-img"
                             v-if="!(item.indexOf('.jpg')==-1&&item.indexOf('.jpeg')==-1&&item.indexOf('.png')==-1&&item.indexOf('.gif')==-1&&item.indexOf('.bmp')==-1&&item.indexOf('.pic')==-1)"
@@ -108,7 +109,7 @@ export default {
                     headimgurl: ""
                 }
             }, //获取数据
-            imgAfterUrl: process.env.VUE_APP_BASE_API, //图片前缀
+            imgAfterUrl: process.env.VUE_APP_IMGURL, //图片前缀
             commentlist: []
         };
     },

@@ -2,18 +2,12 @@
     <div class="doorticket">
         <div class="bannertop">
             <div class="topcon">
-                <img
-                    class="topcon-left"
-                    src="@/assets/img/Integralmall/signin.png"
-                    alt
-                />
+                <img class="topcon-left" src="@/assets/img/Integralmall/signin.png" alt />
                 <div class="topcon-center">
                     <div class="topcon-center-top">累计签到积分</div>
                     <div class="topcon-center-bottom">{{ total }}</div>
                 </div>
-                <div class="topcon-right" @click="integralcheckinfn()">
-                    签到
-                </div>
+                <div class="topcon-right" @click="integralcheckinfn()">签到</div>
             </div>
         </div>
         <div class="integralList">
@@ -37,14 +31,10 @@
                         <div class="hotitem-bottom">
                             <div class="hotitem-title">{{ item.name }}</div>
                             <div class="money">
+                                <div class="moneyRMB">￥{{item.price}}</div>
                                 <div class="moneyLeft">
-                                    <div class="moneysp2">
-                                        {{ item.expend }}
-                                    </div>
+                                    <div class="moneysp2">{{ item.expend }}</div>
                                     <div class="moneysp3">积分</div>
-                                </div>
-                                <div class="moneyRight">
-                                    兑换
                                 </div>
                             </div>
                         </div>
@@ -59,7 +49,7 @@
 export default {
     data() {
         return {
-            imgAfterUrl: process.env.VUE_APP_BASE_API, //地址前缀
+            imgAfterUrl: process.env.VUE_APP_IMGURL, //地址前缀
             doorticketid: 0,
             total: 0, //积分
             hotlist: [], // 热门推荐

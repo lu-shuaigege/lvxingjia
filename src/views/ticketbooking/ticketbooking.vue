@@ -33,21 +33,32 @@
             </div>
             <div class="top-bottom" v-if="order_type == 1">
                 <div class="top-bottom-left">出行日期</div>
-                <yd-datetime
+                <!-- <yd-datetime
                     @click.native="openc"
-                    class="top-bottom-center"
+                    class="top-bottom-center top_bottom_center"
                     ref="datetimec"
                     slot="right"
                     type="date"
                     :start-date="datetimec"
                     v-model="datetimec"
-                >请选择出行日期</yd-datetime>
+                >请选择出行日期</yd-datetime>-->
+                <div @click="showPopupa" class="top-bottom-center">{{presenttime}}</div>
                 <img class="top-bottom-right" src="@/assets/img/Linelist/right.png" />
             </div>
+            <van-popup v-model="showa" position="bottom">
+                <van-datetime-picker
+                    v-model="currentDate"
+                    type="date"
+                    class="top-bottom-center"
+                    :min-date="minDate"
+                    @cancel="onCancel"
+                    @confirm="onConfirm"
+                />
+            </van-popup>
             <!-- 酒店入住日期 -->
             <div class="top-bottom" v-if="order_type == 2">
                 <div class="top-bottom-left">入住日期</div>
-                <yd-datetime
+                <!-- <yd-datetime
                     @click.native="opena"
                     class="top-bottom-center"
                     ref="datetimea"
@@ -55,27 +66,52 @@
                     type="date"
                     :start-date="datetimea"
                     v-model="datetimea"
-                >请选择出行日期</yd-datetime>
+                >请选择出行日期</yd-datetime>-->
+                <div @click="showPopup" class="top-bottom-center">{{presenttimea}}</div>
                 <img class="top-bottom-right" src="@/assets/img/Linelist/right.png" />
             </div>
+            <van-popup v-model="show" position="bottom">
+                <van-datetime-picker
+                    v-model="currentDatea"
+                    type="date"
+                    class="top-bottom-center"
+                    :min-date="minDate"
+                    @cancel="onCancela"
+                    @confirm="onConfirma"
+                />
+            </van-popup>
             <!-- 酒店离店日期 -->
             <div class="top-bottom" v-if="order_type == 2">
                 <div class="top-bottom-left">离店日期</div>
-                <yd-datetime
+                <!-- <yd-datetime
                     @click.native="openb"
                     class="top-bottom-center"
                     ref="datetimeb"
                     slot="right"
                     type="date"
+                    :start-date="datetimeb"
                     v-model="datetimeb"
-                >请选择出行日期</yd-datetime>
+                >请选择结束日期</yd-datetime>-->
+                <div @click="showPopupb" class="top-bottom-center">{{presenttimeb}}</div>
                 <img alt class="top-bottom-right" src="@/assets/img/Linelist/right.png" />
             </div>
+            <van-popup v-model="showb" position="bottom">
+                <van-datetime-picker
+                    v-model="currentDateb"
+                    type="date"
+                    class="top-bottom-center"
+                    :min-date="minDate"
+                    @cancel="onCancelb"
+                    @confirm="onConfirmb"
+                />
+            </van-popup>
         </div>
         <div class="information">
             <div class="information-item1">预定人信息</div>
             <div class="information-item2">
-                <div class="information-item2-left">姓名</div>
+                <div class="information-item2-left">
+                    <div class="justred">*</div>姓名
+                </div>
                 <input
                     class="information-item2-right"
                     placeholder="请填写预定人姓名"
@@ -84,7 +120,9 @@
                 />
             </div>
             <div class="information-item3">
-                <div class="information-item2-left">手机号</div>
+                <div class="information-item2-left">
+                    <div class="justred">*</div>手机号
+                </div>
                 <input
                     class="information-item2-right"
                     maxlength="11"
@@ -95,7 +133,9 @@
                 />
             </div>
             <div class="information-item3" v-show="type == 2 && order_type == 1">
-                <div class="information-item2-left">领队身份证</div>
+                <div class="information-item2-left">
+                    <div class="justred">*</div>身份证号
+                </div>
                 <input
                     class="information-item2-right"
                     maxlength="18"
@@ -132,14 +172,30 @@
             <div class="bookbottom-title">备注</div>
             <div class="bookbottom-bottom">
                 <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
-                <textarea class="proposal" placeholder="请填写备注" v-model="remarks"></textarea>
+                <textarea
+                    class="proposal"
+                    placeholder="男女报名如无法同住或分开报名需安排同住或同车，请备注"
+                    v-model="remarks"
+                ></textarea>
             </div>
         </div>
-        <div class="tourleader" v-show="type == 2 && order_type == 1">
+        <!-- <div class="tourleader" v-show="type == 2 && order_type == 1">
             <div class="tourleader-title">领队必读</div>
             <div class="tourleader-bottom">
                 1、身份证、导游证、大巴证、任务单必带方可领票，缺一 不可；
                 <br />2、请在当日14:00前完成领票操作。
+            </div>
+        </div>-->
+        <div v-show="type == 2 && order_type == 1" class="tips">提示：领队人员出行前请仔细阅读前页领队必读内容，提前准备好相关资料。</div>
+        <div class="agreement" v-if="order_type == 3">
+            <yd-checkbox-group v-model="checkboxa" class="yuan">
+                <yd-checkbox shape="circle">
+                    <span></span>
+                </yd-checkbox>
+            </yd-checkbox-group>
+            <div :class="checkboxa == false ? 'read' : 'readactive'" @click="agreementwordfn()">
+                <span v-show="checkboxa != false">我已阅读并接受</span>
+                <span v-show="checkboxa == false">我已阅读并接受</span>《预定须知和合同范本》
             </div>
         </div>
         <div class="bottom">
@@ -204,9 +260,21 @@ import functions from "@/utils/functions.js";
 export default {
     data() {
         return {
+            presenttime: "", //现在时间
+            presenttimea: "", //显示的入驻日期
+            presenttimeb: "", //显示的入驻日期
             datetimea: "", // 选择开始日期
             datetimeb: "", // 选择结束日期
             datetimec: "", //出游日
+            thisdate: Date.now(),
+            minDate: new Date(Date.now() + 86400000),
+            // maxDate: new Date(2025, 10, 1),
+            currentDate: "", //出游时间
+            currentDatea: "", //入驻日期
+            currentDateb: "", //离店日期
+            showa: false,
+            show: false,
+            showb: false,
             total: 0, //总价
             remarks: "", //备注
             type: "", //散客还是团队
@@ -227,7 +295,9 @@ export default {
             rewardsPointamount: 0, //可抵扣金额
             useIntegral: 0, //使用抵扣积分
             istotle: 0, //新的总价
+            oldtotle: 0, //酒店计算携带总价
             share_code: "", //分享码
+            checkboxa: ["0"], //是否已阅读入住协议
 
             /***新增start***/
             goodsDetails: {}, //酒店订单详情
@@ -243,6 +313,9 @@ export default {
         let datesTime = new Date();
         datesTime.setDate(datesTime.getDate() + 1);
         let istime = functions.fmtDate(datesTime, "yyyy-MM-dd");
+        this.presenttime = istime;
+        this.presenttimea = istime;
+        this.presenttimeb = istime;
         this.datetimec = istime;
         this.datetimea = istime;
         this.datetimeb = istime;
@@ -250,9 +323,16 @@ export default {
         this.reserveName = orderInfor.reserveName;
         this.reserveTel = orderInfor.reserveTel;
         this.remarks = orderInfor.remarks;
+        if (orderInfor.presenttimea != undefined) {
+            this.presenttimea = orderInfor.presenttimea;
+        }
+        if (orderInfor.presenttimeb != undefined) {
+            this.presenttimeb = orderInfor.presenttimeb;
+        }
         if (orderInfor.total != undefined) {
             this.total = orderInfor.total;
             this.istotle = orderInfor.istotle;
+            this.oldtotle = orderInfor.oldtotle;
         }
         if (
             (orderInfor.datetimea != undefined &&
@@ -272,6 +352,7 @@ export default {
         }
         // this.$wxApi.wxRegister();
         this.goodsDetails = JSON.parse(this.$route.query.goodsDetailsInfo); //获取订单详情
+        console.log(this.goodsDetails);
         this.share_code = this.goodsDetails.share_code; //分享码
         this.price = this.goodsDetails.price; //成人价格
         this.price_total = this.goodsDetails.price; //初始化成人价格
@@ -285,6 +366,7 @@ export default {
         if (this.goodsDetails.total != undefined) {
             this.total = this.goodsDetails.total / 100; //总价
             this.istotle = this.goodsDetails.total / 100; //总价
+            this.oldtotle = this.goodsDetails.total / 100; //总价;
         }
         this.surplus_num = this.goodsDetails.surplus_num; //还剩多少票
         this.surplus_num_new = this.surplus_num;
@@ -292,23 +374,76 @@ export default {
             //散客的时候获取旅客数据
             this.tripArr = JSON.parse(sessionStorage.getItem("lkArrInfo"));
         }
+        if (orderInfor.total != undefined) {
+            this.total = orderInfor.total;
+        }
         this.rewards_point();
         this.order_base();
     },
     // 监听,当路由发生变化的时候执行
     watch: {},
     methods: {
-        //选择日期弹框
-        opena() {
-            this.$refs.datetimea.open();
+        // 出发取消选择
+        onCancel(val) {
+            this.showa = false;
         },
-        //选择日期弹框
-        openb() {
-            this.$refs.datetimeb.open();
+        // 出发确定选择
+        onConfirm(val) {
+            let datesTime = new Date(val);
+            datesTime.setDate(datesTime.getDate());
+            this.presenttime = functions.fmtDate(datesTime, "yyyy-MM-dd");
+            this.datetimec = this.presenttime;
+            this.showa = false;
         },
-        //选择日期弹框
-        openc() {
-            this.$refs.datetimec.open();
+        // 入住取消选择
+        onCancela(val) {
+            this.show = false;
+        },
+        // 入住确定选择
+        onConfirma(val) {
+            let datesTime = new Date(val);
+            datesTime.setDate(datesTime.getDate());
+            this.presenttimea = functions.fmtDate(datesTime, "yyyy-MM-dd");
+            this.datetimea = this.presenttimea;
+            this.show = false;
+            let presenttimea = Number(Date.parse(new Date(this.presenttimea)));
+            let presenttimeb = Number(Date.parse(new Date(this.presenttimeb)));
+            if (presenttimeb <= presenttimea) {
+                // this.$toast("结束日期不能大于开始日期");
+                return;
+            }
+            this.total =
+                ((presenttimeb - presenttimea) / 86400 / 1000) * this.oldtotle;
+        },
+        // 离店取消选择
+        onCancelb(val) {
+            this.showb = false;
+        },
+        // 离店确定选择
+        onConfirmb(val) {
+            let datesTime = new Date(val);
+            datesTime.setDate(datesTime.getDate());
+            this.presenttimeb = functions.fmtDate(datesTime, "yyyy-MM-dd");
+            this.datetimeb = this.presenttimeb;
+            this.showb = false;
+            this.datetimeb.replace("-", "").replace("-", "");
+            let presenttimea = Number(Date.parse(new Date(this.presenttimea)));
+            let presenttimeb = Number(Date.parse(new Date(this.presenttimeb)));
+            if (presenttimeb <= presenttimea) {
+                // this.$toast("结束日期不能大于开始日期");
+                return;
+            }
+            this.total =
+                ((presenttimeb - presenttimea) / 86400 / 1000) * this.oldtotle;
+        },
+        showPopupa() {
+            this.showa = true;
+        },
+        showPopup() {
+            this.show = true;
+        },
+        showPopupb() {
+            this.showb = true;
         },
         // 跳转添加常用旅客
         PassengerInfo() {
@@ -318,11 +453,14 @@ export default {
                 datetimea: this.datetimea,
                 datetimeb: this.datetimeb,
                 datetimec: this.datetimec,
+                presenttimea: this.presenttimea,
+                presenttimeb: this.presenttimeb,
                 reserveName: this.reserveName,
                 reserveTel: this.reserveTel,
                 remarks: this.remarks,
                 total: this.total,
-                istotle: this.istotle
+                istotle: this.istotle,
+                oldtotle: this.oldtotle
             };
             this.$store.commit("orderInfor", orderInfor);
 
@@ -389,6 +527,16 @@ export default {
         },
         //下单
         payfn: function(val) {
+            if (this.checkboxa[1] != false && this.order_type == 3) {
+                this.$toast("请勾选“预定须知和合同范本”");
+                return;
+            }
+            let presenttimea = Number(Date.parse(new Date(this.presenttimea)));
+            let presenttimeb = Number(Date.parse(new Date(this.presenttimeb)));
+            if (presenttimeb <= presenttimea && this.order_type == 2) {
+                this.$toast("结束日期不能大于开始日期或当天");
+                return;
+            }
             if (
                 !/^1[3456789]\d{9}$/.test(this.reserveTel) ||
                 this.reserveTel == ""
@@ -433,7 +581,8 @@ export default {
                 this.$refs.ticketbooking.style.height = "100vh";
                 this.$refs.ticketbooking.style.overflow = "hidden";
                 this.$refs.pay.style.top = "0px";
-            } else {
+            }
+            if (val == 2) {
                 if (this.order_type == 1 || this.order_type == 3) {
                     this.datetimea = "";
                     this.datetimeb = "";
@@ -455,9 +604,21 @@ export default {
                         this.adultnum,
                         this.childrennum,
                         this.useIntegral,
-                        this.share_code
+                        this.share_code,
+                        this.goodsDetails.address_activeid,
+                        this.goodsDetails.resort,
+                        this.remarks
                     )
                     .then(res => {
+                        if (this.total == 0) {
+                            this.$router.push({
+                                path: "/orders/index",
+                                query: {
+                                    active: 1
+                                }
+                            });
+                            return;
+                        }
                         if (this.goodsDetails.type == 2) {
                             this.$router.push({
                                 path: "/orders/index",
@@ -556,6 +717,25 @@ export default {
             this.price_children_total = this.childrennum * this.price_children;
             this.total = this.price_total + this.price_children_total;
             this.istotle = this.price_total + this.price_children_total;
+        },
+        //跳转协议内容
+        agreementwordfn: function() {
+            let orderInfor = {
+                adultnum: this.adultnum,
+                childrennum: this.childrennum,
+                datetimea: this.datetimea,
+                datetimeb: this.datetimeb,
+                datetimec: this.datetimec,
+                reserveName: this.reserveName,
+                reserveTel: this.reserveTel,
+                remarks: this.remarks,
+                total: this.total,
+                istotle: this.istotle
+            };
+            this.$store.commit("orderInfor", orderInfor);
+            this.$router.push({
+                path: "/home/line/contract"
+            });
         }
     },
     beforeRouteLeave(to, from, next) {

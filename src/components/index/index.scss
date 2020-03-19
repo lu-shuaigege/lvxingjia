@@ -1,12 +1,13 @@
 // 支付
 .pay {
     position: fixed;
-    top: 100vh;
+    top: 200vh;
     // top: 0px;
     left: 0px;
     width: 10rem;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
 
     .paycon {
         width: 10rem;
@@ -89,7 +90,7 @@
     }
 
     .integral {
-        height: 1.906rem;
+        // height: 1.906rem;
         // margin-top: 0.72rem;
         padding: 0.28rem 0.347rem 0.387rem;
         box-sizing: border-box;
@@ -132,12 +133,12 @@
         }
 
         .explain {
-            height: 0.293rem;
+            // height: 0.293rem;
             font-family: MicrosoftYaHei;
             font-size: 0.293rem;
             font-weight: normal;
             font-stretch: normal;
-            line-height: 0.293rem;
+            line-height: 0.4rem;
             letter-spacing: 0.017rem;
             color: #cacaca;
             margin-top: 0.32rem;

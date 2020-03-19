@@ -69,12 +69,13 @@
         .center-item {
             width: 4.107rem;
             margin-top: 0.48rem;
-            .uploadbutton{
-                width:2.67rem;
-                height:0.64rem;
+
+            .uploadbutton {
+                width: 2.67rem;
+                height: 0.64rem;
                 line-height: 0.64rem;
                 border-radius: 3px;
-                background:rgba(43,187,85,1);
+                background: rgba(43, 187, 85, 1);
                 padding: 0;
                 margin-left: 0.7rem;
             }
@@ -178,6 +179,18 @@
         box-sizing: border-box;
         margin: 0.293rem 0px 0.76rem;
 
+        .circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            label {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
         .read {
             display: flex;
             align-items: center;
@@ -219,6 +232,7 @@
         text-align: center;
     }
 }
-.van-uploader__input-wrapper{
+
+.van-uploader__input-wrapper {
     text-align: center !important;
 }

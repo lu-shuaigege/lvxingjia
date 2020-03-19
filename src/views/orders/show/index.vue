@@ -178,7 +178,7 @@ export default {
     data() {
         return {
             isshow: 0,
-            imgAfterUrl: process.env.VUE_APP_BASE_API,
+            imgAfterUrl: process.env.VUE_APP_IMGURL,
             listactive: 0, //取消购买弹框点击效果状态
             rate1: 0, //评论1
             rate2: 0, //评论2

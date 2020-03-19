@@ -1,84 +1,83 @@
 <template>
     <div class="releaseline">
-        <div class="top">
-            <div class="toplist" @click="showTourism">
-                <div class="list-left">所属旅游大类</div>
-                <div class="list-right">
-                    <div class="choice">{{ listData.type | typeFilter }}</div>
-                    <img src="@/assets/img/my/right.png" class="rightimg" alt />
-                </div>
-            </div>
-            <van-popup v-model="tourismShow" position="bottom">
-                <van-picker
-                    :default-index="1"
-                    show-toolbar
-                    :visible-item-count="3"
-                    value-key="name"
-                    :columns="tourismType"
-                    @cancel="tourismCancel"
-                    @confirm="tourismConfirm"
-                />
-            </van-popup>
-            <div class="toplist" @click="showMode">
-                <div class="list-left">选择路线类型</div>
-                <div class="list-right">
-                    <div class="choice">{{ listData.mode | modeFilter }}</div>
-                    <img src="@/assets/img/my/right.png" class="rightimg" alt />
-                </div>
-            </div>
-            <van-popup v-model="modeShow" position="bottom">
-                <van-picker
-                    :default-index="2"
-                    show-toolbar
-                    value-key="name"
-                    :columns="modeType"
-                    @cancel="modeCancel"
-                    @confirm="modeConfirm"
-                />
-            </van-popup>
-            <div class="toplist">
-                <div class="list-left">线路名称</div>
-                <div class="list-right">
-                    <input
-                        type="text"
-                        v-model="listData.name"
-                        class="right-input"
-                        placeholder="请输入线路名称"
-                    />
-                </div>
-            </div>
-            <div class="toplist-last">
-                <div class="title">线路描述</div>
-                <textarea
-                    name="index"
-                    v-model="listData.desc"
-                    class="textarea"
-                    cols="30"
-                    rows="10"
-                    placeholder="请输入线路描述"
-                ></textarea>
-            </div>
-        </div>
-        <div class="center">
-            <div class="toplist" @click="showDays">
-                <div class="list-left">行程天数</div>
-                <div class="list-right">
-                    <div v-if="listData.effect_days" class="choice">
-                        {{ listData.effect_days }}
+        <div class="allcontent">
+            <div class="top">
+                <div class="toplist" @click="showTourism">
+                    <div class="list-left">所属旅游大类</div>
+                    <div class="list-right">
+                        <div class="choice">{{ listData.type | typeFilter }}</div>
+                        <img src="@/assets/img/my/right.png" class="rightimg" alt />
                     </div>
-                    <img src="@/assets/img/my/right.png" class="rightimg" alt />
+                </div>
+                <van-popup v-model="tourismShow" position="bottom">
+                    <van-picker
+                        :default-index="1"
+                        show-toolbar
+                        :visible-item-count="3"
+                        value-key="name"
+                        :columns="tourismType"
+                        @cancel="tourismCancel"
+                        @confirm="tourismConfirm"
+                    />
+                </van-popup>
+                <div class="toplist" @click="showMode">
+                    <div class="list-left">选择路线类型</div>
+                    <div class="list-right">
+                        <div class="choice">{{ listData.mode | modeFilter }}</div>
+                        <img src="@/assets/img/my/right.png" class="rightimg" alt />
+                    </div>
+                </div>
+                <van-popup v-model="modeShow" position="bottom">
+                    <van-picker
+                        :default-index="2"
+                        show-toolbar
+                        value-key="name"
+                        :columns="modeType"
+                        @cancel="modeCancel"
+                        @confirm="modeConfirm"
+                    />
+                </van-popup>
+                <div class="toplist">
+                    <div class="list-left">线路名称</div>
+                    <div class="list-right">
+                        <input
+                            type="text"
+                            v-model="listData.name"
+                            class="right-input"
+                            placeholder="请输入线路名称"
+                        />
+                    </div>
+                </div>
+                <div class="toplist-last">
+                    <div class="title">线路描述</div>
+                    <textarea
+                        name="index"
+                        v-model="listData.desc"
+                        class="textarea"
+                        cols="30"
+                        rows="10"
+                        placeholder="请输入线路描述"
+                    ></textarea>
                 </div>
             </div>
-            <van-popup v-model="daysShow" position="bottom">
-                <van-picker
-                    :default-index="2"
-                    show-toolbar
-                    :columns="daysList"
-                    @cancel="daysCancel"
-                    @confirm="daysConfirm"
-                />
-            </van-popup>
-            <div class="toplist">
+            <div class="center" ref="center">
+                <div class="toplist" @click="showDays">
+                    <div class="list-left">行程天数</div>
+                    <div class="list-right">
+                        <div v-if="listData.effect_days" class="choice">{{ listData.effect_days }}</div>
+                        <img src="@/assets/img/my/right.png" class="rightimg" alt />
+                    </div>
+                </div>
+                <van-popup v-model="daysShow" position="bottom">
+                    <van-picker
+                        :default-index="2"
+                        show-toolbar
+                        :columns="daysList"
+                        @cancel="daysCancel"
+                        @confirm="daysConfirm"
+                    />
+                </van-popup>
+                <!-- <div class="toplist">
                 <div class="list-left">限制人数</div>
                 <div class="list-right">
                     <div class="list-right">
@@ -119,111 +118,101 @@
                         元
                     </div>
                 </div>
-            </div>
-            <div class="toplist">
-                <div class="list-left">分佣比例</div>
-                <div class="list-right">
+                </div>-->
+                <div class="toplist">
+                    <div class="list-left">分佣比例</div>
                     <div class="list-right">
-                        <input
-                            type="number"
-                            v-model="listData.commission_scale"
-                            class="right-input"
-                            placeholder="请输入分佣比例"
-                        />
-                        %
+                        <div class="list-right">
+                            <input
+                                type="number"
+                                v-model="listData.commission_scale"
+                                class="right-input"
+                                placeholder="请输入分佣比例"
+                            />
+                            %
+                        </div>
+                    </div>
+                </div>
+                <div class="toplist" @click="showBecity">
+                    <div class="list-left">出发城市</div>
+                    <div class="list-right">
+                        <div class="choice">{{ becityName }}</div>
+                        <img src="@/assets/img/my/right.png" class="rightimg" alt />
+                    </div>
+                </div>
+                <van-popup v-model="becityShow" position="bottom" :style="{ height: '50%' }">
+                    <van-area
+                        :area-list="cityList"
+                        :columns-num="2"
+                        confirm-button-text="确认"
+                        @confirm="becityConfirm"
+                        cancel-button-text="取消"
+                        @cancel="becityCancel"
+                    />
+                </van-popup>
+                <van-popup v-model="becity_Show" position="bottom">
+                    <van-picker
+                        :default-index="2"
+                        show-toolbar
+                        value-key="name"
+                        :columns="internationalList"
+                        @cancel="becity_Cancel"
+                        @confirm="becity_Confirm"
+                    />
+                </van-popup>
+                <div class="toplist" @click="showDestination">
+                    <div class="list-left">目的地</div>
+                    <div class="list-right">
+                        <div class="choice">{{ destinationName }}</div>
+                        <img src="@/assets/img/my/right.png" class="rightimg" alt />
+                    </div>
+                </div>
+                <van-popup v-model="destinationShow" position="bottom" :style="{ height: '50%' }">
+                    <van-area
+                        :area-list="cityList"
+                        :columns-num="2"
+                        confirm-button-text="确认"
+                        @confirm="destinationConfirm"
+                        cancel-button-text="取消"
+                        @cancel="destinationCancel"
+                    />
+                </van-popup>
+                <van-popup v-model="destination_Show" position="bottom">
+                    <van-picker
+                        :default-index="2"
+                        show-toolbar
+                        value-key="name"
+                        :columns="internationalList"
+                        @cancel="destination_Cancel"
+                        @confirm="destination_Confirm"
+                    />
+                </van-popup>
+                <div class="toplist" @click="setmenufn()">
+                    <div class="list-left">套餐设置</div>
+                    <div class="list-right">
+                        <img class="rightimg" src="@/assets/img/my/right.png" alt />
                     </div>
                 </div>
             </div>
-            <div class="toplist" @click="showBecity">
-                <div class="list-left">出发城市</div>
-                <div class="list-right">
-                    <div class="choice">{{ becityName }}</div>
-                    <img src="@/assets/img/my/right.png" class="rightimg" alt />
+            <div class="bottom" v-if="venueShow == 1" ref="bottom">
+                <div class="toplist">
+                    <div class="list-left-b">集合地设置</div>
+                    <div class="list-right" @click="addVenue">
+                        <img class="plus" src="@/assets/img/my/plus.png" alt />
+                    </div>
                 </div>
-            </div>
-            <van-popup
-                v-model="becityShow"
-                position="bottom"
-                :style="{ height: '50%' }"
-            >
-                <van-area
-                    :area-list="cityList"
-                    :columns-num="2"
-                    confirm-button-text="确认"
-                    @confirm="becityConfirm"
-                    cancel-button-text="取消"
-                    @cancel="becityCancel"
-                />
-            </van-popup>
-            <van-popup v-model="becity_Show" position="bottom">
-                <van-picker
-                    :default-index="2"
-                    show-toolbar
-                    value-key="name"
-                    :columns="internationalList"
-                    @cancel="becity_Cancel"
-                    @confirm="becity_Confirm"
-                />
-            </van-popup>
-            <div class="toplist" @click="showDestination">
-                <div class="list-left">目的地</div>
-                <div class="list-right">
-                    <div class="choice">{{ destinationName }}</div>
-                    <img src="@/assets/img/my/right.png" class="rightimg" alt />
-                </div>
-            </div>
-            <van-popup
-                v-model="destinationShow"
-                position="bottom"
-                :style="{ height: '50%' }"
-            >
-                <van-area
-                    :area-list="cityList"
-                    :columns-num="2"
-                    confirm-button-text="确认"
-                    @confirm="destinationConfirm"
-                    cancel-button-text="取消"
-                    @cancel="destinationCancel"
-                />
-            </van-popup>
-            <van-popup v-model="destination_Show" position="bottom">
-                <van-picker
-                    :default-index="2"
-                    show-toolbar
-                    value-key="name"
-                    :columns="internationalList"
-                    @cancel="destination_Cancel"
-                    @confirm="destination_Confirm"
-                />
-            </van-popup>
-            <div class="toplist" @click="setmenufn()">
-                <div class="list-left">套餐设置</div>
-                <div class="list-right">
-                    <img class="rightimg" src="@/assets/img/my/right.png" alt />
-                </div>
-            </div>
-        </div>
-        <div class="bottom" v-if="venueShow == 1">
-            <div class="toplist">
-                <div class="list-left-b">集合地设置</div>
-                <div class="list-right" @click="addVenue">
-                    <img class="plus" src="@/assets/img/my/plus.png" alt />
-                </div>
-            </div>
-            <div
-                class="toplist"
-                v-for="(item, index) in listData.venue"
-                :key="index"
-            >
-                <input
-                    :value="item"
-                    type="text"
-                    class="list-left"
-                    placeholder="请输入集合地名称"
-                    @change="venueInput(index, $event)"
-                />
-                <div class="list-right" @click="delVenue(index)">
-                    <img class="plus" src="@/assets/img/my/reduce.png" alt />
+                <div class="toplist" v-for="(item, index) in listData.venue" :key="index">
+                    <input
+                        :value="item"
+                        type="text"
+                        class="list-left"
+                        maxlength="25"
+                        placeholder="请输入集合地名称"
+                        @change="venueInput(index, $event)"
+                    />
+                    <div class="list-right" @click="delVenue(index)">
+                        <img class="plus" src="@/assets/img/my/reduce.png" alt />
+                    </div>
                 </div>
             </div>
         </div>
@@ -240,7 +229,7 @@ export default {
     data() {
         return {
             id: "",
-            role: 1, //角色 1普通用户 2合作伙伴 3分公司 4出境社
+            role: 1, //角色 1普通用户 2合作伙伴 3加盟商 4出境社
             // 路线类型
             modeShow: false,
             modeType: [
@@ -248,10 +237,7 @@ export default {
                 { mode: 2, name: "自由行" },
                 { mode: 3, name: "摄影游" },
                 { mode: 4, name: "亲子游" },
-                { mode: 5, name: "跟团游" },
-                { mode: 6, name: "周边游" },
-                { mode: 7, name: "国内游" },
-                { mode: 8, name: "国际游" }
+                { mode: 5, name: "跟团游" }
             ],
             // 旅游大类
             tourismShow: false,
@@ -466,6 +452,36 @@ export default {
         //确定选择旅游大类
         tourismConfirm(value) {
             this.listData.type = value.type;
+            if (this.listData.type == 1) {
+                this.modeType = [
+                    { mode: 1, name: "户外游" },
+                    { mode: 2, name: "自由行" },
+                    { mode: 3, name: "摄影游" },
+                    { mode: 4, name: "亲子游" },
+                    { mode: 5, name: "跟团游" },
+                    { mode: 6, name: "周边游" }
+                ];
+            }
+            if (this.listData.type == 2) {
+                this.modeType = [
+                    { mode: 1, name: "户外游" },
+                    { mode: 2, name: "自由行" },
+                    { mode: 3, name: "摄影游" },
+                    { mode: 4, name: "亲子游" },
+                    { mode: 5, name: "跟团游" },
+                    { mode: 7, name: "国内游" }
+                ];
+            }
+            if (this.listData.type == 3) {
+                this.modeType = [
+                    { mode: 1, name: "户外游" },
+                    { mode: 2, name: "自由行" },
+                    { mode: 3, name: "摄影游" },
+                    { mode: 4, name: "亲子游" },
+                    { mode: 5, name: "跟团游" },
+                    { mode: 8, name: "国际游" }
+                ];
+            }
             this.tourismShow = false;
             this.listData.destination = [];
             this.destinationName = "";
@@ -478,8 +494,14 @@ export default {
             }
             if (value.name === "周边游") {
                 this.venueShow = 1;
+                // $(".bottom").css("margin", "1.5rem");
             } else {
                 this.venueShow = 0;
+            }
+            if (value.type == 2 || value.type == 3) {
+                this.$refs.center.style.margin = "0.267rem 0rem 1.5rem";
+            } else {
+                this.$refs.center.style.margin = "0.267rem 0rem 0.267rem";
             }
         },
         //取消选择旅游大类
@@ -521,18 +543,18 @@ export default {
                 this.$toast("请输入行程天数");
                 return;
             }
-            if (!_this.listData.limit_num) {
-                this.$toast("请输入限制人数");
-                return;
-            }
-            if (!_this.listData.price) {
-                this.$toast("请输入成人价");
-                return;
-            }
-            if (!_this.listData.price_children) {
-                this.$toast("请输入儿童价");
-                return;
-            }
+            // if (!_this.listData.limit_num) {
+            //     this.$toast("请输入限制人数");
+            //     return;
+            // }
+            // if (!_this.listData.price) {
+            //     this.$toast("请输入成人价");
+            //     return;
+            // }
+            // if (!_this.listData.price_children) {
+            //     this.$toast("请输入儿童价");
+            //     return;
+            // }
             if (!_this.listData.commission_scale) {
                 this.$toast("请输入分佣比例");
                 return;

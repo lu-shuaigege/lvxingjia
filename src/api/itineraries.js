@@ -29,7 +29,7 @@ const itineraries = {
         }
 
         //@todo 临时修改获取全部数据，上线删除
-        city_id = ''
+        // city_id = ''
         return http({
             url: `${api.itineraries}`,
             method: 'get',

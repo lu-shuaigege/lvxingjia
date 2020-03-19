@@ -2,6 +2,7 @@ const webpack = require('webpack');
 module.exports = {
     publicPath: '/',
     outputDir: 'dist',
+    assetsDir: 'static',
     lintOnSave: process.env.NODE_ENV !== 'production',
     css: {
         extract: true,
@@ -14,7 +15,7 @@ module.exports = {
         port: process.env.VUE_APP_PORT,
         proxy: {
             '/apis': {
-                target: 'http://travel.admin.dev.zhangxinkeji.com',
+                target: process.env.VUE_APP_BASE_API,
                 secure: false,
                 changeOrigin: true,
                 pathRewrite: {

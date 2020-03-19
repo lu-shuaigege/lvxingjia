@@ -21,19 +21,22 @@ const goods = {
             method: 'get',
         })
     },
-    buy(address_id, goods, notes) {
+    buy(address_id, goods_id, expend, notes) {
         let params = {}
         if (address_id) {
             params['address_id'] = address_id;
         }
-        if (goods) {
-            params['goods'] = goods;
+        if (goods_id) {
+            params['goods_id'] = goods_id;
+        }
+        if (expend||expend==0) {
+            params['expend'] = expend;
         }
         if (notes) {
             params['notes'] = notes;
         }
         return http({
-            url: `${api.exchange_order}`,
+            url: `${api.buy}`,
             method: 'post',
             data: params
         })

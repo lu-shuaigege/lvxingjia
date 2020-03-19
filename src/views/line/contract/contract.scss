@@ -1,0 +1,41 @@
+.agreementword {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    padding: 1px 0.4rem;
+    box-sizing: border-box;
+}
+
+.center {
+    text-align: center;
+}
+
+.em {
+    text-indent: 2em;
+    line-height: 0.6rem;
+}
+
+.b {
+    font-weight: bold;
+}
+
+.topname {
+    font-size: 0.5rem;
+}
+
+.topbottomname {
+    margin: 0px auto 0.5rem;
+}
+
+.pre {
+    white-space: pre-wrap;
+    /* css3.0 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* Internet Explorer 5.5+ */
+}

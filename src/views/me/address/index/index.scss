@@ -250,3 +250,33 @@
         }
     }
 }
+
+.down-addbtn {
+    position: fixed;
+    left: 3.5rem;
+    bottom: 3.5rem;
+    width: 3rem;
+    height: 1rem;
+    background-color: #ffffff;
+    font-size: 0.427rem;
+    line-height: 1rem;
+    color: #2dba55;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+
+    img {
+        width: 0.427rem;
+        height: 0.427rem;
+        margin-right: 0.12rem;
+    }
+
+    span {
+        font-size: 0.8rem;
+        font-weight: 300;
+        margin-right: 0.2rem;
+    }
+}

@@ -110,8 +110,9 @@
                     color: #333333;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    display: -webkit-box;
                     -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 1; //超出几行才会变点
+                    -webkit-line-clamp: 2;
                     margin: 0.12rem 0px 0.187rem;
                 }
 
@@ -307,7 +308,8 @@
             letter-spacing: 0.023rem;
             color: #ffffff;
         }
-        .cancelbtn{
+
+        .cancelbtn {
             width: 10rem;
             height: 100%;
             font-size: 0.373rem;
@@ -541,6 +543,7 @@
             }
         }
     }
+
     // 弹框
     .popup {
         width: 100%;

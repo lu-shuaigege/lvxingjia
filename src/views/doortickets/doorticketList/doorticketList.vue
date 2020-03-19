@@ -68,7 +68,7 @@
 export default {
     data() {
         return {
-            imgAfterUrl: process.env.VUE_APP_BASE_API,
+            imgAfterUrl: process.env.VUE_APP_IMGURL,
             hotlist: [], // 热门推荐
             cityname: "", //城市
             city_id: "", //城市

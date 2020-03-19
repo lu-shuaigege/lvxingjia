@@ -3,32 +3,21 @@
         <div class="top">
             <router-link to="/searchroute">
                 <div class="topcontent" ref="topcontent">
-                    <img src="@/assets/img/search/chakan.png" alt />
-                    <input
-                        class="topinput"
-                        type="text"
-                        placeholder="大家都在搜索“日本樱花”"
-                    />
+                    <img src="@/assets/img/search/chakan.png" />
+                    <input class="topinput" type="text" placeholder="大家都在搜索“日本樱花”" />
                 </div>
             </router-link>
-            <div v-if="searchList == 1" class="over" @click="noSearch">
-                取消
-            </div>
+            <div v-if="searchList == 1" class="over" @click="noSearch">取消</div>
         </div>
         <div class="list">
             <!-- 没有列表数据 -->
             <div class="noline" v-show="nolinelist">
                 <div>
-                    <img src="@/assets/img/Linelist/noline.png" alt />
+                    <img src="@/assets/img/Linelist/noline.png" />
                 </div>
             </div>
             <!-- 列表数据加载更多 -->
-            <van-list
-                v-model="loading"
-                :finished="finished"
-                @load="onLoad"
-                ref="linelist"
-            >
+            <van-list v-model="loading" :finished="finished" @load="onLoad" ref="linelist">
                 <div
                     class="item"
                     v-for="(item, index) in linelist"
@@ -39,31 +28,28 @@
                         <div class="lefttop">
                             <p>{{ item.mode | modeFilter }}</p>
                             <div class="shu"></div>
-                            <p>{{ item.destinations.name.slice(0, 3) }}</p>
+                            <p
+                                v-show="item.type==2||item.type==3"
+                            >{{ item.destinations.name.slice(0, 3) }}</p>
+                            <p v-show="item.type==1">{{ item.becitys.name.slice(0, 3) }}</p>
                         </div>
-                        <img
-                            :src="
-                                'http://travel.admin.dev.zhangxinkeji.com' +
-                                    item.banners[0]
-                            "
-                            alt
-                        />
+                        <img :src="imgUrl +item.banners[0]" />
                     </div>
                     <div class="right">
                         <div class="title">{{ item.name }}</div>
                         <div class="word">{{ item.desc }}</div>
+                        <div class="integral">返{{ item.integral }}积分</div>
                         <div class="money">
                             <div class="money-left">
                                 <div class="moneysp1">￥</div>
-                                <div class="moneysp2">
-                                    {{ item.min_prices / 100 }}
-                                </div>
+                                <div class="moneysp2">{{ item.min_prices / 100 }}</div>
                                 <div class="moneysp3">起</div>
                             </div>
                             <div class="money-right">
-                                <div class="integral">
-                                    返{{ item.integral }}积分
-                                </div>
+                                <div
+                                    class="commission"
+                                    v-if="role==2||role==3||role==4"
+                                >返佣:￥{{ item.sub_commission/100 }}</div>
                             </div>
                         </div>
                     </div>
@@ -77,6 +63,8 @@
 export default {
     data() {
         return {
+            imgUrl: process.env.VUE_APP_IMGURL,
+            role: "",
             linetype: "", //线路类型：1周边游 2国内游 3国际游
             mode: "", //线路出游方式
             city_id: "", //城市id
@@ -96,8 +84,15 @@ export default {
         this.mode = this.$route.query.mode;
         this.keywords = this.$route.query.keywords;
         this.searchList = this.$route.query.searchList;
-        // this.getlinelist();
         this.$wechat.timeline(false);
+        if (this.linetype == 1 || this.mode) {
+            if (localStorage.getItem("cityNameId")) {
+                let cityNameId = JSON.parse(localStorage.getItem("cityNameId"));
+                this.cityname = cityNameId.cityname;
+                this.city_id = cityNameId.cityid;
+            }
+        }
+        this.getMyInfo();
     },
     mounted() {
         if (this.searchList == 1) {
@@ -105,6 +100,13 @@ export default {
         }
     },
     methods: {
+        // 获取用户信息
+        getMyInfo: function() {
+            this.$api.user.me().then(res => {
+                this.role = res.role;
+                localStorage.setItem("role", res.role);
+            });
+        },
         //取消搜索
         noSearch() {
             this.$router.push({
@@ -133,7 +135,7 @@ export default {
             this.$api.itineraries
                 .index(
                     _this.linetype,
-                    "",
+                    _this.city_id,
                     _this.current_page,
                     _this.keywords,
                     "",
