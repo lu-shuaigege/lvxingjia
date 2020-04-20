@@ -61,6 +61,10 @@ String.prototype.isPic = function () {
     return false
 }
 
+
+import functions from '@/utils/functions.js'
+Vue.prototype.$functions = functions
+
 Vue.config.productionTip = false;
 let vm = new Vue({
     router,

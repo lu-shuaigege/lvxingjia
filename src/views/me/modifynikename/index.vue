@@ -3,11 +3,7 @@
         <div class="top">
             <div class="top-left">昵称</div>
             <div class="top-right">
-                <input
-                    type="text"
-                    v-model="nickname"
-                    placeholder="请输入昵称"
-                />
+                <input type="text" v-model="nickname" placeholder="请输入昵称" />
                 <img src="@/assets/img/my/no.png" alt />
             </div>
         </div>
@@ -32,7 +28,7 @@ export default {
             localStorage.setItem("nickname", this.nickname);
             this.$router.push({
                 path: "/me/edit",
-                nickname: this.nickname
+                query: { nickname: this.nickname }
             });
         }
     }

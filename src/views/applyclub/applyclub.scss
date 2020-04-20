@@ -20,10 +20,48 @@
 
     .top {
         width: 10rem;
-        height: 3.613rem;
+        // height: 3.613rem;
         background: #ffffff;
         padding: 0px 0.36rem;
         box-sizing: border-box;
+
+        .headportrait {
+            width: 100%;
+            height: 1.987rem;
+            border-bottom: 1px solid #e7e7e7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .headportrait-left {
+                height: 0.347rem;
+                font-family: MicrosoftYaHei;
+                font-size: 0.347rem;
+                font-weight: normal;
+                font-stretch: normal;
+                line-height: 0.347rem;
+                letter-spacing: 0.023rem;
+                color: #333333;
+            }
+
+            .headportrait-right {
+                display: flex;
+                align-items: center;
+
+                .headportrait-right-img {
+
+                    width: 1.307rem;
+                    height: 1.307rem;
+                    border-radius: 50%;
+                }
+
+                .headportrait-right-imgright {
+                    margin-left: 0.333rem;
+                    width: 0.147rem;
+                    height: 0.28rem;
+                }
+            }
+        }
 
         .toplist:last-child {
             border-bottom: 0px;
@@ -235,4 +273,21 @@
 
 .van-uploader__input-wrapper {
     text-align: center !important;
+}
+
+.upload-fm {
+    opacity: 0;
+    width: 2.107rem !important;
+    height: 1.9rem !important;
+    display: block;
+    position: absolute;
+    top: 0.6rem;
+    right: 0.2rem;
+    z-index: 1;
+    text-align: right;
+
+    div {
+        width: 100% !important;
+        height: 100% !important;
+    }
 }

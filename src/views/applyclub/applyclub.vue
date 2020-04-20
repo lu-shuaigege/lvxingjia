@@ -2,9 +2,22 @@
     <div class="applyclub">
         <div class="tips">信息仅用于审核,绝不外泄</div>
         <div class="top">
+            <van-uploader :after-read="uploadFmImg" class="upload-fm"></van-uploader>
+            <div class="headportrait">
+                <div class="headportrait-left title">上传俱乐部Logo或个人头像</div>
+                <div class="headportrait-right">
+                    <img v-if="logo" :src="headimgurl+logo" class="headportrait-right-img" />
+                    <img
+                        v-if="!logo"
+                        src="@/assets/img/Linelist/defaulthead.png"
+                        class="headportrait-right-img"
+                    />
+                    <img src="@/assets/img/my/right.png" class="headportrait-right-imgright" />
+                </div>
+            </div>
             <div class="toplist">
                 <div class="title">公司名称</div>
-                <input type="text" class="toplist-right" placeholder="请填写公司名称" v-model="name" />
+                <input type="text" class="toplist-right" placeholder="请填写俱乐部或旅行社名称" v-model="name" />
             </div>
             <div class="toplist">
                 <div class="title">手机号</div>
@@ -61,15 +74,15 @@
         </div>
         <div class="bottom">
             <div class="toplist">
-                <div class="title">开户行</div>
-                <input type="text" class="toplist-right" placeholder="请填写开户行" v-model="bank" />
+                <div class="title">开户人</div>
+                <input type="text" class="toplist-right" placeholder="请填写开户人姓名" v-model="bank" />
             </div>
             <div class="toplist">
-                <div class="title">开户名</div>
+                <div class="title">开户银行</div>
                 <input
                     type="text"
                     class="toplist-right"
-                    placeholder="请填写开户名"
+                    placeholder="请填写开户银行支行全称"
                     v-model="bank_account_name"
                 />
             </div>
@@ -110,6 +123,7 @@ export default {
             business_license: "", //营业执照
             type: "", //申请类型
             name: "", //姓名
+            logo: "", //logo
             mobile: "", //手机号
             id_card: "", //身份证号
             bank: "", //开户行
@@ -131,6 +145,7 @@ export default {
             this.back = this.$store.state.settledin.back;
             this.business_license = this.$store.state.settledin.business_license;
             this.type = this.$store.state.settledin.type;
+            this.logo = this.$store.state.settledin.logo;
             this.name = this.$store.state.settledin.name;
             this.mobile = this.$store.state.settledin.mobile;
             this.id_card = this.$store.state.settledin.id_card;
@@ -140,6 +155,14 @@ export default {
         }
     },
     methods: {
+        // 上传logo
+        uploadFmImg(file) {
+            var formData = new FormData();
+            formData.append("upfile", file.file);
+            this.$api.upload.store(formData).then(res => {
+                this.logo = res.data.image_url;
+            });
+        },
         //上传身份证正面
         idpositive(file) {
             var formData = new FormData();
@@ -171,6 +194,7 @@ export default {
                 back: this.back,
                 business_license: this.business_license,
                 type: this.type,
+                logo: this.logo,
                 name: this.name,
                 mobile: this.mobile,
                 id_card: this.id_card,
@@ -185,6 +209,10 @@ export default {
         },
         //提交申请
         apply() {
+            if (this.logo == "" || this.logo == undefined) {
+                this.$toast("请上传logo");
+                return;
+            }
             if (this.name == "" || this.name == undefined) {
                 this.$toast("请填写姓名");
                 return;
@@ -251,7 +279,9 @@ export default {
                     this.business_license,
                     this.bank,
                     this.bank_account_name,
-                    this.bank_account
+                    this.bank_account,
+                    "",
+                    this.logo
                 )
                 .then(res => {
                     this.$router.push({
@@ -263,13 +293,16 @@ export default {
         applyold() {
             this.$api.settled_in.show().then(res => {
                 for (let i = 0; i < res.length; i++) {
-                    if (res[i].id) {
+                    if (res[i].can_apply == 3) {
                         this.positive = res[i].positive;
                         this.back = res[i].back;
                         if (res[i].business_license) {
                             this.business_license = res[i].business_license;
                         }
                         // this.type = res[i].type;
+                        if (res[i].logo) {
+                            this.logo = res[i].logo;
+                        }
                         this.name = res[i].name;
                         this.mobile = res[i].mobile;
                         this.id_card = res[i].id_card;
@@ -318,6 +351,7 @@ export default {
                 if (res.business_license) {
                     this.business_license = res.business_license;
                 }
+                this.logo = res.logo;
                 this.name = res.name;
                 this.mobile = res.mobile;
                 this.id_card = res.id_card;
@@ -332,6 +366,7 @@ export default {
                     this.back = this.$store.state.settledin.back;
                     this.business_license = this.$store.state.settledin.business_license;
                     this.type = this.$store.state.settledin.type;
+                    this.logo = this.$store.state.settledin.logo;
                     this.name = this.$store.state.settledin.name;
                     this.mobile = this.$store.state.settledin.mobile;
                     this.id_card = this.$store.state.settledin.id_card;
@@ -339,6 +374,7 @@ export default {
                     this.bank_account_name = this.$store.state.settledin.bank_account_name;
                     this.bank_account = this.$store.state.settledin.bank_account;
                 }
+                console.log();
             });
         }
     }

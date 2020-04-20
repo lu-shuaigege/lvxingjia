@@ -64,6 +64,12 @@ export default {
                 this.$toast("暂无套餐");
                 return;
             }
+            let calendars = {
+                dateStr: date.dateStr,
+                price: date.price
+            };
+            let calendar = JSON.stringify(calendars);
+            localStorage.setItem("calendar", calendar);
             this.$router.push({
                 path: "/home/line/show",
                 query: {

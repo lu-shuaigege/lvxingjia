@@ -1,130 +1,173 @@
 .myinformation {
-    width: 100%;
+    width: 10rem;
     min-height: 100vh;
-    background: #fff;
-    padding: 0px 0.347rem;
-    box-sizing: border-box;
+    background: #f3f3f3;
+    overflow: hidden;
 
-    .headportrait-btn {
-        //width: 100%;
-        height: 1.987rem;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        opacity: 0;
-        z-index: 2;
-    }
-
-    .camera {
-        position: fixed;
-        top: 100vh;
-        left: 0px;
-    }
-
-    .imgfile {
-        position: fixed;
-        top: 100vh;
-        right: 0px;
-    }
-
-    .headportrait {
+    .myinformation-content {
         width: 100%;
-        height: 1.987rem;
-        border-bottom: 1px solid #e7e7e7;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        height: 90vh;
+        overflow-y: scroll;
 
-        .headportrait-left {
-            height: 0.373rem;
-            font-family: MicrosoftYaHei;
-            font-size: 0.373rem;
-            font-weight: normal;
-            font-stretch: normal;
-            line-height: 0.373rem;
-            letter-spacing: 0.023rem;
-            color: #333333;
+        .apply {
+            width: 100%;
+            height: 0.45rem;
+            // background: #e1e1e1;
+            font-weight: 500;
+            font-size: 0.45rem;
+            line-height: 0.45rem;
+            margin-top: 0.4rem;
+            margin-bottom: -0.3rem;
+            // padding: 0px 0.347rem;
+            // box-sizing: border-box;
         }
 
-        .headportrait-right {
-            display: flex;
-            align-items: center;
-
-            .headportrait-right-img {
-
-                width: 1.307rem;
-                height: 1.307rem;
-                border-radius: 50%;
-            }
-
-            .headportrait-right-imgright {
-                margin-left: 0.333rem;
-                width: 0.147rem;
-                height: 0.28rem;
+        .myinfo:nth-child(2) {
+            .myinformation-list:nth-child(6) {
+                border: 0px;
             }
         }
-    }
 
-    .gender-btn {
-        //width: 100%;
-        height: 1.333rem;
-        width: 100vw;
-        position: absolute;
-        left: 0px;
-        top: 4.6rem;
-        opacity: 0;
-        z-index: 2;
-    }
+        .myinfo {
+            padding: 1px 0.347rem;
+            box-sizing: border-box;
+            background: #ffffff;
+            margin-top: 0.4rem;
 
-    .myinformation-list {
-        width: 100%;
-        height: 1.333rem;
-        border-bottom: 1px solid #e7e7e7;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+            .headportrait-btn {
+                //width: 100%;
+                height: 1.987rem;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                opacity: 0;
+                z-index: 2;
+            }
 
-        .headportrait-left {
-            height: 0.373rem;
-            font-family: MicrosoftYaHei;
-            font-size: 0.373rem;
-            font-weight: normal;
-            font-stretch: normal;
-            line-height: 0.373rem;
-            letter-spacing: 0.023rem;
-            color: #333333;
+            .camera {
+                position: fixed;
+                top: 100vh;
+                left: 0px;
+            }
+
+            .imgfile {
+                position: fixed;
+                top: 100vh;
+                right: 0px;
+            }
+
+            .headportrait {
+                width: 100%;
+                height: 2.287rem;
+                border-bottom: 1px solid #e7e7e7;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+
+                .headportrait-left {
+                    height: 0.373rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.373rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.373rem;
+                    letter-spacing: 0.023rem;
+                    color: #333333;
+                }
+
+                .headportrait-right {
+                    display: flex;
+                    align-items: center;
+
+                    .headportrait-right-img {
+
+                        width: 1.307rem;
+                        height: 1.307rem;
+                        border-radius: 50%;
+                    }
+
+                    .headportrait-right-imgright {
+                        margin-left: 0.333rem;
+                        width: 0.147rem;
+                        height: 0.28rem;
+                    }
+                }
+            }
+
+
+            .myinformation-list:nth-child(7) {
+                border: 0px;
+            }
+
+            .myinformation-list {
+                width: 100%;
+                height: 1.333rem;
+                border-bottom: 1px solid #e7e7e7;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+
+                .gender-btn {
+                    //width: 100%;
+                    height: 1.333rem;
+                    width: 95%;
+                    position: absolute;
+                    left: 0px;
+                    top: 0rem;
+                    opacity: 0;
+                    z-index: 2;
+                }
+
+                .headportrait-left {
+                    height: 0.373rem;
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.373rem;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    line-height: 0.373rem;
+                    letter-spacing: 0.023rem;
+                    color: #333333;
+                }
+
+                .headportrait-right {
+                    display: flex;
+                    align-items: center;
+
+                    .word {
+                        font-family: MicrosoftYaHei;
+                        font-size: 0.373rem;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        height: 1rem;
+                        width: 7rem;
+                        line-height: 1rem;
+                        letter-spacing: 0rem;
+                        color: #999999;
+                        text-align: right;
+                    }
+
+                    .headportrait-right-img {
+
+                        width: 1.307rem;
+                        height: 1.307rem;
+                        border-radius: 50%;
+                    }
+
+                    .headportrait-right-imgright {
+                        margin-left: 0.333rem;
+                        width: 0.147rem;
+                        height: 0.28rem;
+                    }
+                }
+            }
         }
 
-        .headportrait-right {
-            display: flex;
-            align-items: center;
 
-            .word {
-                font-family: MicrosoftYaHei;
-                font-size: 0.373rem;
-                font-weight: normal;
-                font-stretch: normal;
-                height: 1rem;
-                width: 7rem;
-                line-height: 1rem;
-                letter-spacing: 0rem;
-                color: #999999;
-                text-align: right;
-            }
 
-            .headportrait-right-img {
 
-                width: 1.307rem;
-                height: 1.307rem;
-                border-radius: 50%;
-            }
 
-            .headportrait-right-imgright {
-                margin-left: 0.333rem;
-                width: 0.147rem;
-                height: 0.28rem;
-            }
-        }
     }
 
     .okmyinformation {
@@ -144,6 +187,8 @@
         color: #ffffff;
         text-align: center;
     }
+
+
 }
 
 .upload-fm {
@@ -156,6 +201,24 @@
     right: 0.2rem;
     z-index: 1;
     text-align: right;
+
+    div {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+.upload-fm2 {
+    opacity: 0;
+    width: 2.107rem !important;
+    height: 1.9rem !important;
+    display: block;
+    position: absolute;
+    top: 0rem;
+    right: 0.2rem;
+    z-index: 1;
+    text-align: right;
+
     div {
         width: 100% !important;
         height: 100% !important;

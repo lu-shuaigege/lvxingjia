@@ -50,10 +50,10 @@
             <!-- 主办方 -->
             <div class="sponsor">
                 <div class="sponsor-left">主办方 :</div>
-                <img v-if="!have_headimgurl" :src="sponsor_headimgurl" alt />
+                <img v-if="!have_headimgurl" :src="imgAfterUrl+sponsor_headimgurl" alt />
                 <img v-if="have_headimgurl" src="../../../assets/img/Linelist/defaulthead.png" />
                 <div class="sponsorname" v-if="datas.sponsor==null">驴行家旅行社</div>
-                <div class="sponsorname" v-if="datas.sponsor!=null">{{ datas.sponsor.realname }}</div>
+                <div class="sponsorname" v-if="datas.sponsor!=null">{{ sponsor_nickname }}</div>
             </div>
             <!-- 套餐价格 -->
             <div class="packageprice">
@@ -280,7 +280,12 @@ export default {
             rotation_time: 0, //轮播时间
             linedetailid: "", //线路id
             banners: [], // 轮播图
-            datas: { sponsor: {} }, //获取数据
+            datas: {
+                sponsor: {},
+                integral: 0,
+                min_prices: 0,
+                sub_commission: 0
+            }, //获取数据
             becitys_name: "", //出发地
             destinations_name: "", //目的地
             sponsor_headimgurl: "", //主办方头像
@@ -331,22 +336,29 @@ export default {
             this.mode = this.$route.query.mode;
         }
         this.linePath = this.$route.query.linePath;
+        if (this.$route.query.share == 1) {
+            this.share = this.$route.query.share;
+        }
         // this.share = this.$route.query.share;
-        this.share_code = this.$route.query.share_code;
+        if (this.$route.query.share_code) {
+            this.share_code = this.$route.query.share_code;
+            this.is_share_code = true;
+        }
         this.status = this.$route.query.status;
         this.dates = this.$route.query.dateStr;
+        // this.price = this.$route.query.price;
         this.price_active = this.dates;
         if (this.dates == undefined) {
             this.dates = "";
         }
-        var hrefindex = location.href.indexOf("share_code=");
-        if (hrefindex != -1) {
-            this.is_share_code = true;
-            this.share_code = location.href.slice(
-                hrefindex + 11,
-                hrefindex + 19
-            );
-        }
+        // var hrefindex = location.href.indexOf("share_code=");
+        // if (hrefindex != -1) {
+        //     this.is_share_code = true;
+        //     this.share_code = location.href.slice(
+        //         hrefindex + 11,
+        //         hrefindex + 19
+        //     );
+        // }
         this.itinerariesdetail(this.linedetailid);
         this.itinerarieslistfn();
         this.getlinelist();
@@ -359,7 +371,8 @@ export default {
             this.share_code,
             this.datas.name,
             this.datas.desc,
-            this.banners[0]
+            this.banners[0],
+            "/home/line/show"
         );
         this.getMyInfo();
     },
@@ -477,8 +490,14 @@ export default {
                 let hots = res;
                 _this.banners = hots.banners; //轮播图
                 _this.datas = hots; //页面所有数据
-                // if (_this.is_share_code) {
-                _this.share_code = _this.datas.share_code; //分享码
+                //设置微信标题
+                this.$functions.setTitle(hots.name);
+
+                if (_this.share != 1) {
+                    _this.share_code = _this.datas.share_code; //分享码
+                }
+                // if (!_this.is_share_code) {
+                //     _this.share_code = _this.datas.share_code; //分享码
                 // }
                 _this.type = _this.datas.type; //收藏类型，1 游记 2 线路 3门票 4酒店
                 _this.becitys_name = _this.datas.becitys.name; //出发地
@@ -488,10 +507,16 @@ export default {
                 let prices = hots.prices; //时间套餐价格列表
                 _this.address = hots.venue; //集合地列表
                 _this.get_detail = res.detail; //页面详细简介
-                if (_this.datas.sponsor != null) {
+                if (
+                    _this.datas.sponsor != null &&
+                    _this.datas.sponsor.settled_in &&
+                    _this.datas.sponsor.settled_in.logo
+                ) {
                     _this.have_headimgurl = false;
-                    _this.sponsor_headimgurl = _this.datas.sponsor.headimgurl; //头像
-                    _this.sponsor_nickname = _this.datas.sponsor.nickname; //昵称
+                    _this.sponsor_headimgurl =
+                        _this.datas.sponsor.settled_in.logo; //头像
+                    _this.sponsor_nickname =
+                        _this.datas.sponsor.settled_in.name; //昵称
                 } else {
                     _this.have_headimgurl = true; //头像
                     _this.sponsor_nickname = "我爱户外国际旅行社"; //昵称
@@ -514,6 +539,24 @@ export default {
                 }
                 //获取时间比对价格
                 _this.getDate(prices);
+                //从日历选择的时间
+                console.log(localStorage.getItem("calendar"));
+                if (localStorage.getItem("calendar")) {
+                    let calendarTime = JSON.parse(
+                        localStorage.getItem("calendar")
+                    );
+                    _this.dates = calendarTime.dateStr;
+                }
+                for (let i = 0; i < _this.prices.length; i++) {
+                    if (_this.dates == _this.prices[i].some_day) {
+                        _this.some_days = _this.prices[i].some_day;
+                        _this.dates = _this.prices[i].some_day;
+                        _this.price = _this.prices[i].price / 100;
+                        _this.price_children =
+                            _this.prices[i].price_children / 100;
+                    }
+                }
+
                 _this.$wechat.init(
                     true,
                     _this.linedetailid,
@@ -522,7 +565,8 @@ export default {
                     _this.share_code,
                     _this.datas.name,
                     _this.datas.desc,
-                    _this.banners[0]
+                    _this.banners[0],
+                    "/home/line/show"
                 );
             });
         },
@@ -653,20 +697,37 @@ export default {
             }
             let surplus_num = this.sign_up_max - this.sign_up_ok;
             //判断散客-团队
-            let goodsDeatilsInfo = {
-                some_day: this.some_days, //出行日期
-                price: this.price, //成人价格
-                price_children: this.price_children, //儿童价格
-                address_activeid: this.address_activeid,//集合地id
-                resort: this.resort, //集合地
-                obj_id: this.linedetailid, //线路id
-                type: 1, //类型 1散客 2团体
-                order_type: 3, //类型 1门票 2酒店 3线路
-                name: this.datas.name, //详情名字
-                count: this.adultnum, //数量
-                surplus_num: surplus_num, //还有多少票
-                share_code: this.share_code //分享码
-            };
+            var goodsDeatilsInfo;
+            if (this.share != 1) {
+                goodsDeatilsInfo = {
+                    some_day: this.some_days, //出行日期
+                    price: this.price, //成人价格
+                    price_children: this.price_children, //儿童价格
+                    address_activeid: this.address_activeid, //集合地id
+                    resort: this.resort, //集合地
+                    obj_id: this.linedetailid, //线路id
+                    type: 1, //类型 1散客 2团体
+                    order_type: 3, //类型 1门票 2酒店 3线路
+                    name: this.datas.name, //详情名字
+                    count: this.adultnum, //数量
+                    surplus_num: surplus_num //还有多少票
+                };
+            } else {
+                goodsDeatilsInfo = {
+                    some_day: this.some_days, //出行日期
+                    price: this.price, //成人价格
+                    price_children: this.price_children, //儿童价格
+                    address_activeid: this.address_activeid, //集合地id
+                    resort: this.resort, //集合地
+                    obj_id: this.linedetailid, //线路id
+                    type: 1, //类型 1散客 2团体
+                    order_type: 3, //类型 1门票 2酒店 3线路
+                    name: this.datas.name, //详情名字
+                    count: this.adultnum, //数量
+                    surplus_num: surplus_num, //还有多少票
+                    share_code: this.share_code //分享码
+                };
+            }
 
             this.$router.push({
                 path: "/ticketbooking",

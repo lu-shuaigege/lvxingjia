@@ -120,6 +120,17 @@ export default {
         this.show();
         this.comment();
         this.$wechat.timeline(true);
+        this.$wechat.init(
+            true,
+            this.travelsdetail_id,
+            "",
+            this.type,
+            "",
+            this.data.name,
+            this.data.name,
+            this.data.cover_img,
+            "/travels/show"
+        );
     },
     methods: {
         //点击收藏
@@ -137,6 +148,17 @@ export default {
             this.$api.travelnotes.show(this.travelsdetail_id).then(res => {
                 this.data = res;
                 this.islike = res.is_collection;
+                this.$wechat.init(
+                    true,
+                    this.travelsdetail_id,
+                    "",
+                    this.type,
+                    "",
+                    this.data.name,
+                    this.data.name,
+                    this.data.cover_img,
+                    "/travels/show"
+                );
             });
         },
         //评论列表

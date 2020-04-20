@@ -212,7 +212,7 @@ export default {
             adultnum: 1, //购买数量
             twoclass: 1, //套餐类型选择
             twoclassitem: 1, //套餐选择
-            datas: {}, //获取所有数据
+            datas: { min_price: 0 }, //获取所有数据
             get_attr: {}, //全部套餐
             price_money: 0, //所选套餐价格
             setmeal_name: "", //所选套餐名称

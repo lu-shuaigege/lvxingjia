@@ -160,7 +160,14 @@ import Clipboard from "clipboard";
 export default {
     data() {
         return {
-            myData: [],
+            myData: {
+                headimgurl: require("@/assets/img/Linelist/defaulthead.png"),
+                nickname: "旅行者",
+                sex: 1,
+                mobile: "0000000000",
+                integral_surplus: 0,
+                wallet_surplus: 0
+            },
             role: 0, //角色
             copy: "", //复制内容
             user_id: "", //用户id
@@ -202,7 +209,7 @@ export default {
                 this.myData = res;
                 this.user_id = res.id;
                 localStorage.setItem("role", res.role);
-                // this.role=res.role
+                this.role = Number(res.role);
                 this.$api.user
                     .encryption({ eptnum: this.user_id })
                     .then(res => {

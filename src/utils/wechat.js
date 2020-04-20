@@ -6,7 +6,7 @@ export default class wechat {
     wx = null
 
     //constructor
-    init(ok, linedetailid, mode, type, share_code, title, desc, imgUrl, callback) {
+    init(ok, linedetailid, mode, type, share_code, title, desc, imgUrl, address, callback) {
         var flag = ok
         apiWechat.config().then(res => {
             weixinSdk.config({
@@ -35,7 +35,7 @@ export default class wechat {
                         title: title, // 分享标题
                         desc: desc, // 分享描述
                         // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                        link: location.origin + "/home/line/show?id=" + linedetailid + "&mode=" + mode + "&type=" + type + "&share_code=" + share_code + "&share=1",
+                        link: location.origin + address + "?id=" + linedetailid + "&mode=" + mode + "&type=" + type + "&share_code=" + share_code + "&share=1",
                         imgUrl: process.env.VUE_APP_IMGURL + imgUrl, // 分享图标
                         success: function () {
                             // 设置成功
@@ -45,7 +45,7 @@ export default class wechat {
                     weixinSdk.updateTimelineShareData({
                         title: title, // 分享标题
                         // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                        link: location.origin + "/home/line/show?id=" + linedetailid + "&mode=" + mode + "&type=" + type + "&share_code=" + share_code + "&share=1",
+                        link: location.origin + address + "?id=" + linedetailid + "&mode=" + mode + "&type=" + type + "&share_code=" + share_code + "&share=1",
                         imgUrl: process.env.VUE_APP_IMGURL + imgUrl, // 分享图标
                         success: function () {
                             // 设置成功

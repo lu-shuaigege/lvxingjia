@@ -4,7 +4,7 @@ import {
 } from '../utils/http';
 
 const settled_in = {
-    store(type, name, mobile, id_card, positive, back, business_license, bank, bank_account_name, bank_account, status) {
+    store(type, name, mobile, id_card, positive, back, business_license, bank, bank_account_name, bank_account, status, logo) {
         return http({
             url: `${api.settled_in}`,
             method: 'post',
@@ -20,6 +20,7 @@ const settled_in = {
                 bank_account_name: bank_account_name,
                 bank_account: bank_account,
                 status: status,
+                logo: logo
             }
 
         })

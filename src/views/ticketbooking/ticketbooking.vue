@@ -353,7 +353,10 @@ export default {
         // this.$wxApi.wxRegister();
         this.goodsDetails = JSON.parse(this.$route.query.goodsDetailsInfo); //获取订单详情
         console.log(this.goodsDetails);
-        this.share_code = this.goodsDetails.share_code; //分享码
+        if (this.goodsDetails.share_code) {
+            this.share_code = this.goodsDetails.share_code; //分享码
+        }
+        // this.share_code = this.goodsDetails.share_code; //分享码
         this.price = this.goodsDetails.price; //成人价格
         this.price_total = this.goodsDetails.price; //初始化成人价格
         this.price_children = this.goodsDetails.price_children; //儿童价格
@@ -460,7 +463,8 @@ export default {
                 remarks: this.remarks,
                 total: this.total,
                 istotle: this.istotle,
-                oldtotle: this.oldtotle
+                oldtotle: this.oldtotle,
+                share_code: this.share_code
             };
             this.$store.commit("orderInfor", orderInfor);
 

@@ -16,7 +16,7 @@
                     <div class="date">日期 : {{ data.start_date }}</div>
                     <div class="num" v-if="data.obj.prices.price_num">
                         {{ data.obj.prices.price_num }}成人.{{
-                            data.obj.prices.price_children_num
+                        data.obj.prices.price_children_num
                         }}儿童
                     </div>
                     <div class="money" style="margin-top: 0.2rem">
@@ -48,9 +48,7 @@
                 <div class="list-right">{{ data.created_at }}</div>
             </div>
             <div class="list" v-if="data.paid_at != null">
-                <div class="list-left">
-                    付款时间 :
-                </div>
+                <div class="list-left">付款时间 :</div>
                 <div class="list-right">{{ data.paid_at }}</div>
             </div>
             <div class="list">
@@ -63,21 +61,11 @@
             <div class="content-evaluate-top">服务评价</div>
             <div class="evaluate-list1">
                 <div class="evaluate-left">服务评价</div>
-                <yd-rate
-                    slot="left"
-                    v-model="rate1"
-                    color="#999999"
-                    active-color="#2dba55"
-                ></yd-rate>
+                <yd-rate slot="left" v-model="rate1" color="#999999" active-color="#2dba55"></yd-rate>
             </div>
             <div class="evaluate-list1">
                 <div class="evaluate-left">方案评分</div>
-                <yd-rate
-                    slot="left"
-                    v-model="rate2"
-                    color="#999999"
-                    active-color="#2dba55"
-                ></yd-rate>
+                <yd-rate slot="left" v-model="rate2" color="#999999" active-color="#2dba55"></yd-rate>
             </div>
             <div class="evaluate-list3">评价 : {{ evaluateword }}</div>
         </div>
@@ -88,10 +76,7 @@
         <div class="bottom-btn" v-show="data.status == 1">
             <div class="cancelbtn" @click="cancel(2)">取消订单</div>
         </div>
-        <div
-            class="bottom-btn"
-            v-show="data.status == 5 || data.status == 2 || data.status == 4"
-        >
+        <div class="bottom-btn" v-show="data.status == 5 || data.status == 2 || data.status == 4">
             <div class="cancelbtn" @click="_delete()">删除订单</div>
         </div>
         <!--<div class="bottom-btn" v-show="data.status == 2">-->
@@ -155,13 +140,11 @@
                     <div class="evaluate-btn-left" @click="okfn(0)">取消</div>
                     <div class="evaluate-btn-right" @click="okfn(4)">保存</div>
                 </div>
-            </div> -->
+        </div>-->
         <!--</div>-->
         <div class="popup" v-show="isshow == 1">
             <div class="content">
-                <div class="con-word">
-                    您的订单即将出行，取消后平台会扣除部分费用，具体退款流程请联系400123123，是否确认取消?
-                </div>
+                <div class="con-word">您的订单即将出行，取消后平台会扣除部分费用，消耗的积分会丢失哦，具体退款流程请联系15262478312，是否确认取消?</div>
                 <div class="con-bottom">
                     <div class="nook" @click="popup(0)">取消</div>
                     <div class="isok" @click="popup(1)">确认</div>

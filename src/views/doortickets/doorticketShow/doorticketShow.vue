@@ -241,7 +241,7 @@ export default {
             twoclass: 1, //套餐类型选择
             ticketbookingid: 0, //套餐类型选择跳转详情id
             twoclassitem: 1, //套餐选择
-            datas: {}, //获取所有数据
+            datas: { min_price: 0 }, //获取所有数据
             get_detail: {}, //全部简介
             istop: false, //是否吸顶显示
             btn_height: 0, //线路介绍按钮高度
